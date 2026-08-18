@@ -912,15 +912,15 @@ function Index() {
         </div>
       </section>
 
-      {/* 20 & 21 — SEÇÃO DA OFERTA COM A IMAGEM DO PRODUTO (REQUISITO EXPLÍCITO) */}
+      {/* 20 & 21 — SEÇÃO DA OFERTA REESTRUTURADA COM ALTA CONVERSÃO */}
       <section className="offer-section" id="comprar">
         <div className="wrap reveal">
           <div className="offer-box">
             <div className="offer-layout">
-              {/* Imagem do Produto + Itens Inclusos */}
+              {/* Coluna Esquerda: Imagem do Produto e Recursos Inclusos */}
               <div className="offer-visual-col">
-                <span className="eyebrow" style={{ marginBottom: "8px" }}>Visão Geral do Kit</span>
-                <h2 style={{ fontSize: "clamp(1.7rem,4vw,2.4rem)", marginBottom: "16px" }}>
+                <span className="eyebrow" style={{ marginBottom: "6px" }}>Visão Geral do Kit</span>
+                <h2 style={{ fontSize: "clamp(1.65rem,3.8vw,2.3rem)", marginBottom: "14px", color: "#ffffff" }}>
                   Tudo o que você recebe
                 </h2>
 
@@ -944,39 +944,49 @@ function Index() {
                 </div>
               </div>
 
-              {/* Checkout Card de Alta Conversão */}
+              {/* Coluna Direita: Card de Checkout Premium Reestruturado */}
               <div className="pricing-checkout-card">
-                <span className="pricing-kicker">Pagamento Único • Acesso Vitalício</span>
-                <div className="price-display">
-                  <div className="price-old">de R$ 47,00</div>
-                  <div className="price-actual">
-                    R$ 17<sup>,90</sup>
-                  </div>
+                <div className="pricing-kicker-badge">
+                  <svg className="icon-sm" style={{ width: 14, height: 14 }}><use href="#ic-flame" /></svg>
+                  <span>Pagamento Único • Acesso Vitalício</span>
                 </div>
 
-                <ul className="price-conditions">
+                <div className="price-display-box">
+                  <div className="price-old-val">de R$ 47,00</div>
+                  <div className="price-main-val">
+                    R$ 17<sup>,90</sup>
+                  </div>
+                  <span className="price-tag-sub">Sem mensalidades • Acesso Imediato</span>
+                </div>
+
+                <ul className="price-benefits-list">
                   <li>
-                    <svg><use href="#ic-check" /></svg>
-                    Acesso imediato no e-mail
+                    <span className="benefit-check">✓</span>
+                    <span>Acesso imediato no e-mail após a confirmação</span>
                   </li>
                   <li>
-                    <svg><use href="#ic-check" /></svg>
-                    Uso direto no celular, sem downloads
+                    <span className="benefit-check">✓</span>
+                    <span>Uso direto no celular ou computador, sem downloads</span>
                   </li>
                   <li>
-                    <svg><use href="#ic-check" /></svg>
-                    Acesso vitalício com atualizações
+                    <span className="benefit-check">✓</span>
+                    <span>Acesso vitalício com todas as futuras atualizações</span>
                   </li>
                   <li>
-                    <svg><use href="#ic-check" /></svg>
-                    Garantia incondicional de 7 dias
+                    <span className="benefit-check">✓</span>
+                    <span>Garantia incondicional de 7 dias ou seu dinheiro de volta</span>
                   </li>
                 </ul>
 
-                <a href={CHECKOUT_URL} className="cta-btn-main">
-                  Quero o Meu Acesso
-                  <span className="cta-subtext">Apenas R$ 17,90 · Pagamento seguro</span>
+                <a href={CHECKOUT_URL} className="checkout-cta-button">
+                  <span>Quero o Meu Acesso Agora</span>
+                  <span className="cta-micro-sub">Apenas R$ 17,90 · Pagamento 100% seguro</span>
                 </a>
+
+                <div className="pay-security-row">
+                  <svg><use href="#ic-shield" /></svg>
+                  <span>Ambiente criptografado e seguro</span>
+                </div>
 
                 <div className="pay-badges-row">
                   <span className="pay-pill">Pix</span>
