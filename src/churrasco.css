@@ -348,3 +348,220 @@
   .product-wrap{position:relative;display:flex;justify-content:center;}
   .product-wrap .book-ribbon{top:26px;right:-30px;transform:rotate(38deg);padding:6px 44px;}
   @media (max-width:760px){ .product-wrap .book-ribbon{right:-14px;} }
+
+  /* =========================================================
+     SISTEMA — componentes de produto
+     ========================================================= */
+  .lede{color:var(--fumaca);margin-top:12px;max-width:620px;font-size:1.02rem;}
+  .center{text-align:center;}
+  .center .lede,.center h2{margin-left:auto;margin-right:auto;}
+  .center .eyebrow::before{display:none;}
+
+  /* ---- hero em duas colunas ---- */
+  .hero-grid{
+    display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;text-align:left;
+  }
+  .hero-grid .sub{margin-left:0;}
+  .hero-grid .cta-btn{align-items:center;}
+  .hero-copy .headline{margin-left:0;}
+  .hero-note{
+    margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:.74rem;
+    letter-spacing:.04em;color:var(--fumaca);
+  }
+
+  /* ---- mockup de celular ---- */
+  .device-stage{position:relative;display:flex;justify-content:center;}
+  .device-stage::before{
+    content:"";position:absolute;inset:-6% -4%;
+    background:radial-gradient(ellipse at 50% 45%, rgba(226,82,31,.22), transparent 68%);
+    pointer-events:none;
+  }
+  .device{
+    position:relative;width:296px;border-radius:34px;padding:11px;
+    background:linear-gradient(160deg,#3a2f24,#15110d 60%);
+    border:1px solid rgba(241,226,196,.16);
+    box-shadow:0 40px 80px -30px rgba(0,0,0,.9), inset 0 1px 0 rgba(255,255,255,.09);
+  }
+  .device-screen{
+    background:var(--carvao-2);border-radius:25px;overflow:hidden;
+    border:1px solid rgba(0,0,0,.6);
+  }
+  .device-bar{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:12px 16px 10px;border-bottom:1px solid var(--linha);
+    font-family:'IBM Plex Mono',monospace;font-size:.62rem;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--papel-dim);
+  }
+  .device-bar strong{font-family:'Anton',sans-serif;font-weight:400;color:var(--papel);letter-spacing:.02em;font-size:.78rem;}
+  .device-body{padding:14px;display:grid;gap:10px;}
+  .dcard{
+    background:var(--carvao-3);border:1px solid var(--linha);border-radius:12px;padding:12px 13px;
+  }
+  .dcard .k{
+    font-family:'IBM Plex Mono',monospace;font-size:.6rem;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--mostarda);
+  }
+  .dcard .v{font-family:'Anton',sans-serif;font-size:1.35rem;color:var(--papel);line-height:1.1;margin-top:5px;}
+  .dcard .v small{font-family:'IBM Plex Mono',monospace;font-size:.66rem;color:var(--fumaca);letter-spacing:.04em;display:block;margin-top:5px;text-transform:none;}
+  .dcard.row{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+  .dcard.row .lbl{font-size:.9rem;color:var(--papel-dim);}
+  .dcard.row .val{font-family:'IBM Plex Mono',monospace;font-size:.75rem;color:var(--brasa-2);}
+  .heat{display:flex;gap:5px;margin-top:9px;}
+  .heat i{flex:1;height:7px;border-radius:3px;background:rgba(241,226,196,.13);display:block;}
+  .heat i.on{background:linear-gradient(90deg,var(--brasa),var(--brasa-2));}
+  .checkline{display:flex;align-items:center;gap:9px;font-size:.85rem;color:var(--papel-dim);padding:3px 0;}
+  .checkline b{
+    width:15px;height:15px;border-radius:4px;flex-shrink:0;
+    background:var(--brasa);color:var(--papel);font-size:.6rem;
+    display:flex;align-items:center;justify-content:center;font-weight:400;
+  }
+  .checkline.off b{background:transparent;border:1px solid var(--linha);}
+
+  /* cartões flutuantes ao lado do device */
+  .float-card{
+    position:absolute;z-index:3;
+    background:var(--papel);color:var(--carvao);
+    border-radius:10px;padding:11px 14px;
+    box-shadow:5px 8px 0 var(--sombra);
+    font-family:'IBM Plex Mono',monospace;font-size:.68rem;letter-spacing:.03em;
+    max-width:190px;line-height:1.45;
+  }
+  .float-card b{display:block;font-family:'Anton',sans-serif;font-weight:400;font-size:.9rem;letter-spacing:.01em;text-transform:uppercase;margin-bottom:3px;}
+  .float-a{top:16%;left:-6%;transform:rotate(-3deg);}
+  .float-b{bottom:12%;right:-6%;transform:rotate(2.5deg);}
+
+  /* ---- perguntas do improviso ---- */
+  .q-grid{margin-top:34px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;}
+  .q-card{
+    background:var(--carvao-3);border:1px solid var(--linha);border-left:3px solid var(--brasa);
+    border-radius:0 10px 10px 0;padding:16px 18px;
+    font-family:'Zilla Slab',Georgia,serif;font-style:italic;font-size:1.02rem;color:var(--papel-dim);
+  }
+
+  /* ---- antes / depois ---- */
+  .shift-grid{margin-top:34px;display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px;}
+  .shift{
+    background:var(--carvao-3);border:1px solid var(--linha);border-radius:12px;padding:18px 20px;
+  }
+  .shift .from{
+    font-family:'IBM Plex Mono',monospace;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--fumaca);text-decoration:line-through;
+  }
+  .shift .to{
+    font-family:'Anton',sans-serif;font-size:1.28rem;color:var(--brasa-2);margin-top:8px;line-height:1.1;
+  }
+  .shift p{color:var(--papel-dim);font-size:.9rem;margin-top:8px;line-height:1.55;}
+  .statement{
+    font-family:'Anton',sans-serif;text-transform:uppercase;
+    font-size:clamp(1.8rem,5.4vw,3rem);line-height:1.05;color:var(--papel);max-width:820px;
+  }
+  .statement em{font-style:normal;color:var(--brasa-2);display:block;}
+
+  /* ---- grid de recursos ---- */
+  .sys-grid{margin-top:38px;display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:16px;}
+  .sys-card{
+    background:linear-gradient(170deg,var(--carvao-3),var(--carvao-2));
+    border:1px solid var(--linha);border-radius:14px;padding:22px;
+    box-shadow:0 18px 34px -24px rgba(0,0,0,.9);
+    transition:transform .2s ease,border-color .2s ease;
+  }
+  .sys-card:hover{transform:translateY(-3px);border-color:rgba(226,82,31,.45);}
+  .sys-ico{
+    width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;
+    background:rgba(226,82,31,.14);border:1px solid rgba(226,82,31,.3);color:var(--brasa-2);margin-bottom:14px;
+  }
+  .sys-card h3{font-family:'Zilla Slab',Georgia,serif;font-weight:600;font-size:1.05rem;letter-spacing:.02em;color:var(--papel);}
+  .sys-card .benefit{color:var(--mostarda);font-size:.92rem;margin-top:6px;}
+  .sys-card p{color:var(--papel-dim);font-size:.9rem;line-height:1.6;margin-top:8px;}
+
+  /* ---- fluxo ---- */
+  .flow{margin-top:36px;display:flex;flex-wrap:wrap;gap:10px;align-items:stretch;}
+  .flow-step{
+    flex:1 1 140px;background:var(--carvao-3);border:1px solid var(--linha);border-radius:12px;
+    padding:16px 14px;position:relative;
+  }
+  .flow-step .n{font-family:'IBM Plex Mono',monospace;font-size:.64rem;letter-spacing:.13em;color:var(--brasa-2);}
+  .flow-step h4{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:1.02rem;color:var(--papel);margin:7px 0 5px;}
+  .flow-step p{color:var(--papel-dim);font-size:.83rem;line-height:1.5;}
+  .flow-note{
+    margin-top:26px;font-family:'Zilla Slab',Georgia,serif;font-style:italic;font-size:clamp(1.05rem,2.6vw,1.28rem);
+    color:var(--mostarda);max-width:620px;
+  }
+
+  /* ---- calculadora em destaque ---- */
+  .calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center;}
+  .calc-panel{
+    background:linear-gradient(165deg,var(--carvao-3),var(--carvao));
+    border:1px solid var(--linha);border-radius:18px;padding:24px;
+    box-shadow:0 30px 60px -30px rgba(0,0,0,.9);
+  }
+  .calc-head{
+    display:flex;align-items:center;justify-content:space-between;
+    font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;
+    color:var(--fumaca);padding-bottom:14px;border-bottom:1px dashed var(--linha);
+  }
+  .calc-head span:last-child{color:var(--brasa-2);}
+  .calc-people{display:flex;align-items:baseline;gap:10px;margin:18px 0 4px;}
+  .calc-people .num{font-family:'Anton',sans-serif;font-size:3rem;line-height:1;color:var(--papel);}
+  .calc-people .lb{font-family:'IBM Plex Mono',monospace;font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;color:var(--fumaca);}
+  .calc-rows{margin-top:16px;display:grid;gap:8px;}
+  .calc-row{
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    background:var(--carvao-2);border:1px solid var(--linha);border-radius:9px;padding:11px 14px;
+  }
+  .calc-row .item{font-size:.92rem;color:var(--papel-dim);}
+  .calc-row .qty{font-family:'IBM Plex Mono',monospace;font-size:.86rem;color:var(--mostarda);}
+  .calc-foot{
+    margin-top:14px;font-family:'IBM Plex Mono',monospace;font-size:.66rem;letter-spacing:.05em;
+    color:var(--fumaca);line-height:1.7;
+  }
+  .cost-pair{margin-top:26px;display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+  .cost{border:1px solid var(--linha);border-radius:11px;padding:15px 16px;background:var(--carvao-3);}
+  .cost b{display:block;font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;color:var(--brasa-2);font-size:.98rem;}
+  .cost p{color:var(--papel-dim);font-size:.88rem;margin-top:6px;line-height:1.5;}
+
+  /* ---- comparação ---- */
+  .compare{margin-top:36px;display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  .col{border:1px solid var(--linha);border-radius:14px;padding:22px;background:var(--carvao-3);}
+  .col.good{border-color:rgba(226,82,31,.42);background:linear-gradient(170deg,rgba(226,82,31,.09),var(--carvao-3));}
+  .col h3{font-family:'Anton',sans-serif;font-size:1.05rem;color:var(--papel);margin-bottom:14px;}
+  .col ul{list-style:none;display:grid;gap:9px;}
+  .col li{display:flex;gap:10px;align-items:flex-start;color:var(--papel-dim);font-size:.95rem;}
+  .col li::before{content:"✕";color:var(--fumaca);font-family:'IBM Plex Mono',monospace;}
+  .col.good li::before{content:"✓";color:var(--brasa-2);}
+  .compare-note{margin-top:26px;font-family:'Zilla Slab',Georgia,serif;font-style:italic;color:var(--mostarda);font-size:1.12rem;}
+
+  /* ---- oferta: o que entra ---- */
+  .bundle{margin-top:34px;display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;text-align:left;}
+  .bundle-item{
+    display:flex;gap:11px;align-items:flex-start;background:var(--carvao-3);
+    border:1px solid var(--linha);border-radius:10px;padding:13px 15px;
+  }
+  .bundle-item .ck{color:var(--brasa-2);font-family:'IBM Plex Mono',monospace;}
+  .bundle-item b{display:block;font-family:'Zilla Slab',Georgia,serif;font-weight:600;color:var(--papel);font-size:.95rem;}
+  .bundle-item span.d{display:block;color:var(--papel-dim);font-size:.83rem;margin-top:3px;line-height:1.45;}
+
+  /* ---- garantia premium ---- */
+  .guarantee-block{
+    background:linear-gradient(160deg,var(--carvao-3),var(--carvao-2));
+    border:1px solid rgba(217,154,43,.28);border-radius:20px;padding:34px;
+    box-shadow:0 26px 60px -34px rgba(0,0,0,.9);
+  }
+
+  @media (max-width:900px){
+    .calc-grid{grid-template-columns:1fr;gap:34px;}
+  }
+  @media (max-width:760px){
+    .hero-grid{grid-template-columns:1fr;gap:38px;text-align:center;}
+    .hero-copy .headline,.hero-grid .sub{margin-left:auto;margin-right:auto;}
+    .hero-copy .eyebrow::before{display:none;}
+    .device{width:min(280px,86vw);}
+    .float-a{left:-2%;top:8%;}
+    .float-b{right:-2%;bottom:6%;}
+    .compare,.cost-pair{grid-template-columns:1fr;}
+    .flow-step{flex:1 1 45%;}
+    .guarantee-block{padding:24px;}
+  }
+  @media (max-width:420px){
+    .float-card{display:none;}
+  }
