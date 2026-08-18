@@ -556,12 +556,10 @@
     .hero-copy .headline,.hero-grid .sub{margin-left:auto;margin-right:auto;}
     .hero-copy .eyebrow::before{display:none;}
     .device{width:min(280px,86vw);}
-    .float-a{left:-2%;top:8%;}
-    .float-b{right:-2%;bottom:6%;}
+    .float-card{display:none;}
+    .device-stage{width:100%;}
     .compare,.cost-pair{grid-template-columns:1fr;}
     .flow-step{flex:1 1 45%;}
     .guarantee-block{padding:24px;}
   }
-  @media (max-width:420px){
-    .float-card{display:none;}
-  }
+
