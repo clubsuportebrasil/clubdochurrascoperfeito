@@ -6,17 +6,17 @@ import produtoArt from "@/assets/guia-produto.jpeg.asset.json";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Clube do Churrasco Perfeito™ — Central Prática de Consulta" },
+      { title: "Clube do Churrasco Perfeito™ — Sua Referência Prática no Celular" },
       {
         name: "description",
         content:
-          "Central prática de consulta e organização para o seu churrasco: calculadora dinâmica, guias de cortes, controle do fogo, ponto da carne e checklists por R$ 17,90.",
+          "Pare de torcer para o churrasco dar certo. Tenha no celular um kit digital de consulta para calcular carnes, escolher cortes, controlar o fogo e consultar listas por R$ 17,90.",
       },
-      { property: "og:title", content: "Clube do Churrasco Perfeito™ — Central Prática de Consulta" },
+      { property: "og:title", content: "Clube do Churrasco Perfeito™ — Sua Referência Prática no Celular" },
       {
         name: "og:description",
         content:
-          "Do improviso à mesa: tudo o que você precisa consultar para planejar, comprar, preparar e assar sem depender de palpites.",
+          "Seu churrasco. Suas decisões. Uma referência à mão antes e durante o churrasco.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -27,250 +27,295 @@ export const Route = createFileRoute("/")({
 
 const CHECKOUT_URL = "https://pay.cakto.com.br/rfzix5k_1049718";
 
-// 4 — Para Quem É
-const paraQuem = [
+// 4 & 5 — "O QUE TEM DENTRO?" (Prateleira Digital)
+const prateleiraDigital = [
+  {
+    tag: "Calculadora",
+    title: "Quanto Comprar?",
+    desc: "Cálculo exato de quilos de carne bovina, linguiça, frango e carvão com base nos convidados.",
+    type: "calc",
+    sampleText: "10 pessoas → 3.6 kg bovina • 1.5 kg linguiça",
+  },
+  {
+    tag: "Guia de Cortes",
+    title: "Qual Corte Escolher?",
+    desc: "Referência no açougue para escolher cortes macios de acordo com o custo-benefício e ocasião.",
+    type: "badges",
+    sampleBadges: ["Picanha", "Fraldinha", "Contrafilé", "Costela"],
+  },
+  {
+    tag: "Manual do Fogo",
+    title: "Como Controlar o Fogo?",
+    desc: "Formação de brasa viva, controle de labaredas e teste dos segundos na mão para cada altura.",
+    type: "badges",
+    sampleBadges: ["Fogo Forte (3s)", "Fogo Médio (6s)", "Fogo Baixo (9s)"],
+  },
+  {
+    tag: "Pontos da Carne",
+    title: "Quando Está no Ponto?",
+    desc: "Critérios táteis e visuais para servir malpassado, ao ponto e bem passado sem cortar a peça toda hora.",
+    type: "badges",
+    sampleBadges: ["Malpassado", "Ao Ponto", "Bem Passado"],
+  },
+  {
+    tag: "Checklists",
+    title: "O Que Falta no Mercado?",
+    desc: "Listas prontas de mercado, carvão, gelo, temperos e itens essenciais do anfitrião.",
+    type: "check",
+    sampleChecks: ["Carne e carvão comprados", "Sal grosso e temperos", "Bebidas no gelo"],
+  },
+  {
+    tag: "Roteiros por Tamanho",
+    title: "Como se Organizar?",
+    desc: "Estruturas passo a passo para casal, 5, 10, 20 pessoas e versão econômica.",
+    type: "badges",
+    sampleBadges: ["Casal", "5 pessoas", "10 pessoas", "20 pessoas", "Econômico"],
+  },
+  {
+    tag: "Acompanhamentos",
+    title: "O Que Servir Junto?",
+    desc: "Farofas, pão de alho, vinagrete e acompanhamentos tradicionais que harmonizam com o assado.",
+    type: "badges",
+    sampleBadges: ["Farofa", "Pão de Alho", "Vinagrete", "Queijo"],
+  },
+  {
+    tag: "Bônus",
+    title: "O Churrasco Gaúcho",
+    desc: "Livro ilustrado completo com a história, técnicas e fundamentos da tradição do assado gaúcho.",
+    type: "badges",
+    sampleBadges: ["Livro Ilustrado", "Acesso Incluso"],
+  },
+];
+
+// 6 — "ABRA QUANDO PRECISAR" (Timeline do Improviso à Mesa)
+const timelineMoments = [
+  {
+    time: "Antes de Sair",
+    title: "Quanto Comprar?",
+    quote: "“Quantos quilos de carne e sacos de carvão eu levo?”",
+    desc: "Abre a calculadora no celular e sai com a lista de quilos exata por perfil de convidado.",
+  },
+  {
+    time: "No Mercado / Açougue",
+    title: "Qual Corte Escolher?",
+    quote: "“Qual peça compensa mais pelo preço de hoje?”",
+    desc: "Consulta o guia de cortes para saber o que esperar de cada peça e economizar na escolha.",
+  },
+  {
+    time: "Em Casa (Pré-Preparo)",
+    title: "O Que Ainda Falta?",
+    quote: "“Será que esqueci algum item essencial?”",
+    desc: "Passa pelo checklist do anfitrião e confere carvão, sal, gelo e acompanhamentos.",
+  },
+  {
+    time: "No Fogo",
+    title: "O Que Observar?",
+    quote: "“Esse fogo tá forte demais ou vai apagar?”",
+    desc: "Verifica a técnica do teste da mão para ajustar a altura da grelha e a intensidade da brasa.",
+  },
+  {
+    time: "Na Grelha",
+    title: "Quanto Tempo?",
+    quote: "“Qual a ordem certa de colocar os cortes?”",
+    desc: "Segue a ordem recomendada de selagem e cozimento para cada tipo de carne.",
+  },
+  {
+    time: "No Ponto & Descanso",
+    title: "Já Está Pronto?",
+    quote: "“Quando tirar da grelha e como fatiar?”",
+    desc: "Confere os sinais do ponto e respeita o tempo de descanso para manter a suculência.",
+  },
+];
+
+// 9 — "DO MERCADO À GRELHA" (Jornada Visual de 6 Etapas)
+const jornadaEtapas = [
+  {
+    step: "01",
+    title: "Comprar",
+    desc: "Quantidades exatas por pessoa.",
+    tool: "Calculadora de Carne",
+  },
+  {
+    step: "02",
+    title: "Organizar",
+    desc: "Lista de compras e utensílios.",
+    tool: "Checklist do Mercado",
+  },
+  {
+    step: "03",
+    title: "Preparar",
+    desc: "Sal, temperos e guarnições.",
+    tool: "Guia de Temperos",
+  },
+  {
+    step: "04",
+    title: "Acender",
+    desc: "Formação de brasa sem fumaça.",
+    tool: "Manual do Fogo",
+  },
+  {
+    step: "05",
+    title: "Grelhar",
+    desc: "Tempo e altura certa da peça.",
+    tool: "Tabela de Pontos",
+  },
+  {
+    step: "06",
+    title: "Servir",
+    desc: "Descanso, corte contra a fibra e mesa.",
+    tool: "Roteiro de Serviço",
+  },
+];
+
+// 10 — OS 6 MÓDULOS REESTRUTURADOS
+const seisPartes = [
+  {
+    num: "Parte 01",
+    title: "Compra & Planejamento",
+    desc: "Calculadora de quantidade de carne, carvão, bebidas e guarnições para grupos de qualquer tamanho.",
+    specs: [
+      { label: "O que é", val: "Calculadora dinâmica e comparativo de mercado" },
+      { label: "Para que serve", val: "Comprar sem sobras exageradas ou falta de carne" },
+      { label: "O que você encontra", val: "Métricas por homem, mulher, criança e listas de compras" },
+    ],
+  },
+  {
+    num: "Parte 02",
+    title: "Controle do Fogo & Brasa",
+    desc: "Guia completo de acendimento, teste dos segundos na mão e ajuste das alturas de grelha.",
+    specs: [
+      { label: "O que é", val: "Manual de controle térmico do carvão" },
+      { label: "Para que serve", val: "Dominar o calor radiante e evitar queimar a carne" },
+      { label: "O que você encontra", val: "Temperaturas alta, média e baixa e técnicas de brasa" },
+    ],
+  },
+  {
+    num: "Parte 03",
+    title: "Cortes, Pontos & Descanso",
+    desc: "Tabela visual para identificar malpassado, ao ponto e bem passado, além da regra de ouro do descanso.",
+    specs: [
+      { label: "O que é", val: "Guia visual de cortes bovinos, suínos e aves" },
+      { label: "Para que serve", val: "Acertar a textura, suculência e ponto exato desejado" },
+      { label: "O que você encontra", val: "Instruções de selagem, espessura e corte contra a fibra" },
+    ],
+  },
+  {
+    num: "Parte 04",
+    title: "Acompanhamentos & Guarnições",
+    desc: "Receitas práticas de farofas, vinagretes, pão de alho crocante e molhos clássicos de churrascaria.",
+    specs: [
+      { label: "O que é", val: "Guia de guarnições e montagem de mesa" },
+      { label: "Para que serve", val: "Equilibrar o cardápio e agradar a todos os convidados" },
+      { label: "O que você encontra", val: "Preparo prévio de saladas, queijos e farofas crocantes" },
+    ],
+  },
+  {
+    num: "Parte 05",
+    title: "Roteiros por Cenário & Orçamento",
+    desc: "Estruturas já montadas para diferentes tamanhos de encontro e cardápios econômicos.",
+    specs: [
+      { label: "O que é", val: "Roteiros organizados por porte de evento" },
+      { label: "Para que serve", val: "Ter um roteiro pronto sem precisar quebrar a cabeça" },
+      { label: "O que você encontra", val: "Cenários para Casal, 5, 10, 20 pessoas e Econômico" },
+    ],
+  },
+  {
+    num: "Parte 06",
+    title: "Checklists do Anfitrião",
+    desc: "Listas interativas de checagem para não esquecer carvão, fósforo, gelo ou tábua na hora H.",
+    specs: [
+      { label: "O que é", val: "Checklists operacionais de bolso" },
+      { label: "Para que serve", val: "Garantir que tudo esteja pronto antes dos convidados chegarem" },
+      { label: "O que você encontra", val: "Checklist do mercado, da bancada e da churrasqueira" },
+    ],
+  },
+];
+
+// 14 — Cenários de Orçamento
+const cenarios = [
+  { title: "Casal", desc: "Churrasco rápido a dois com cortes nobres e preparo em 30 minutos." },
+  { title: "5 Pessoas", desc: "Encontro íntimo entre amigos ou família pequena com variedade equilibrada." },
+  { title: "10 Pessoas", desc: "O clássico churrasco de fim de semana com timing de entradas e pratos principais." },
+  { title: "20 Pessoas", desc: "Churrasco para comemorações com fluxo constante de grelha sem gargalos." },
+  { title: "Econômico", desc: "Como montar um churrasco saboroso e suculento priorizando cortes de ótimo custo." },
+];
+
+// 15 — PARA QUEM É? (Universal)
+const paraQuemUniversal = [
   {
     tag: "Situação 01",
-    title: "Vou fazer um churrasco",
-    desc: "Preciso organizar quantidades, itens e a ordem do que vai para a grelha sem esquecer nada importante.",
-    tool: "Calculadora + Checklists Prontos",
+    title: "Vai organizar um churrasco",
+    desc: "Quer ter certeza dos itens e da ordem de servir para não passar aperto na frente das pessoas.",
+    tool: "Checklists + Roteiros Prontos",
   },
   {
     tag: "Situação 02",
-    title: "Fui encarregado das compras",
-    desc: "Preciso saber exatamente quantos quilos levar e quais cortes escolher para não gastar à toa.",
-    tool: "Guia de Cortes + Calculadora",
+    title: "Vai fazer as compras",
+    desc: "Precisa saber as quantidades em quilos e não quer gastar dinheiro com compras erradas.",
+    tool: "Calculadora de Carne + Guia de Cortes",
   },
   {
     tag: "Situação 03",
-    title: "Vou receber pessoas em casa",
-    desc: "Quero que tudo saia no tempo certo, com bebidas geladas, acompanhamentos e carnes no ponto.",
+    title: "Vai receber amigos ou família",
+    desc: "Quer que todos sejam bem servidos no tempo certo com bebidas geladas e acompanhamentos prontos.",
     tool: "Roteiro do Anfitrião",
   },
   {
     tag: "Situação 04",
-    title: "Não sou especialista",
-    desc: "Quero uma referência clara e direta para consultar quando bater qualquer dúvida na churrasqueira.",
-    tool: "Guia de Fogo e Ponto da Carne",
+    title: "Está aprendendo",
+    desc: "Quer uma referência confiável e objetiva para consultar sem precisar decorar termos difíceis.",
+    tool: "Manual do Fogo & Ponto da Carne",
   },
   {
     tag: "Situação 05",
-    title: "Já faço churrasco",
-    desc: "Quero ter ferramentas práticas e rápidas à mão para agilizar o planejamento e padronizar o preparo.",
+    title: "Já faz churrasco",
+    desc: "Quer ferramentas rápidas para agilizar o cálculo e padronizar o ponto das suas carnes.",
     tool: "Roteiros por Tamanho de Grupo",
   },
   {
     tag: "Situação 06",
-    title: "Quero parar com o chute",
-    desc: "Chega de sobrar quilos de carne ou faltar no meio do evento. Quero previsibilidade e organização.",
-    tool: "Sistema Completo de Apoio",
+    title: "Quer uma referência à mão",
+    desc: "Prefere consultar no celular do que ficar adivinhando tudo no improviso.",
+    tool: "Kit Digital Completo",
   },
 ];
 
-// 6 — Workflow
-const workflow = [
-  { step: "01", title: "Consultar", desc: "Abre no celular a dúvida específica." },
-  { step: "02", title: "Decidir", desc: "Define quantidades, cortes e tempo." },
-  { step: "03", title: "Preparar", desc: "Organiza ingredientes, brasa e grelha." },
-  { step: "04", title: "Executar", desc: "Controla o fogo e o ponto com segurança." },
-  { step: "05", title: "Servir", desc: "Respeita o descanso e leva à mesa." },
-];
-
-// 8 — Timeline
-const timelineMoments = [
-  {
-    time: "Antes do churrasco",
-    title: "Vou planejar",
-    quote: "“Quantas pessoas vêm? O que preciso providenciar?”",
-    desc: "Definição rápida de cardápio, acompanhamentos e lista de mercado sem dor de cabeça.",
-  },
-  {
-    time: "No mercado e açougue",
-    title: "Vou comprar",
-    quote: "“Quanto levar de cada corte? Qual carne compensa?”",
-    desc: "Calculadora de quilos por pessoa e guia comparativo de cortes direto no bolso.",
-  },
-  {
-    time: "Na preparação",
-    title: "Vou organizar",
-    quote: "“Salga antes ou depois? O que deixar pré-pronto?”",
-    desc: "Checklist de bancada, utensílios e ordem correta de temperos para cada peça.",
-  },
-  {
-    time: "No fogo e grelha",
-    title: "Vou controlar",
-    quote: "“Qual altura da grelha? Quando virar a carne?”",
-    desc: "Referência visual de brasas (alta, média, baixa) e tempos por espessura.",
-  },
-  {
-    time: "Na hora de servir",
-    title: "Vou finalizar",
-    quote: "“Descanso de quantos minutos? Como fatiar contra a fibra?”",
-    desc: "Instruções para preservar o suco da carne e servir no ponto perfeito.",
-  },
-];
-
-// 9 — Modos de Uso
-const modosDeUso = [
-  {
-    num: "01",
-    title: "Modo Planejamento",
-    question: "O que preciso considerar?",
-    desc: "Calculadora de porções por perfil de convidados (homens, mulheres, crianças) e roteiros por porte de evento.",
-  },
-  {
-    num: "02",
-    title: "Modo Compra",
-    question: "O que comprar no açougue?",
-    desc: "Guia de cortes bovinos, suínos e aves, com orientações de rendimento e custo-benefício.",
-  },
-  {
-    num: "03",
-    title: "Modo Preparação",
-    question: "Como me organizar antes?",
-    desc: "Checklists de mercado, bebidas geladas, acompanhamentos essenciais e tempos prévios.",
-  },
-  {
-    num: "04",
-    title: "Modo Fogo",
-    question: "O que devo observar na brasa?",
-    desc: "Técnica de acendimento sem estresse, controle de calor radiante e distância ideal da grelha.",
-  },
-  {
-    num: "05",
-    title: "Modo Carne & Ponto",
-    question: "O que consultar na grelha?",
-    desc: "Critérios táteis e visuais para selar, assar e atingir malpassado, ao ponto e bem passado.",
-  },
-  {
-    num: "06",
-    title: "Modo Serviço",
-    question: "Como organizar a etapa final?",
-    desc: "Tempo de descanso para redistribuição dos sucos, tábuas de corte e apresentação à mesa.",
-  },
-];
-
-// 10 — Dashboard de Conteúdo Real
-const dashboardCategorias = [
-  {
-    tag: "Ferramenta 01",
-    title: "Calculadora Dinâmica",
-    desc: "Ajuste de quantidade por número de pessoas, perfil de consumo e duração do churrasco.",
-    pill: "Prático no celular",
-  },
-  {
-    tag: "Guia 02",
-    title: "Guia de Cortes & Carnes",
-    desc: "Picanha, fraldinha, costela, maminha, cupim, linguiças e aves explicados de forma objetiva.",
-    pill: "No açougue",
-  },
-  {
-    tag: "Técnica 03",
-    title: "Manual do Fogo & Brasa",
-    desc: "Formação de brasa viva, teste dos segundos na mão, controle de labaredas e temperatura.",
-    pill: "Na churrasqueira",
-  },
-  {
-    tag: "Referência 04",
-    title: "Tabela de Pontos da Carne",
-    desc: "Indicadores visuais de ponto sem precisar furar ou cortar a peça inteira repetidamente.",
-    pill: "Na grelha",
-  },
-  {
-    tag: "Roteiros 05",
-    title: "Roteiros por Tamanho",
-    desc: "Estruturas prontas para casal, grupos de 5, 10 e 20 pessoas, além do modo econômico.",
-    pill: "Planejamento",
-  },
-  {
-    tag: "Listas 06",
-    title: "Checklists do Anfitrião",
-    desc: "Listas completas de mercado, carvão, gelo, acompanhamentos e utensílios indispensáveis.",
-    pill: "Sem esquecimentos",
-  },
-  {
-    tag: "Acompanhamentos 07",
-    title: "Guarnições & Molhos",
-    desc: "Farofas, vinagretes, pão de alho e acompanhamentos que equilibram a experiência.",
-    pill: "À mesa",
-  },
-  {
-    tag: "Bônus 08",
-    title: "O Churrasco Gaúcho",
-    desc: "Livro ilustrado com fundamentos tradicionais da cultura do churrasco sulista.",
-    pill: "Acesso incluído",
-  },
-];
-
-// 11 — Decisão -> Ferramenta
-const decisoesFerramentas = [
-  { q: "“Quanto de carne e carvão preciso comprar?”", tool: "CALCULADORA DE CARNE" },
-  { q: "“Qual corte escolher sem gastar demais?”", tool: "GUIA PRÁTICO DE CORTES" },
-  { q: "“O que não posso esquecer no mercado?”", tool: "CHECKLIST DO ANFITRIÃO" },
-  { q: "“Como saber se a brasa está forte ou fraca?”", tool: "GUIA DE CONTROLE DO FOGO" },
-  { q: "“Quando tirar a carne no ponto certo?”", tool: "TABELA VISUAL DE PONTOS" },
-  { q: "“Por onde começo a organizar o churrasco?”", tool: "ROTEIROS POR TAMANHO" },
-];
-
-// 14 — Antes vs Com o Clube
-const semClube = [
-  "Compra quantidades no chute e torce para não faltar nem sobrar quilos de carne.",
-  "Decide tudo em cima da hora com os convidados já chegando.",
-  "Insegurança constante se o fogo está forte demais ou apagando.",
-  "Corta a carne no meio a todo momento na grelha para conferir o ponto.",
-  "Esquece itens essenciais no mercado e tem que sair correndo no meio do churrasco.",
-  "Improvisa a ordem dos cortes e serve tudo descompassado.",
-];
-
-const comClube = [
-  "Calcula as quantidades exatas por tipo de convidado antes de sair de casa.",
-  "Consulta referências práticas no celular quando surge qualquer dúvida.",
-  "Planeja a compra, os acompanhamentos e a brasa com antecedência tranquila.",
-  "Conduz o fogo com critérios claros de tempo e calor radiante.",
-  "Confere o checklist antes de receber as pessoas e aproveita o churrasco.",
-  "Serve as peças no ponto desejado respeitando o tempo de descanso.",
-];
-
-// 15 — Bundle da Oferta
-const ofertaBundle = [
-  { t: "Central Digital de Consulta", d: "Acesso imediato no celular ou computador, sem instalar nada." },
-  { t: "Calculadora Dinâmica de Carne", d: "Ajuste de quilos por homem, mulher, criança e acompanhamentos." },
-  { t: "Guia Completo de Cortes", d: "Referência rápida no açougue para escolher carnes com melhor custo-benefício." },
-  { t: "Manual de Fogo & Brasas", d: "Como acender, controlar temperaturas e posicionar a grelha." },
-  { t: "Guia Visual de Pontos", d: "Critérios claros para servir malpassado, ao ponto e bem passado." },
-  { t: "Roteiros por Tamanho de Grupo", d: "Estruturas prontas para 2, 5, 10, 20 pessoas e versão econômica." },
-  { t: "Checklists do Anfitrião", d: "Mercado, churrasqueira e pré-evento para nada ser esquecido." },
-  { t: "Bônus: O Churrasco Gaúcho", d: "Livro ilustrado com técnicas e fundamentos tradicionais." },
+// 20 — Itens do Bundle
+const bundleOferta = [
+  { t: "Central Digital do Clube", d: "Acesso no celular pelo navegador, sem precisar instalar aplicativos pesados." },
+  { t: "Calculadora Dinâmica", d: "Cálculo automático de carne bovina, linguiça, frango, carvão e bebidas." },
+  { t: "Guia Prático de Cortes", d: "Referência no açougue para escolher carnes macias com melhor custo-benefício." },
+  { t: "Manual do Fogo & Brasas", d: "Técnica dos segundos na mão para fogo alto, médio e brasa lenta." },
+  { t: "Guia Visual de Pontos", d: "Critérios táteis e visuais para selar e servir no ponto certo sem cortar antes da hora." },
+  { t: "Roteiros por Tamanho", d: "Cenários prontos para Casal, 5, 10, 20 pessoas e modo Econômico." },
+  { t: "Checklists do Anfitrião", d: "Listas de checagem do mercado, da bancada e da churrasqueira." },
+  { t: "Bônus: O Churrasco Gaúcho", d: "Livro digital ilustrado com os fundamentos e história da tradição sulista." },
 ];
 
 const faqs = [
   {
-    q: "O que exatamente é o Clube do Churrasco Perfeito?",
-    a: "É uma central prática de consulta e organização digital. Em vez de aulas longas ou teorias pesadas, você tem ferramentas diretas (calculadora, guias de cortes, manuais de fogo, pontos da carne e checklists) formatadas para você abrir no celular e consultar antes e durante o churrasco.",
+    q: "Funciona para churrasqueira a carvão, gás ou elétrica?",
+    a: "Sim. Os princípios de cálculo de quantidade, escolha de cortes, salivação/tempero, tempo de descanso e ponto da carne funcionam exatamente da mesma forma em churrasqueiras a carvão, a gás ou elétricas. O manual de fogo traz orientações específicas para o controle térmico de cada uma.",
   },
   {
-    q: "Serve para quem não é especialista ou nunca fez churrasco?",
-    a: "Sim, foi desenhado exatamente para ser universal. Todo o material utiliza linguagem direta e orientações práticas. Se você é o anfitrião, o responsável pelas compras ou quem está na grelha, o Clube serve como uma referência clara para tirar o improviso do caminho.",
+    q: "Preciso ter experiência prévia para conseguir usar?",
+    a: "Não precisa de nenhuma experiência. O Clube foi desenvolvido com linguagem direta, sem termos técnicos complicados. Ele serve como uma 'cola' rápida para você consultar exatamente o que precisa em 10 segundos.",
   },
   {
-    q: "Como recebo o acesso após a compra?",
-    a: "Imediatamente após a confirmação do pagamento, você recebe os dados de acesso no seu e-mail cadastrado. O acesso é 100% digital, pelo navegador do celular, tablet ou computador.",
+    q: "Como e quando recebo o acesso?",
+    a: "Assim que o pagamento for confirmado (instantâneo no Pix e Cartão de Crédito), você recebe um e-mail com o link de acesso direto. Você entra pelo navegador do seu celular ou computador imediatamente.",
   },
   {
-    q: "Preciso baixar ou instalar algum aplicativo pesado?",
-    a: "Não precisa instalar nada nas lojas de aplicativos. O material roda direto pelo navegador de forma leve e rápida, perfeitamente adaptado para a tela do celular.",
+    q: "Por quanto tempo terei acesso ao Clube?",
+    a: "Seu acesso é vitalício. Você pode consultar no celular no churrasco deste fim de semana, do próximo mês e sempre que for acender a churrasqueira, com todas as atualizações futuras incluídas.",
   },
   {
-    q: "Por quanto tempo terei acesso?",
-    a: "O acesso é vitalício, incluindo todas as futuras atualizações e melhorias das ferramentas sem qualquer cobrança adicional ou mensalidade.",
+    q: "Quais são as formas de pagamento disponíveis?",
+    a: "Pagamento único de R$ 17,90 via Pix (liberação imediata), Cartão de Crédito ou Boleto bancário, processado com segurança pela plataforma oficial.",
   },
   {
-    q: "E se eu achar que não foi útil para mim?",
-    a: "Você conta com 7 dias de garantia incondicional. Se você acessar e achar que as ferramentas não agregaram praticidade ao seu churrasco, basta solicitar o reembolso dentro do prazo e 100% do valor de R$ 17,90 será devolvido.",
-  },
-  {
-    q: "Quais são os métodos de pagamento disponíveis?",
-    a: "Pagamento único via Pix (liberação imediata), Cartão de Crédito ou Boleto bancário, processado com segurança pela plataforma oficial.",
+    q: "Existe garantia se eu não gostar?",
+    a: "Sim! Você conta com 7 dias de garantia incondicional. Se você acessar e achar que as ferramentas e guias não foram úteis para organizar seu churrasco, basta solicitar o reembolso dentro do prazo para receber 100% do seu dinheiro de volta.",
   },
 ];
 
@@ -327,22 +372,6 @@ function Icons() {
           <line x1="12" y1="9" x2="12" y2="16" />
         </symbol>
         <symbol
-          id="ic-list"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.7"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <line x1="9" y1="7" x2="20" y2="7" />
-          <line x1="9" y1="12" x2="20" y2="12" />
-          <line x1="9" y1="17" x2="20" y2="17" />
-          <circle cx="5" cy="7" r="1.2" fill="currentColor" stroke="none" />
-          <circle cx="5" cy="12" r="1.2" fill="currentColor" stroke="none" />
-          <circle cx="5" cy="17" r="1.2" fill="currentColor" stroke="none" />
-        </symbol>
-        <symbol
           id="ic-check"
           viewBox="0 0 24 24"
           fill="none"
@@ -353,18 +382,6 @@ function Icons() {
         >
           <rect x="4" y="3.5" width="16" height="17" rx="2.5" />
           <path d="M8.5 12.2l2.4 2.3 4.6-5" />
-        </symbol>
-        <symbol
-          id="ic-lock"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="1.7"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <rect x="5" y="10.5" width="14" height="9.5" rx="2" />
-          <path d="M8 10.5V7.5a4 4 0 0 1 8 0v3" />
         </symbol>
         <symbol
           id="ic-shield"
@@ -383,264 +400,16 @@ function Icons() {
   );
 }
 
-function InteractiveDemo() {
-  const [activeTab, setActiveTab] = useState<"calc" | "cortes" | "fogo" | "check">("calc");
-  const [homens, setHomens] = useState(6);
-  const [mulheres, setMulheres] = useState(4);
-  const [criancas, setCriancas] = useState(2);
-
-  // Cálculos de exemplo da calculadora
-  // Padrão de consumo aproximado: Homem 400g carne, Mulher 300g, Criança 150g
-  const totalCarneKg = ((homens * 0.4 + mulheres * 0.3 + criancas * 0.15)).toFixed(1);
-  const totalBovinaKg = ((parseFloat(totalCarneKg) * 0.6)).toFixed(1);
-  const totalLinguicaKg = ((parseFloat(totalCarneKg) * 0.25)).toFixed(1);
-  const totalFrangoKg = ((parseFloat(totalCarneKg) * 0.15)).toFixed(1);
-  const totalCarvaoKg = Math.max(3, Math.ceil(parseFloat(totalCarneKg) * 1.2));
-  const totalPessoas = homens + mulheres + criancas;
-
-  return (
-    <div className="demo-container">
-      <div className="demo-tabs-bar">
-        <button
-          className={`demo-tab-btn ${activeTab === "calc" ? "active" : ""}`}
-          onClick={() => setActiveTab("calc")}
-        >
-          <svg className="icon-sm"><use href="#ic-calc" /></svg>
-          Calculadora de Carne
-        </button>
-        <button
-          className={`demo-tab-btn ${activeTab === "cortes" ? "active" : ""}`}
-          onClick={() => setActiveTab("cortes")}
-        >
-          <svg className="icon-sm"><use href="#ic-cut" /></svg>
-          Guia de Cortes
-        </button>
-        <button
-          className={`demo-tab-btn ${activeTab === "fogo" ? "active" : ""}`}
-          onClick={() => setActiveTab("fogo")}
-        >
-          <svg className="icon-sm"><use href="#ic-flame" /></svg>
-          Controle de Fogo & Ponto
-        </button>
-        <button
-          className={`demo-tab-btn ${activeTab === "check" ? "active" : ""}`}
-          onClick={() => setActiveTab("check")}
-        >
-          <svg className="icon-sm"><use href="#ic-check" /></svg>
-          Checklists Interativos
-        </button>
-      </div>
-
-      <div className="demo-content-area">
-        {activeTab === "calc" && (
-          <div className="calc-demo-grid">
-            <div className="calc-controls">
-              <div className="calc-control-group">
-                <div className="calc-label">
-                  <span>Homens ({homens})</span>
-                  <span className="val">{homens} pessoas</span>
-                </div>
-                <input
-                  type="range"
-                  min="0"
-                  max="25"
-                  value={homens}
-                  onChange={(e) => setHomens(parseInt(e.target.value) || 0)}
-                  className="calc-range"
-                />
-              </div>
-
-              <div className="calc-control-group">
-                <div className="calc-label">
-                  <span>Mulheres ({mulheres})</span>
-                  <span className="val">{mulheres} pessoas</span>
-                </div>
-                <input
-                  type="range"
-                  min="0"
-                  max="25"
-                  value={mulheres}
-                  onChange={(e) => setMulheres(parseInt(e.target.value) || 0)}
-                  className="calc-range"
-                />
-              </div>
-
-              <div className="calc-control-group">
-                <div className="calc-label">
-                  <span>Crianças ({criancas})</span>
-                  <span className="val">{criancas} pessoas</span>
-                </div>
-                <input
-                  type="range"
-                  min="0"
-                  max="15"
-                  value={criancas}
-                  onChange={(e) => setCriancas(parseInt(e.target.value) || 0)}
-                  className="calc-range"
-                />
-              </div>
-
-              <p className="calc-note">
-                💡 Arraste os controles para simular o cálculo automático que você terá no celular.
-              </p>
-            </div>
-
-            <div className="calc-results-card">
-              <div className="calc-results-header">
-                <span>Resultado para {totalPessoas} pessoas</span>
-                <span style={{ color: "var(--brasa-2)" }}>Total: {totalCarneKg} kg</span>
-              </div>
-              <div className="calc-results-list">
-                <div className="calc-result-row">
-                  <span className="label">🥩 Carne Bovina (Picanha / Fraldinha / Contrafilé)</span>
-                  <span className="amount">{totalBovinaKg} kg</span>
-                </div>
-                <div className="calc-result-row">
-                  <span className="label">🌭 Linguiça Toscana / Campeira</span>
-                  <span className="amount">{totalLinguicaKg} kg</span>
-                </div>
-                <div className="calc-result-row">
-                  <span className="label">🍗 Frango (Coxinha da Asa / Tulipa)</span>
-                  <span className="amount">{totalFrangoKg} kg</span>
-                </div>
-                <div className="calc-result-row">
-                  <span className="label">🔥 Carvão Recomendado</span>
-                  <span className="amount">~{totalCarvaoKg} kg (1 a 2 sacos)</span>
-                </div>
-              </div>
-              <p className="calc-note">
-                O Clube calcula automaticamente proporções ideais para evitar sobras excessivas ou falta de carne.
-              </p>
-            </div>
-          </div>
-        )}
-
-        {activeTab === "cortes" && (
-          <div className="cuts-grid">
-            <div className="cut-card">
-              <span className="cut-tag">Custo-Benefício Alto</span>
-              <h4>Fraldinha / Vazio</h4>
-              <div className="cut-prep">Grelha rápida · Fogo médio-alto</div>
-              <p>Fibra longa e suculenta. Pede fogo vivo e corte estritamente contra o sentido da fibra para garantir maciez total.</p>
-            </div>
-
-            <div className="cut-card">
-              <span className="cut-tag">O Clássico</span>
-              <h4>Picanha</h4>
-              <div className="cut-prep">Bife de tira ou peça inteira</div>
-              <p>Gordura uniforme sem necessidade de limpar. Sele primeiro o lado da gordura com calor moderado para derreter e selar.</p>
-            </div>
-
-            <div className="cut-card">
-              <span className="cut-tag">Rápido e Prático</span>
-              <h4>Contrafilé / Ancho</h4>
-              <div className="cut-prep">Grelha a 15-20cm do fogo</div>
-              <p>Excelente marmoreio. Ideal para bifes de 2 a 3 dedos servidos ao ponto ou malpassados em poucos minutos.</p>
-            </div>
-
-            <div className="cut-card">
-              <span className="cut-tag">Tradição de Fogo Lento</span>
-              <h4>Costela Janela</h4>
-              <div className="cut-prep">Grelha alta / Espeto longo</div>
-              <p>Pede paciência: 3 a 5 horas de brasa suave com o lado do osso voltado para o calor para amaciar o colágeno.</p>
-            </div>
-          </div>
-        )}
-
-        {activeTab === "fogo" && (
-          <div className="fire-grid">
-            <div className="fire-card">
-              <span className="fire-badge alta">Calor Alto (Forte)</span>
-              <h4>Selagem Rápida</h4>
-              <p>Ideal para cortes finos, bifes de tira e picanha. Cria a crosta saborosa mantendo o interior suculento.</p>
-              <div className="rule">Regra da mão: suporta de 3 a 5 segundos na altura da grelha.</div>
-            </div>
-
-            <div className="fire-card">
-              <span className="fire-badge media">Calor Médio (Constante)</span>
-              <h4>Assar e Dourar</h4>
-              <p>Ideal para linguiças, frangos, fraldinha e queijo coalho. Cozinha por dentro sem queimar por fora.</p>
-              <div className="rule">Regra da mão: suporta de 6 a 8 segundos na altura da grelha.</div>
-            </div>
-
-            <div className="fire-card">
-              <span className="fire-badge baixa">Calor Baixo (Fogo Lento)</span>
-              <h4>Peças Grandes e Densas</h4>
-              <p>Ideal para costela, cupim e peças inteiras que precisam de tempo para quebrar fibras rígidas.</p>
-              <div className="rule">Regra da mão: suporta 9 segundos ou mais sem queimar.</div>
-            </div>
-          </div>
-        )}
-
-        {activeTab === "check" && (
-          <div className="checklist-demo">
-            <div className="checklist-box">
-              <h4>
-                <svg><use href="#ic-check" /></svg>
-                Antes do Churrasco (Mercado)
-              </h4>
-              <div className="checklist-items">
-                <label className="interactive-check">
-                  <input type="checkbox" defaultChecked />
-                  <span>Carne calculada por pessoa</span>
-                </label>
-                <label className="interactive-check">
-                  <input type="checkbox" defaultChecked />
-                  <span>Sacos de carvão seco e acendedor</span>
-                </label>
-                <label className="interactive-check">
-                  <input type="checkbox" defaultChecked />
-                  <span>Sal de parrilla ou sal grosso</span>
-                </label>
-                <label className="interactive-check">
-                  <input type="checkbox" />
-                  <span>Gelo, cerveja e bebidas sem álcool</span>
-                </label>
-                <label className="interactive-check">
-                  <input type="checkbox" />
-                  <span>Pão de alho, farofa e queijo coalho</span>
-                </label>
-              </div>
-            </div>
-
-            <div className="checklist-box">
-              <h4>
-                <svg><use href="#ic-check" /></svg>
-                Na Churrasqueira (Pré-Serviço)
-              </h4>
-              <div className="checklist-items">
-                <label className="interactive-check">
-                  <input type="checkbox" defaultChecked />
-                  <span>Grelha limpa e aquecida</span>
-                </label>
-                <label className="interactive-check">
-                  <input type="checkbox" defaultChecked />
-                  <span>Faca amolada e tábua higienizada</span>
-                </label>
-                <label className="interactive-check">
-                  <input type="checkbox" />
-                  <span>Pegador de carne (evite furar a peça)</span>
-                </label>
-                <label className="interactive-check">
-                  <input type="checkbox" />
-                  <span>Travessa de descanso para as carnes</span>
-                </label>
-                <label className="interactive-check">
-                  <input type="checkbox" />
-                  <span>Acompanhamentos servidos na bancada</span>
-                </label>
-              </div>
-            </div>
-          </div>
-        )}
-      </div>
-    </div>
-  );
-}
-
 function Index() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [showSticky, setShowSticky] = useState(false);
+
+  // Live interactive controls for demonstration
+  const [demoPessoas, setDemoPessoas] = useState(10);
+  const totalBov = (demoPessoas * 0.35).toFixed(1);
+  const totalLing = (demoPessoas * 0.15).toFixed(1);
+  const totalFrango = (demoPessoas * 0.10).toFixed(1);
+  const totalCarvao = Math.max(3, Math.ceil(demoPessoas * 0.6));
 
   useEffect(() => {
     const hero = document.getElementById("hero");
@@ -699,100 +468,71 @@ function Index() {
         </div>
       </header>
 
-      {/* 1 & 22 & 23 — HERO SECTION (Above the fold CRO) */}
+      {/* 1 & 2 & 3 — HERO RECONSTRUÍDO: COMPOSIÇÃO DE PRODUTO "KIT DIGITAL" */}
       <section className="hero grate-bg" id="hero">
         <div className="wrap hero-grid">
           <div className="hero-copy">
-            <div className="hero-badge-wrap">
-              <span className="hero-tag">
-                <svg className="icon-sm"><use href="#ic-flame" /></svg>
-                Central Prática de Consulta
-              </span>
+            <div className="hero-tag">
+              <svg className="icon-sm"><use href="#ic-flame" /></svg>
+              <span>Kit Digital de Consulta no Celular</span>
             </div>
             <h1 className="headline">
               Pare de torcer para o churrasco <em>dar certo.</em>
             </h1>
             <p className="hero-sub">
-              Tenha no celular uma central prática para planejar compras, controlar o fogo, calcular quantidades e consultar cortes — antes e durante o churrasco.
+              Tenha no celular uma referência prática para calcular a quantidade de carne, escolher os cortes, organizar o preparo, controlar o fogo e consultar o que precisar antes e durante o churrasco.
             </p>
             <div className="hero-cta-box">
               <a href={CHECKOUT_URL} className="cta-btn-main">
-                Quero Ter o Meu Acesso
+                Quero Acertar Meu Próximo Churrasco
                 <span className="cta-subtext">R$ 17,90 · Pagamento único · Acesso imediato</span>
               </a>
               <div className="hero-micro">
                 <svg className="icon-sm"><use href="#ic-shield" /></svg>
-                <span>7 dias de garantia incondicional • Uso direto no celular</span>
+                <span>Acesso imediato • Pagamento único • 7 dias de garantia</span>
               </div>
             </div>
           </div>
 
-          {/* Device Mockup Visual */}
-          <div className="device-stage">
-            <div className="float-card float-a">
-              <b>Qual corte escolher?</b>
-              Consulta rápida no açougue
+          {/* Composição Visual do Kit Digital de Consulta */}
+          <div className="kit-composition">
+            <div className="kit-device-wrap">
+              <img
+                src={heroArt.url}
+                alt="Churrasqueiro com a mão na calculadora do Clube do Churrasco no celular"
+              />
             </div>
-            <div className="device">
-              <div className="device-notch" />
-              <div className="device-screen">
-                <div className="device-app-bar">
-                  <div className="brand-mini">
-                    <svg><use href="#ic-flame" /></svg>
-                    <span>Clube do Churrasco</span>
-                  </div>
-                  <span className="device-badge-active">Online</span>
-                </div>
-                <div className="device-body">
-                  <div className="dcard">
-                    <span className="k">
-                      <svg className="icon-sm"><use href="#ic-calc" /></svg>
-                      Calculadora de Carne
-                    </span>
-                    <div className="v">
-                      10 pessoas
-                      <small>Cálculo automático de carne, bebidas e carvão</small>
-                    </div>
-                  </div>
 
-                  <div className="dcard">
-                    <span className="k">
-                      <svg className="icon-sm"><use href="#ic-flame" /></svg>
-                      Controle de Brasa
-                    </span>
-                    <div className="dcard-heat">
-                      <div className="v" style={{ fontSize: "1.1rem" }}>Calor Médio</div>
-                      <div className="heat-bars">
-                        <i className="on" />
-                        <i className="on" />
-                        <i />
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="dcard">
-                    <span className="k">
-                      <svg className="icon-sm"><use href="#ic-check" /></svg>
-                      Checklist do Mercado
-                    </span>
-                    <div style={{ marginTop: 6 }}>
-                      <div className="checkline">
-                        <b>✓</b> Carnes compradas e calculadas
-                      </div>
-                      <div className="checkline">
-                        <b>✓</b> Carvão seco pronto para acender
-                      </div>
-                      <div className="checkline off">
-                        <b> </b> Bebidas no gelo
-                      </div>
-                    </div>
-                  </div>
-                </div>
+            <div className="kit-chip kit-chip-1">
+              <svg className="icon-sm"><use href="#ic-calc" /></svg>
+              <div>
+                <b>Calculadora</b>
+                <span>Qtd. por pessoa</span>
               </div>
             </div>
-            <div className="float-card float-b">
-              <b>Tudo pronto?</b>
-              Confira antes dos convidados chegarem
+
+            <div className="kit-chip kit-chip-2">
+              <svg className="icon-sm"><use href="#ic-check" /></svg>
+              <div>
+                <b>Checklists</b>
+                <span>Mercado e grelha</span>
+              </div>
+            </div>
+
+            <div className="kit-chip kit-chip-3">
+              <svg className="icon-sm"><use href="#ic-cut" /></svg>
+              <div>
+                <b>Guia de Cortes</b>
+                <span>No açougue</span>
+              </div>
+            </div>
+
+            <div className="kit-chip kit-chip-4">
+              <svg className="icon-sm"><use href="#ic-flame" /></svg>
+              <div>
+                <b>Manual do Fogo</b>
+                <span>Controle de calor</span>
+              </div>
             </div>
           </div>
         </div>
@@ -800,112 +540,68 @@ function Index() {
 
       <div className="divider" />
 
-      {/* 4 & 3 — SEÇÃO "PARA QUEM É?" UNIVERSAL */}
+      {/* 4 & 5 — "O QUE TEM DENTRO?" (Prateleira Digital com visual individual) */}
       <section className="bg-darker">
         <div className="wrap reveal">
           <div className="section-header center">
-            <span className="eyebrow">Acesso Universal</span>
-            <h2>Para quem foi pensado o Clube do Churrasco?</h2>
+            <span className="eyebrow">Prateleira Digital</span>
+            <h2>O que você encontra dentro do Clube</h2>
             <p className="lede">
-              Se você se identifica com pelo menos uma dessas situações, vai entender de imediato o valor prático de ter essa central no bolso.
+              Cada componente foi desenhado para resolver uma dúvida prática com visual direto no celular:
             </p>
           </div>
 
-          <div className="forwho-grid">
-            {paraQuem.map((p) => (
-              <div className="forwho-card" key={p.title}>
-                <div className="forwho-top">
-                  <span className="forwho-situation">{p.tag}</span>
-                  <h3>{p.title}</h3>
-                  <p>{p.desc}</p>
+          <div className="prateleira-grid">
+            {prateleiraDigital.map((item) => (
+              <div className="prat-card" key={item.title}>
+                <div>
+                  <div className="prat-header">
+                    <span className="prat-tag">{item.tag}</span>
+                    <span className="prat-icon">
+                      <svg className="icon-sm"><use href="#ic-flame" /></svg>
+                    </span>
+                  </div>
+                  <h3>{item.title}</h3>
+                  <p>{item.desc}</p>
                 </div>
-                <div className="forwho-tool">
-                  <span>→ Recurso:</span>
-                  <b>{p.tool}</b>
+
+                <div className="prat-ui-sample">
+                  {item.type === "calc" && (
+                    <div className="prat-calc-sample">
+                      <span>{item.sampleText}</span>
+                    </div>
+                  )}
+                  {item.type === "badges" && (
+                    <div className="prat-badge-sample">
+                      {item.sampleBadges?.map((b) => (
+                        <span key={b}>{b}</span>
+                      ))}
+                    </div>
+                  )}
+                  {item.type === "check" && (
+                    <div className="prat-check-sample">
+                      {item.sampleChecks?.map((c, idx) => (
+                        <span key={c} className={idx < 2 ? "done" : ""}>
+                          {idx < 2 ? "☑" : "☐"} {c}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
-              </div>
-            ))}
-          </div>
-
-          <div className="forwho-footer-note">
-            “Se você faz churrasco, organiza churrasco, compra os itens ou simplesmente quer parar de depender do improviso, o Clube foi pensado para facilitar a sua experiência.”
-          </div>
-        </div>
-      </section>
-
-      {/* 5 & 12 & 13 — DIFERENCIAÇÃO RADICAL: NÃO É SOBRE SER EXPERT */}
-      <section className="grate-bg">
-        <div className="wrap reveal">
-          <div className="statement-box">
-            <span className="eyebrow">Diferenciação Clara</span>
-            <h2>Você já viu muito produto digital sobre churrasco. <em>A diferença aqui é a utilidade.</em></h2>
-            <p className="lead-stat">
-              Não prometemos que você vai virar mestre churrasqueiro da noite para o dia. A proposta é muito mais honesta e simples: <strong>ter a informação certa disponível exatamente quando você precisar decidir.</strong>
-            </p>
-            <div className="contrast-pills">
-              <div className="contrast-pill">
-                <span>O que você NÃO encontra:</span>
-                <b>Teorias longas de 200 páginas</b>
-              </div>
-              <div className="contrast-pill">
-                <span>O que você NÃO precisa:</span>
-                <b>Decorar nomes ou regras de cabeça</b>
-              </div>
-              <div className="contrast-pill highlight">
-                <span>O que você RECEBE:</span>
-                <b>Central de consulta rápida no celular</b>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 6 — NÃO VENDEMOS CONTEÚDO. MOSTRAMOS UTILIDADE. */}
-      <section className="bg-darker">
-        <div className="wrap reveal">
-          <div className="section-header center">
-            <span className="eyebrow">Fluxo na Prática</span>
-            <h2>Você não compra páginas. Você compra praticidade.</h2>
-            <p className="lede">
-              O valor do Clube está no que você consegue consultar, decidir e aplicar em poucos segundos.
-            </p>
-          </div>
-
-          <div className="workflow-ribbon">
-            {workflow.map((w) => (
-              <div className="workflow-card" key={w.step}>
-                <span className="workflow-step-num">{w.step}</span>
-                <h4>{w.title}</h4>
-                <p>{w.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 7 — VEJA COMO FUNCIONA ANTES DE COMPRAR (DEMONSTRAÇÃO REAL) */}
-      <section className="demo-section" id="demonstracao">
-        <div className="wrap reveal">
-          <div className="section-header center">
-            <span className="eyebrow">Demonstração ao Vivo</span>
-            <h2>Veja como o Clube funciona antes de comprar</h2>
-            <p className="lede">
-              Navegue pelas abas abaixo e experimente os recursos reais que você terá acesso imediato:
-            </p>
-          </div>
-
-          <InteractiveDemo />
-        </div>
-      </section>
-
-      {/* 8 — ABRA QUANDO PRECISAR (TIMELINE DO IMPROVISO À MESA) */}
+      {/* 6 — "ABRA QUANDO PRECISAR" (Timeline Visual da Jornada) */}
       <section className="grate-bg">
         <div className="wrap reveal">
           <div className="section-header">
-            <span className="eyebrow">Do Improviso à Mesa</span>
-            <h2>Você não precisa ler tudo de uma vez. Abra conforme a situação.</h2>
+            <span className="eyebrow">Abra Conforme a Necessidade</span>
+            <h2>Não é para você sentar e ler tudo. É para abrir quando surgir a dúvida.</h2>
             <p className="lede">
-              O Clube acompanha cada momento do seu evento, eliminando as dúvidas na ordem exata em que elas surgem.
+              O Clube acompanha cada momento do seu evento, eliminando as dúvidas na ordem exata em que elas surgem:
             </p>
           </div>
 
@@ -922,61 +618,196 @@ function Index() {
         </div>
       </section>
 
-      {/* 9 — MODO DE USO */}
+      {/* 8 — "PRODUTO EM AÇÃO" (3 GRANDES DEMONSTRAÇÕES) */}
       <section className="bg-darker">
         <div className="wrap reveal">
           <div className="section-header center">
-            <span className="eyebrow">Modos Operacionais</span>
-            <h2>Interface por Modo de Uso</h2>
+            <span className="eyebrow">Demonstração Visual</span>
+            <h2>Veja o Clube sendo usado na prática</h2>
             <p className="lede">
-              Cada modo reúne apenas as ferramentas necessárias para a etapa em que você está.
+              Em vez de promessas teóricas, veja as ferramentas reais que você terá à mão:
             </p>
           </div>
 
-          <div className="mode-grid">
-            {modosDeUso.map((m) => (
-              <div className="mode-card" key={m.num}>
-                <div className="mode-num">{m.num}</div>
-                <div className="mode-body">
-                  <h4>{m.title}</h4>
-                  <span className="mode-question">{m.question}</span>
-                  <p>{m.desc}</p>
+          <div className="demo-showcase-grid">
+            {/* DEMONSTRAÇÃO 1: CALCULADORA */}
+            <div className="demo-large-card">
+              <div>
+                <div className="demo-card-head">
+                  <span className="demo-num">Demonstração 01</span>
+                  <h3>Quanto Comprar?</h3>
+                  <p>Ajuste o número de convidados e veja o cálculo automático de carnes e carvão:</p>
                 </div>
+
+                <div className="interactive-demo-box">
+                  <div className="demo-calc-control">
+                    <div className="demo-calc-header">
+                      <span>Convidados</span>
+                      <span style={{ color: "var(--mostarda)", fontWeight: "bold" }}>{demoPessoas} pessoas</span>
+                    </div>
+                    <input
+                      type="range"
+                      min="2"
+                      max="30"
+                      value={demoPessoas}
+                      onChange={(e) => setDemoPessoas(parseInt(e.target.value) || 2)}
+                      className="demo-slider"
+                    />
+                  </div>
+
+                  <div className="demo-calc-output">
+                    <div className="demo-calc-row">
+                      <span>🥩 Carne Bovina:</span>
+                      <span className="val">{totalBov} kg</span>
+                    </div>
+                    <div className="demo-calc-row">
+                      <span>🌭 Linguiça:</span>
+                      <span className="val">{totalLing} kg</span>
+                    </div>
+                    <div className="demo-calc-row">
+                      <span>🍗 Frango / Tulipa:</span>
+                      <span className="val">{totalFrango} kg</span>
+                    </div>
+                    <div className="demo-calc-row">
+                      <span>🔥 Carvão:</span>
+                      <span className="val">~{totalCarvao} kg</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* DEMONSTRAÇÃO 2: CHECKLIST */}
+            <div className="demo-large-card">
+              <div>
+                <div className="demo-card-head">
+                  <span className="demo-num">Demonstração 02</span>
+                  <h3>Como Organizar?</h3>
+                  <p>Checklist pronto para marcar no celular antes de sair de casa ou ir para a grelha:</p>
+                </div>
+
+                <div className="interactive-demo-box">
+                  <div style={{ display: "grid", gap: "8px", fontSize: "0.86rem" }}>
+                    <label style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                      <input type="checkbox" defaultChecked style={{ accentColor: "var(--brasa)" }} />
+                      <span>Carne e carvão calculados</span>
+                    </label>
+                    <label style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                      <input type="checkbox" defaultChecked style={{ accentColor: "var(--brasa)" }} />
+                      <span>Sal de parrilla ou grosso</span>
+                    </label>
+                    <label style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                      <input type="checkbox" defaultChecked style={{ accentColor: "var(--brasa)" }} />
+                      <span>Pão de alho e guarnições</span>
+                    </label>
+                    <label style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                      <input type="checkbox" style={{ accentColor: "var(--brasa)" }} />
+                      <span>Bebidas no gelo com antecedência</span>
+                    </label>
+                    <label style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                      <input type="checkbox" style={{ accentColor: "var(--brasa)" }} />
+                      <span>Tábua e faca afiada na bancada</span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* DEMONSTRAÇÃO 3: GUIA & CONTROLE */}
+            <div className="demo-large-card">
+              <div>
+                <div className="demo-card-head">
+                  <span className="demo-num">Demonstração 03</span>
+                  <h3>O Que Consultar?</h3>
+                  <p>Guia de pontos e controle de temperatura pela regra dos segundos na mão:</p>
+                </div>
+
+                <div className="interactive-demo-box">
+                  <div style={{ display: "grid", gap: "10px", fontSize: "0.82rem" }}>
+                    <div style={{ borderLeft: "3px solid var(--brasa)", paddingLeft: "8px" }}>
+                      <b style={{ color: "var(--papel)" }}>Calor Alto (3 a 5 seg):</b>
+                      <span style={{ display: "block", color: "var(--papel-dim)" }}>Selagem rápida de picanha e cortes finos.</span>
+                    </div>
+                    <div style={{ borderLeft: "3px solid var(--mostarda)", paddingLeft: "8px" }}>
+                      <b style={{ color: "var(--papel)" }}>Calor Médio (6 a 8 seg):</b>
+                      <span style={{ display: "block", color: "var(--papel-dim)" }}>Assar linguiça, fraldinha e legumes.</span>
+                    </div>
+                    <div style={{ borderLeft: "3px solid var(--verde)", paddingLeft: "8px" }}>
+                      <b style={{ color: "var(--papel)" }}>Descanso (3 a 5 min):</b>
+                      <span style={{ display: "block", color: "var(--papel-dim)" }}>Redistribuir os sucos antes de fatiar.</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 9 — NOVA SEÇÃO: "DO MERCADO À GRELHA" */}
+      <section className="grate-bg">
+        <div className="wrap reveal">
+          <div className="section-header center">
+            <span className="eyebrow">Jornada Completa</span>
+            <h2>Do mercado à grelha, sem pular etapas</h2>
+            <p className="lede">
+              O Clube acompanha cada fase para você não depender de palpites ou correrias de última hora:
+            </p>
+          </div>
+
+          <div className="journey-ribbon">
+            {jornadaEtapas.map((j) => (
+              <div className="journey-step" key={j.step}>
+                <span className="step-idx">{j.step}</span>
+                <h4>{j.title}</h4>
+                <p>{j.desc}</p>
+                <span className="journey-tool">{j.tool}</span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 10 — SEU CHURRASCO EM UMA TELA (DASHBOARD REAL) */}
-      <section className="grate-bg">
+      {/* 10, 11, 12, 13 — 6 PARTES QUE TRABALHAM JUNTAS */}
+      <section className="bg-darker">
         <div className="wrap reveal">
-          <div className="section-header center">
-            <span className="eyebrow">Visão Geral</span>
-            <h2>Seu churrasco organizado em uma tela</h2>
+          <div className="section-header">
+            <span className="eyebrow">Arquitetura de Apoio</span>
+            <h2>6 partes que trabalham juntas</h2>
             <p className="lede">
-              Todas as categorias de suporte reunidas em um ambiente limpo e intuitivo.
+              Estruturado como componentes de consulta para o seu celular:
             </p>
           </div>
 
-          <div className="dashboard-frame">
-            <div className="dashboard-header">
-              <div className="dashboard-title">
-                <span className="live-dot" />
-                <span>Central de Controle do Churrasco</span>
-              </div>
-              <div className="mono" style={{ fontSize: "0.78rem", color: "var(--mostarda)" }}>
-                Versão Web & Mobile
-              </div>
-            </div>
+          <div className="modules-grid">
+            {seisPartes.map((p) => (
+              <div className="module-item" key={p.title}>
+                <div className="module-top">
+                  <span className="module-label">{p.num}</span>
+                  <h3>{p.title}</h3>
+                  <p>{p.desc}</p>
+                </div>
 
-            <div className="dashboard-modules-grid">
-              {dashboardCategorias.map((d) => (
-                <div className="dash-mod" key={d.title}>
-                  <span className="dash-mod-tag">{d.tag}</span>
-                  <h4>{d.title}</h4>
-                  <p>{d.desc}</p>
-                  <span className="dash-pill">{d.pill}</span>
+                <div className="module-specs">
+                  {p.specs.map((s) => (
+                    <div className="spec-row" key={s.label}>
+                      <b>{s.label}:</b>
+                      <span>{s.val}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* 14 — Cenários de Orçamento */}
+          <div style={{ marginTop: "44px" }}>
+            <span className="eyebrow">Escolha o seu Cenário</span>
+            <div className="scenarios-grid">
+              {cenarios.map((c) => (
+                <div className="scenario-card" key={c.title}>
+                  <h4>{c.title}</h4>
+                  <p>{c.desc}</p>
                 </div>
               ))}
             </div>
@@ -984,133 +815,104 @@ function Index() {
         </div>
       </section>
 
-      {/* 11 — DECISÃO -> FERRAMENTA */}
-      <section className="bg-darker">
+      {/* 15 — "PARA QUEM É?" (OFERTA UNIVERSAL AMPLA) */}
+      <section className="grate-bg">
         <div className="wrap reveal">
           <div className="section-header center">
-            <span className="eyebrow">Resolução Direta</span>
-            <h2>Qual decisão você precisa tomar agora?</h2>
+            <span className="eyebrow">Oferta Universal</span>
+            <h2>Não importa se você faz churrasco toda semana ou só quando surge uma ocasião</h2>
             <p className="lede">
-              Para cada dúvida comum do churrasco, existe uma ferramenta pronta para responder.
+              O Clube foi feito para qualquer pessoa encarregada de planejar, comprar ou colocar a carne no fogo:
             </p>
           </div>
 
-          <div className="decision-grid">
-            {decisoesFerramentas.map((df) => (
-              <div className="decision-row" key={df.q}>
-                <span className="decision-q">{df.q}</span>
-                <span className="decision-arrow">→</span>
-                <span className="decision-tool">{df.tool}</span>
+          <div className="forwho-grid">
+            {paraQuemUniversal.map((p) => (
+              <div className="forwho-card" key={p.title}>
+                <div className="forwho-top">
+                  <span className="forwho-situation">{p.tag}</span>
+                  <h3>{p.title}</h3>
+                  <p>{p.desc}</p>
+                </div>
+                <div className="forwho-tool">
+                  <span>→ Ferramenta:</span>
+                  <b>{p.tool}</b>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* 14 — ANTES VS COM O CLUBE */}
-      <section className="grate-bg">
+      {/* 17 — POR QUE ISSO É DIFERENTE DE UM EBOOK? */}
+      <section className="bg-darker">
         <div className="wrap reveal">
           <div className="section-header center">
-            <span className="eyebrow">Comparativo de Praticidade</span>
-            <h2>O mesmo churrasco, feito com mais organização</h2>
+            <span className="eyebrow">Diferença de Uso</span>
+            <h2>Por que isso é diferente de simplesmente comprar um ebook?</h2>
             <p className="lede">
-              O Clube não promete milagres: ele serve como uma referência clara para você parar de depender da sorte.
+              A proposta aqui não é fazer você ler 200 páginas de teoria, mas ter a resposta certa na hora exata:
             </p>
           </div>
 
-          <div className="compare-container">
-            <div className="compare-col">
-              <div className="compare-col-header">
-                <span className="icon-state">✕</span>
-                <h3>Sem o Clube (No Improviso)</h3>
+          <div className="diff-compare-grid">
+            <div className="diff-col">
+              <div className="diff-col-head">
+                <h3>Ebook Tradicional</h3>
               </div>
-              <ul className="compare-list">
-                {semClube.map((item, idx) => (
-                  <li key={idx}>
-                    <span className="icon-state">✕</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
+              <ul className="diff-list">
+                <li>
+                  <b>Você precisa ler:</b>
+                  <span>Centenas de páginas antes de conseguir fazer qualquer coisa.</span>
+                </li>
+                <li>
+                  <b>Informação espalhada:</b>
+                  <span>Dicas soltas no meio de parágrafos longos e teóricos.</span>
+                </li>
+                <li>
+                  <b>Você precisa lembrar:</b>
+                  <span>Tem que confiar na memória na hora que está na frente do fogo.</span>
+                </li>
               </ul>
             </div>
 
-            <div className="compare-col good">
-              <div className="compare-col-header">
-                <span className="icon-state">✓</span>
-                <h3>Com o Clube (Com Referência)</h3>
+            <div className="diff-col highlight">
+              <div className="diff-col-head">
+                <h3>Clube do Churrasco</h3>
               </div>
-              <ul className="compare-list">
-                {comClube.map((item, idx) => (
-                  <li key={idx}>
-                    <span className="icon-state">✓</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
+              <ul className="diff-list">
+                <li>
+                  <b>Você apenas consulta:</b>
+                  <span>Abre a tela certa em 5 segundos, vê a resposta e volta para a grelha.</span>
+                </li>
+                <li>
+                  <b>Informação por situação:</b>
+                  <span>Organizada por momento: compra, fogo, cortes, ponto e serviço.</span>
+                </li>
+                <li>
+                  <b>Você volta e confere:</b>
+                  <span>Fica salvo no celular para consultar sempre que bater uma dúvida.</span>
+                </li>
               </ul>
+            </div>
+          </div>
+
+          {/* 18, 41, 42 — FRASES DE POSICIONAMENTO E MARCA */}
+          <div className="brand-callout">
+            <h2>“Você não precisa decorar. <em>Você precisa encontrar.”</em></h2>
+            <p>
+              Seu churrasco. Suas decisões. Uma referência à mão para tirar o improviso do caminho.
+            </p>
+            <div className="brand-pills">
+              <span className="brand-pill">Abra</span>
+              <span className="brand-pill">Consulte</span>
+              <span className="brand-pill">Prepare</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 17 & 18 — O QUE VOCÊ NÃO PRECISA VS O QUE VOCÊ GANHA */}
-      <section className="bg-darker">
-        <div className="wrap reveal">
-          <div className="gains-grid">
-            <div className="no-need-card">
-              <span className="card-header-badge dim">Liberdade & Sem Pressão</span>
-              <h3>O que você NÃO precisa:</h3>
-              <ul className="points-list crosses">
-                <li>Não precisa ser churrasqueiro profissional ou especialista.</li>
-                <li>Não precisa decorar todos os tempos de fogo e cortes de cabeça.</li>
-                <li>Não precisa passar horas assistindo vídeos teóricos.</li>
-                <li>Não precisa investir em equipamentos caros para acertar o ponto.</li>
-                <li>Não precisa ter medo de errar a quantidade no mercado.</li>
-              </ul>
-            </div>
-
-            <div className="gains-card">
-              <span className="card-header-badge highlight">Ganhos Reais</span>
-              <h3>O que você ganha em praticidade:</h3>
-              <ul className="points-list checks">
-                <li><strong>Menos improviso:</strong> decisões tomadas com base em cálculos e critérios.</li>
-                <li><strong>Mais organização:</strong> listas de compras e checklists prontos para uso.</li>
-                <li><strong>Consulta rápida:</strong> abra no celular com a mão ocupada e tire a dúvida.</li>
-                <li><strong>Informação reunida:</strong> chega de procurar dicas soltas e desencontradas.</li>
-                <li><strong>Apoio contínuo:</strong> segurança desde a compra até o corte da carne à mesa.</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 24 — PRODUTO EM CONTEXTO REAL */}
-      <section className="grate-bg">
-        <div className="wrap reveal">
-          <div className="context-scene">
-            <div className="context-img-wrap">
-              <img
-                src={heroArt.url}
-                alt="Churrasqueiro consultando as ferramentas digitais ao lado da churrasqueira"
-              />
-            </div>
-            <div className="context-content">
-              <span className="eyebrow">Feito para o Uso Real</span>
-              <h3>Feito para abrir ao lado da grelha</h3>
-              <p>
-                Telas objetivas, botões grandes e leitura clara. O Clube foi projetado para quando você estiver com a mão ocupada, o carvão aceso e pessoas conversando ao redor.
-              </p>
-              <p>
-                Você entra, verifica o que precisa em 10 segundos e volta sua atenção para os amigos e para a carne.
-              </p>
-              <div className="context-tag-line">
-                “Abra. Consulte. Conduza o seu churrasco.”
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 15 & 16 & 28 & 29 — A OFERTA COMPLETA, TRANSPARENTE E ÓBVIA */}
+      {/* 20 & 21 — SEÇÃO DA OFERTA RECONSTRUÍDA E PREÇO TRANSPARENTE */}
       <section className="offer-section" id="comprar">
         <div className="wrap reveal">
           <div className="offer-box">
@@ -1118,14 +920,14 @@ function Index() {
               <div>
                 <span className="eyebrow">Acesso Completo</span>
                 <h2 style={{ fontSize: "clamp(1.8rem,4.5vw,2.6rem)" }}>
-                  Tudo o que você recebe por R$ 17,90
+                  Tudo o que você recebe no seu acesso
                 </h2>
                 <p className="lede" style={{ marginTop: 8 }}>
-                  Agora que você já viu as ferramentas por dentro, confira tudo o que está incluído no seu acesso vitalício:
+                  Por um valor de entrada acessível, mantenha no bolso uma central de consulta permanente para o seu churrasco:
                 </p>
 
                 <div className="offer-items-list">
-                  {ofertaBundle.map((item) => (
+                  {bundleOferta.map((item) => (
                     <div className="offer-item" key={item.t}>
                       <span className="ck">✓</span>
                       <div>
@@ -1138,7 +940,7 @@ function Index() {
               </div>
 
               <div className="pricing-checkout-card">
-                <span className="pricing-kicker">Pagamento Único • Sem Mensalidades</span>
+                <span className="pricing-kicker">Pagamento Único • Acesso Vitalício</span>
                 <div className="price-display">
                   <div className="price-old">de R$ 47,00</div>
                   <div className="price-actual">
@@ -1166,7 +968,7 @@ function Index() {
                 </ul>
 
                 <a href={CHECKOUT_URL} className="cta-btn-main">
-                  Quero Acessar o Clube
+                  Quero o Meu Acesso
                   <span className="cta-subtext">Apenas R$ 17,90 · Pagamento seguro</span>
                 </a>
 
@@ -1181,7 +983,7 @@ function Index() {
         </div>
       </section>
 
-      {/* 32 & 43 — GARANTIA TRANSPARENTE */}
+      {/* 22 — GARANTIA TRANSPARENTE */}
       <section className="bg-darker">
         <div className="wrap reveal">
           <div className="guarantee-card">
@@ -1190,23 +992,23 @@ function Index() {
               <span className="txt">Dias de Garantia</span>
             </div>
             <div className="guarantee-text">
-              <h3>Teste no seu próximo churrasco sem assumir riscos.</h3>
+              <h3>Você pode conhecer o Clube por 7 dias.</h3>
               <p>
-                Acesse o material, consulte a calculadora, use os checklists e guias de fogo. Se por qualquer motivo você achar que o Clube não facilitou a organização do seu churrasco, basta pedir o reembolso em até 7 dias e devolveremos 100% do seu dinheiro.
+                Acesse o material, consulte a calculadora, use os checklists e guias de fogo. Se por qualquer motivo você achar que o Clube não facilitou a organização do seu churrasco, basta solicitar o reembolso em até 7 dias e devolveremos 100% do seu dinheiro.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FAQ */}
+      {/* 23 — FAQ ACCORDION PREMIUM */}
       <section className="grate-bg">
         <div className="wrap reveal">
           <div className="section-header center">
             <span className="eyebrow">Dúvidas Frequentes</span>
             <h2>Perguntas Frequentes</h2>
             <p className="lede">
-              Respostas claras para as principais dúvidas sobre o formato e acesso ao Clube.
+              Respostas diretas sobre o funcionamento e acesso ao Clube:
             </p>
           </div>
 
@@ -1229,15 +1031,15 @@ function Index() {
         </div>
       </section>
 
-      {/* FINAL CTA */}
+      {/* 24 — FINAL DA PÁGINA COM PROMESSA CRÍVEL */}
       <section className="final-section bg-darkest">
         <div className="wrap reveal">
-          <h2>Seu próximo churrasco não precisa depender do improviso.</h2>
+          <h2>Da próxima vez, você não precisa começar no improviso.</h2>
           <p className="sub">
-            Tenha a central de consulta no seu celular e conduza cada etapa com tranquilidade.
+            Tenha as informações do Clube à mão e consulte quando precisar.
           </p>
           <a href={CHECKOUT_URL} className="cta-btn-main" style={{ margin: "0 auto" }}>
-            Quero Ter o Meu Acesso
+            Quero Acessar o Clube
             <span className="cta-subtext">R$ 17,90 · Pagamento Único · Acesso Vitalício</span>
           </a>
         </div>
@@ -1258,7 +1060,7 @@ function Index() {
         </div>
       </footer>
 
-      {/* 38 & 39 — MOBILE STICKY CTA */}
+      {/* 33 — MOBILE STICKY CTA */}
       <div className={`sticky-cta ${showSticky ? "show" : ""}`}>
         <div className="sticky-left">
           <span className="sticky-brand">Clube do Churrasco</span>
