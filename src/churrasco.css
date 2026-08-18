@@ -346,3 +346,5 @@
   }
   .product-shot img{width:100%;height:auto;}
   .product-wrap{position:relative;display:flex;justify-content:center;}
+  .product-wrap .book-ribbon{top:26px;right:-30px;transform:rotate(38deg);padding:6px 44px;}
+  @media (max-width:760px){ .product-wrap .book-ribbon{right:-14px;} }
