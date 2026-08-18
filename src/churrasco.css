@@ -393,7 +393,8 @@
     text-transform:uppercase;color:var(--papel-dim);
   }
   .device-bar strong{font-family:'Anton',sans-serif;font-weight:400;color:var(--papel);letter-spacing:.02em;font-size:.78rem;}
-  .device-body{padding:14px;display:grid;gap:10px;}
+  .device-body{padding:14px;display:grid;gap:10px;text-align:left;}
+  .device-bar{text-align:left;}
   .dcard{
     background:var(--carvao-3);border:1px solid var(--linha);border-radius:12px;padding:12px 13px;
   }
