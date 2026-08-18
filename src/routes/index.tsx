@@ -282,7 +282,7 @@ const paraQuemUniversal = [
 
 // 20 — Itens do Bundle
 const bundleOferta = [
-  { t: "Central Digital do Clube", d: "Acesso no celular pelo navegador, sem precisar instalar aplicativos pesados." },
+  { t: "Central Digital do Clube", d: "Acesso no celular pelo navegador, sem precisar instalar nada." },
   { t: "Calculadora Dinâmica", d: "Cálculo automático de carne bovina, linguiça, frango, carvão e bebidas." },
   { t: "Guia Prático de Cortes", d: "Referência no açougue para escolher carnes macias com melhor custo-benefício." },
   { t: "Manual do Fogo & Brasas", d: "Técnica dos segundos na mão para fogo alto, médio e brasa lenta." },
@@ -450,7 +450,7 @@ function Index() {
     <div>
       <Icons />
 
-      {/* Header Fixo */}
+      {/* Header Fixo com Identidade Visual */}
       <header>
         <div className="header-inner">
           <div className="brand">
@@ -468,7 +468,7 @@ function Index() {
         </div>
       </header>
 
-      {/* 1 & 2 & 3 — HERO RECONSTRUÍDO: COMPOSIÇÃO DE PRODUTO "KIT DIGITAL" */}
+      {/* 1 & 2 & 3 — HERO COM O KIT DIGITAL NO CELULAR */}
       <section className="hero grate-bg" id="hero">
         <div className="wrap hero-grid">
           <div className="hero-copy">
@@ -494,7 +494,7 @@ function Index() {
             </div>
           </div>
 
-          {/* Composição Visual do Kit Digital de Consulta */}
+          {/* Composição Visual do Celular com a Calculadora */}
           <div className="kit-composition">
             <div className="kit-device-wrap">
               <img
@@ -540,7 +540,7 @@ function Index() {
 
       <div className="divider" />
 
-      {/* 4 & 5 — "O QUE TEM DENTRO?" (Prateleira Digital com visual individual) */}
+      {/* 4 & 5 — "O QUE TEM DENTRO?" (Prateleira Digital) */}
       <section className="bg-darker">
         <div className="wrap reveal">
           <div className="section-header center">
@@ -912,21 +912,26 @@ function Index() {
         </div>
       </section>
 
-      {/* 20 & 21 — SEÇÃO DA OFERTA RECONSTRUÍDA E PREÇO TRANSPARENTE */}
+      {/* 20 & 21 — SEÇÃO DA OFERTA COM A IMAGEM DO PRODUTO (REQUISITO EXPLÍCITO) */}
       <section className="offer-section" id="comprar">
         <div className="wrap reveal">
           <div className="offer-box">
-            <div className="offer-grid">
-              <div>
-                <span className="eyebrow">Acesso Completo</span>
-                <h2 style={{ fontSize: "clamp(1.8rem,4.5vw,2.6rem)" }}>
-                  Tudo o que você recebe no seu acesso
+            <div className="offer-layout">
+              {/* Imagem do Produto + Itens Inclusos */}
+              <div className="offer-visual-col">
+                <span className="eyebrow" style={{ marginBottom: "8px" }}>Visão Geral do Kit</span>
+                <h2 style={{ fontSize: "clamp(1.7rem,4vw,2.4rem)", marginBottom: "16px" }}>
+                  Tudo o que você recebe
                 </h2>
-                <p className="lede" style={{ marginTop: 8 }}>
-                  Por um valor de entrada acessível, mantenha no bolso uma central de consulta permanente para o seu churrasco:
-                </p>
 
-                <div className="offer-items-list">
+                <div className="offer-product-image">
+                  <img
+                    src={produtoArt.url}
+                    alt="Kit Digital Clube do Churrasco com Guia do Churrasqueiro, Checklists e Calculadora de Cortes"
+                  />
+                </div>
+
+                <div className="offer-items-grid">
                   {bundleOferta.map((item) => (
                     <div className="offer-item" key={item.t}>
                       <span className="ck">✓</span>
@@ -939,6 +944,7 @@ function Index() {
                 </div>
               </div>
 
+              {/* Checkout Card de Alta Conversão */}
               <div className="pricing-checkout-card">
                 <span className="pricing-kicker">Pagamento Único • Acesso Vitalício</span>
                 <div className="price-display">
@@ -1031,7 +1037,7 @@ function Index() {
         </div>
       </section>
 
-      {/* 24 — FINAL DA PÁGINA COM PROMESSA CRÍVEL */}
+      {/* 24 — FINAL DA PÁGINA */}
       <section className="final-section bg-darkest">
         <div className="wrap reveal">
           <h2>Da próxima vez, você não precisa começar no improviso.</h2>
