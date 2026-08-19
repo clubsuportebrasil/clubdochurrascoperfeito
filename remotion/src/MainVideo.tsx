@@ -2,10 +2,8 @@ import {
   AbsoluteFill,
   useCurrentFrame,
   useVideoConfig,
+  Sequence,
 } from "remotion";
-import { TransitionSeries, linearTiming } from "@remotion/transitions";
-import { fade } from "@remotion/transitions/fade";
-import { slide } from "@remotion/transitions/slide";
 import { Scene1 } from "./scenes/Scene1";
 import { Scene2 } from "./scenes/Scene2";
 import { Scene3 } from "./scenes/Scene3";
@@ -33,47 +31,26 @@ export const MainVideo = () => {
   return (
     <AbsoluteFill>
       <PersistentBackground />
-      <TransitionSeries>
-        <TransitionSeries.Sequence durationInFrames={150}>
-          <Scene1 />
-        </TransitionSeries.Sequence>
-        
-        <TransitionSeries.Transition
-          presentation={slide({ direction: "from-right" })}
-          timing={linearTiming({ durationInFrames: 30 })}
-        />
-        
-        <TransitionSeries.Sequence durationInFrames={180}>
-          <Scene2 />
-        </TransitionSeries.Sequence>
+      
+      <Sequence from={0} durationInFrames={150}>
+        <Scene1 />
+      </Sequence>
+      
+      <Sequence from={150} durationInFrames={180}>
+        <Scene2 />
+      </Sequence>
 
-        <TransitionSeries.Transition
-          presentation={fade()}
-          timing={linearTiming({ durationInFrames: 30 })}
-        />
-        
-        <TransitionSeries.Sequence durationInFrames={180}>
-          <Scene3 />
-        </TransitionSeries.Sequence>
+      <Sequence from={330} durationInFrames={180}>
+        <Scene3 />
+      </Sequence>
 
-        <TransitionSeries.Transition
-          presentation={slide({ direction: "from-bottom" })}
-          timing={linearTiming({ durationInFrames: 30 })}
-        />
+      <Sequence from={510} durationInFrames={180}>
+        <Scene4 />
+      </Sequence>
 
-        <TransitionSeries.Sequence durationInFrames={180}>
-          <Scene4 />
-        </TransitionSeries.Sequence>
-
-        <TransitionSeries.Transition
-          presentation={fade()}
-          timing={linearTiming({ durationInFrames: 30 })}
-        />
-
-        <TransitionSeries.Sequence durationInFrames={210}>
-          <Scene5 />
-        </TransitionSeries.Sequence>
-      </TransitionSeries>
+      <Sequence from={690} durationInFrames={210}>
+        <Scene5 />
+      </Sequence>
     </AbsoluteFill>
   );
 };
