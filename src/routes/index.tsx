@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState, useRef } from "react";
-import heroArt from "@/assets/hero-churrasqueiro.jpeg.asset.json";
-import produtoArt from "@/assets/guia-produto.jpeg.asset.json";
+import heroArtUrl from "@/assets/hero-churrasqueiro.jpeg";
+import produtoArtUrl from "@/assets/guia-produto.jpeg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -234,7 +234,7 @@ function Index() {
 
           <div className="hero-visual-col">
             <div className="hero-mockup-wrap">
-              <img src={heroArt.url} alt="Churrasqueiro consultando o Clube do Churrasco no celular durante o churrasco" />
+              <img src={heroArtUrl} alt="Churrasqueiro consultando o Clube do Churrasco no celular durante o churrasco" />
             </div>
             <div className="hero-float-chip chip-a">
               <span className="chip-num">{totalBov} kg</span>
@@ -505,11 +505,11 @@ function Index() {
                   Tudo que você recebe
                 </h2>
                 <div className="offer-product-image">
-                  <img src={produtoArt.url} alt="Kit Digital Clube do Churrasco — Calculadora de Carnes, Checklists e Guia de Cortes" />
+                  <img src={produtoArtUrl} alt="Kit Digital Clube do Churrasco — Calculadora de Carnes, Checklists e Guia de Cortes" />
                 </div>
                 <div className="offer-items-grid">
                   {stackItens.map((item) => (
-                    <div className="offer-item" key={item.t}>
+                    <div className="offer-item" key={item.title}>
                       <span className="ck">{item.emoji}</span>
                       <b>{item.title}</b>
                     </div>
