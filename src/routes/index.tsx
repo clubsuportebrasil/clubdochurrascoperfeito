@@ -509,7 +509,7 @@ function Index() {
                 </div>
                 <div className="offer-items-grid">
                   {stackItens.map((item) => (
-                    <div className="offer-item" key={item.t}>
+                    <div className="offer-item" key={item.title}>
                       <span className="ck">{item.emoji}</span>
                       <b>{item.title}</b>
                     </div>
