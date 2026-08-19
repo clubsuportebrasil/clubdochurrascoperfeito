@@ -6,23 +6,24 @@ import produtoArtUrl from "@/assets/guia-produto.jpeg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Clube do Churrasco Perfeito™ — O Sistema Definitivo para Churrasco" },
+      { title: "Clube do Churrasco Perfeito™ — O Sistema Prático para Churrasqueiros" },
       {
         name: "description",
         content:
-          "Pare de improvisar. Saiba exatamente quanto comprar, escolha as melhores carnes e domine o fogo com ferramentas práticas no seu celular. R$ 17,90 vitalício.",
+          "Pare de improvisar. Domine o cálculo de carnes, escolha os melhores cortes e controle a brasa com o sistema prático do Clube do Churrasco Perfeito. Acesso vitalício por R$ 17,90.",
       },
       { property: "og:title", content: "Clube do Churrasco Perfeito™ — Domine a Grelha" },
       {
         property: "og:description",
         content:
-          "Calculadora de carne, guia de cortes e manual da brasa. Tudo que você precisa para o churrasco perfeito no seu celular.",
+          "Chega de dúvidas no churrasco. Use nossa calculadora de carne e guias práticos direto no seu celular. O sistema definitivo para quem não quer errar.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: "https://clubdochurrascoperfeito.lovable.app/og-image.jpg" },
+      { property: "og:image", content: "https://clubdochurrascoperfeito.lovable.app/hero-churrasqueiro.jpeg" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Clube do Churrasco Perfeito™" },
-      { name: "twitter:description", content: "O sistema prático para churrasqueiros que não querem errar." },
+      { name: "twitter:description", content: "O sistema prático para churrasqueiros que não querem errar no próximo evento." },
+      { name: "twitter:image", content: "https://clubdochurrascoperfeito.lovable.app/hero-churrasqueiro.jpeg" },
     ],
     scripts: [
       {
