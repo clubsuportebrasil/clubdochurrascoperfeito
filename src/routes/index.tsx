@@ -6,20 +6,23 @@ import produtoArtUrl from "@/assets/guia-produto.jpeg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Clube do Churrasco Perfeito™ — Seu Próximo Churrasco Começa Aqui" },
+      { title: "Clube do Churrasco Perfeito™ — O Sistema Definitivo para Churrasco" },
       {
         name: "description",
         content:
-          "Saiba exatamente quanto comprar, quais cortes escolher e como controlar a brasa — tudo no celular, antes e durante o churrasco. Acesso vitalício por R$ 17,90.",
+          "Pare de improvisar. Saiba exatamente quanto comprar, escolha as melhores carnes e domine o fogo com ferramentas práticas no seu celular. R$ 17,90 vitalício.",
       },
-      { property: "og:title", content: "Clube do Churrasco Perfeito™ — Vai Ter Churrasco?" },
+      { property: "og:title", content: "Clube do Churrasco Perfeito™ — Domine a Grelha" },
       {
-        name: "og:description",
+        property: "og:description",
         content:
-          "Não compre nem acenda a churrasqueira antes de ver isso. Calculadora, guias e checklists no celular por R$17,90.",
+          "Calculadora de carne, guia de cortes e manual da brasa. Tudo que você precisa para o churrasco perfeito no seu celular.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:image", content: "https://clubdochurrascoperfeito.lovable.app/og-image.jpg" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Clube do Churrasco Perfeito™" },
+      { name: "twitter:description", content: "O sistema prático para churrasqueiros que não querem errar." },
     ],
   }),
   component: Index,
@@ -201,7 +204,8 @@ function Index() {
             <div className="hero-eyetag">🔥 Churrasco que não depende de sorte</div>
 
             <h1 className="hero-mega-headline">
-              ARRUMAR TODOS BUGS POSSIVEL NA PAGINA
+              VAI TER CHURRASCO?
+              <span className="hero-mega-sub">NÃO COMPRE NEM ACENDA A CHURRASQUEIRA ANTES DE VER ISSO.</span>
             </h1>
 
             <p className="hero-sub">
