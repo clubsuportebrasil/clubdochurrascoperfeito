@@ -24,6 +24,67 @@ export const Route = createFileRoute("/")({
       { name: "twitter:title", content: "Clube do Churrasco Perfeito™" },
       { name: "twitter:description", content: "O sistema prático para churrasqueiros que não querem errar." },
     ],
+    scripts: [
+      {
+        type: 'application/ld+json',
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Product",
+          "name": "Clube do Churrasco Perfeito™",
+          "image": "https://clubdochurrascoperfeito.lovable.app/og-image.jpg",
+          "description": "O sistema definitivo para planejar e executar seu churrasco sem erros. Inclui calculadora de carnes, guia de cortes, manual do fogo e roteiros práticos.",
+          "brand": {
+            "@type": "Brand",
+            "name": "Clube do Churrasco Perfeito"
+          },
+          "offers": {
+            "@type": "Offer",
+            "url": "https://clubdochurrascoperfeito.lovable.app",
+            "priceCurrency": "BRL",
+            "price": "17.90",
+            "availability": "https://schema.org/InStock"
+          },
+          "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "reviewCount": "87"
+          }
+        })
+      },
+      {
+        type: 'application/ld+json',
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Funciona para churrasqueira a gás ou elétrica também?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Sim. O cálculo de quantidade, a escolha de cortes e o ponto da carne funcionam igual. O manual de fogo traz orientações específicas para controle de calor em cada tipo."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Como funciona o acesso? Precisa instalar alguma coisa?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Não instala nada. Após o pagamento você recebe um link por e-mail e acessa diretamente pelo navegador do celular ou computador. Acesso vitalício."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "E se eu não gostar?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Você tem 7 dias de garantia total, sem burocracia. Se não gostar, devolvemos 100% do valor."
+              }
+            }
+          ]
+        })
+      }
+    ]
   }),
   component: Index,
 });
