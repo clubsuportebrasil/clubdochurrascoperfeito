@@ -201,8 +201,7 @@ function Index() {
             <div className="hero-eyetag">🔥 Churrasco que não depende de sorte</div>
 
             <h1 className="hero-mega-headline">
-              VAI TER CHURRASCO?
-              <span className="hero-mega-sub">NÃO COMPRE NEM ACENDA A CHURRASQUEIRA ANTES DE VER ISSO.</span>
+              ARRUMAR TODOS BUGS POSSIVEL NA PAGINA
             </h1>
 
             <p className="hero-sub">
