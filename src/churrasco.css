@@ -29,7 +29,9 @@ body{
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   text-rendering:optimizeLegibility;
-  overflow-x:hidden;
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
 }
 img,svg{display:block;max-width:100%;}
 a{color:inherit;text-decoration:none;}
@@ -184,7 +186,8 @@ header{
   position:relative;z-index:2;
   border-radius:20px;overflow:hidden;
   border:1px solid var(--linha-forte);
-  box-shadow:0 24px 60px -15px rgba(0,0,0,.9);
+  box-shadow: 0 24px 60px -15px rgba(0,0,0,0.9);
+  max-width: 100%;
   max-width:280px;
 }
 .hero-mockup-wrap img{width:100%;height:auto;display:block;}
@@ -206,7 +209,8 @@ header{
   max-width:680px;margin:0 auto;
   background:linear-gradient(170deg,#1f1610,#110c08);
   border:1px solid rgba(255,90,31,.4);border-radius:20px;padding:36px 28px;
-  box-shadow:0 30px 80px -20px rgba(0,0,0,.9);text-align:center;
+  box-shadow: 0 30px 80px -20px rgba(0,0,0,0.9); text-align: center;
+  overflow: hidden;
 }
 .calc-bait-head{margin-bottom:24px;}
 .calc-bait-head h2{font-size:clamp(1.6rem,4vw,2.3rem);color:#ffffff;margin-bottom:6px;}
