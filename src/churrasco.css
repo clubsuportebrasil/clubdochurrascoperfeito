@@ -109,18 +109,19 @@ header{
 
 .hero-mega-headline{
   font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;
-  font-size:clamp(2.5rem,6.5vw,4.2rem);
-  line-height:1.0;
+  font-size:clamp(2.2rem, 8vw, 4.2rem);
+  line-height:0.95;
   color:#ffffff;
   letter-spacing:0.01em;
   margin-bottom:0;
+  word-break: break-word;
 }
 .hero-mega-sub{
   display:block;
-  font-size:clamp(1.1rem,2.8vw,1.7rem);
+  font-size:clamp(1rem, 3.5vw, 1.7rem);
   color:var(--brasa-2);
-  margin-top:6px;
-  line-height:1.15;
+  margin-top:8px;
+  line-height:1.2;
 }
 
 .hero-sub{
