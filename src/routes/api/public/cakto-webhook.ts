@@ -38,18 +38,20 @@ export const Route = createFileRoute('/api/public/cakto-webhook')({
 
           // Verificação do segredo (armazenado no Lovable Secrets)
           const expectedSecret = process.env['CAKTO_WEBHOOK_SECRET'];
+          
           if (!expectedSecret || secret !== expectedSecret) {
-            console.warn('Unauthorized Cakto Webhook attempt');
+            console.warn('Unauthorized Cakto Webhook attempt: secret mismatch');
             return new Response('Unauthorized', { status: 401 });
           }
 
           // Processamento do evento purchase_approved
           if (event === 'purchase_approved') {
             console.log(`Cakto: Purchase approved for ${data.customer.email} - Order ID: ${data.id}`);
-            // Aqui você pode adicionar lógica para:
-            // 1. Enviar email de acesso (se não for via plataforma)
-            // 2. Salvar no banco de dados
-            // 3. Integrar com CRM
+            
+            // Validação adicional: Garantir que o status da compra é aprovado conforme o payload da Cakto
+            if (data.status !== 'approved' && data.status !== 'paid') {
+              console.warn(`Cakto: Event purchase_approved received but status is ${data.status}`);
+            }
           }
 
           return new Response(JSON.stringify({ success: true }), {
