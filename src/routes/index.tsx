@@ -19,11 +19,11 @@ export const Route = createFileRoute("/")({
           "Chega de dúvidas no churrasco. Use nossa calculadora de carne e guias práticos direto no seu celular. O sistema definitivo para quem não quer errar.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: "https://clubdochurrascoperfeito.lovable.app/hero-churrasqueiro.jpeg" },
+      { property: "og:image", content: `https://clubdochurrascoperfeito.lovable.app${heroArtUrl}` },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Clube do Churrasco Perfeito™" },
       { name: "twitter:description", content: "O sistema prático para churrasqueiros que não querem errar no próximo evento." },
-      { name: "twitter:image", content: "https://clubdochurrascoperfeito.lovable.app/hero-churrasqueiro.jpeg" },
+      { name: "twitter:image", content: `https://clubdochurrascoperfeito.lovable.app${heroArtUrl}` },
     ],
     scripts: [
       {
@@ -32,7 +32,7 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@type": "Product",
           "name": "Clube do Churrasco Perfeito™",
-          "image": "https://clubdochurrascoperfeito.lovable.app/og-image.jpg",
+          "image": `https://clubdochurrascoperfeito.lovable.app${heroArtUrl}`,
           "description": "O sistema definitivo para planejar e executar seu churrasco sem erros. Inclui calculadora de carnes, guia de cortes, manual do fogo e roteiros práticos.",
           "brand": {
             "@type": "Brand",
