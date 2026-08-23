@@ -42,7 +42,7 @@ export const Route = createFileRoute("/")({
           "@context": "https://schema.org",
           "@type": "Product",
           "name": "Clube do Churrasco Perfeito™",
-          "image": `https://clubdochurrascoperfeito.lovable.app${heroArtUrl}`,
+          "image": "https://clubdochurrascoperfeito.lovable.app/assets/hero-churrasqueiro.jpeg",
           "description": "O sistema definitivo para planejar e executar seu churrasco sem erros. Inclui calculadora de carnes, guia de cortes, manual do fogo e roteiros práticos.",
           "brand": {
             "@type": "Brand",
