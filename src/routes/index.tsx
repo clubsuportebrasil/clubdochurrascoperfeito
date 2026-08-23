@@ -731,7 +731,7 @@ function Index() {
           <p className="sub">
             Na próxima vez que alguém pedir um churrasco, você não vai precisar adivinhar, calcular no chute ou depender de improviso.
           </p>
-          <a href={CHECKOUT_URL} className="cta-fire-btn" style={{ margin: "0 auto" }}>
+          <a href={CHECKOUT_URL} className="cta-fire-btn" style={{ margin: "0 auto" }} onClick={trackInitiateCheckout}>
             🔥 QUERO DEIXAR MEU PRÓXIMO CHURRASCO NO JEITO
             <span className="cta-fire-sub">R$ 17,90 · Pagamento Único · Acesso Vitalício</span>
           </a>
