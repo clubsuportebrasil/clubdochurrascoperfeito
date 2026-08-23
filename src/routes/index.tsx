@@ -346,7 +346,7 @@ function Index() {
             </div>
 
             <div className="hero-cta-stack">
-              <a href={CHECKOUT_URL} className="cta-fire-btn">
+              <a href={CHECKOUT_URL} className="cta-fire-btn" onClick={trackInitiateCheckout}>
                 🔥 QUERO DEIXAR MEU PRÓXIMO CHURRASCO NO JEITO
                 <span className="cta-fire-sub">Acesso imediato após pagamento</span>
               </a>
