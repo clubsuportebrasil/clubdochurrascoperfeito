@@ -766,7 +766,7 @@ function Index() {
           <span className="sticky-brand">🔥 Clube do Churrasco</span>
           <span className="sticky-price">R$ 17,90 · Vitalício</span>
         </div>
-        <a href={CHECKOUT_URL} className="sticky-btn">QUERO ACESSAR</a>
+        <a href={CHECKOUT_URL} className="sticky-btn" onClick={trackAddToCart}>QUERO ACESSAR</a>
       </div>
 
       {/* MODAL DE SAÍDA (EXIT INTENT / DOWNSELL) */}
