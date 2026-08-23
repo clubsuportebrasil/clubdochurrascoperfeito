@@ -3,6 +3,16 @@ import { useEffect, useState, useRef } from "react";
 import heroArtUrl from "@/assets/hero-churrasqueiro.jpeg";
 import produtoArtUrl from "@/assets/guia-produto.jpeg";
 
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'cakto-upsell-buttons': any;
+      'cakto-upsell-accept': any;
+      'cakto-upsell-reject': any;
+    }
+  }
+}
+
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
@@ -12,11 +22,11 @@ export const Route = createFileRoute("/")({
         content:
           "Pare de improvisar. Domine o cálculo de carnes, escolha os melhores cortes e controle a brasa com o sistema prático do Clube do Churrasco Perfeito. Acesso vitalício por R$ 17,90.",
       },
-      { property: "og:title", content: "Clube do Churrasco Perfeito™ — Domine a Grelha" },
+      { property: "og:title", content: "Clube do Churrasco Perfeito™ — Chega de Improvisar no Churrasco" },
       {
         property: "og:description",
         content:
-          "Chega de dúvidas no churrasco. Use nossa calculadora de carne e guias práticos direto no seu celular. O sistema definitivo para quem não quer errar.",
+          "Domine o fogo, calcule a carne e surpreenda seus convidados. O sistema completo para churrasqueiros, agora por apenas R$ 17,90.",
       },
       { property: "og:type", content: "website" },
       { property: "og:image", content: `https://clubdochurrascoperfeito.lovable.app${heroArtUrl}` },
@@ -91,6 +101,7 @@ export const Route = createFileRoute("/")({
 });
 
 const CHECKOUT_URL = "https://pay.cakto.com.br/rfzix5k_1049718";
+const DOWNSELL_URL = "https://pay.cakto.com.br/6vow3uz";
 
 // STACK DE VALOR
 const stackItens = [
@@ -197,6 +208,7 @@ function Index() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [showSticky, setShowSticky] = useState(false);
   const [demoPessoas, setDemoPessoas] = useState(10);
+  const [showExitPopup, setShowExitPopup] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
 
   const totalBov = (demoPessoas * 0.35).toFixed(1);
@@ -233,8 +245,16 @@ function Index() {
       reveals.forEach((el) => el.classList.add("in-view"));
     }
 
+    const handleExitIntent = (e: MouseEvent) => {
+      if (e.clientY <= 0) {
+        setShowExitPopup(true);
+      }
+    };
+    document.addEventListener("mouseleave", handleExitIntent);
+
     return () => {
       window.removeEventListener("scroll", onScroll);
+      document.removeEventListener("mouseleave", handleExitIntent);
       obs?.disconnect();
     };
   }, []);
@@ -703,6 +723,37 @@ function Index() {
         </div>
         <a href={CHECKOUT_URL} className="sticky-btn">QUERO ACESSAR</a>
       </div>
+
+      {/* MODAL DE SAÍDA (EXIT INTENT / DOWNSELL) */}
+      {showExitPopup && (
+        <div className="exit-overlay" onClick={() => setShowExitPopup(false)}>
+          <div className="exit-modal" onClick={(e) => e.stopPropagation()}>
+            <button className="exit-close" onClick={() => setShowExitPopup(false)}>×</button>
+            <div className="exit-content">
+              <span className="eyebrow" style={{ color: "#ff5a1f" }}>⚠️ ESPERE! CONDIÇÃO ESPECIAL</span>
+              <h2>NÃO SAIA SEM O SEU ACESSO</h2>
+              <p>Percebemos que você está saindo. Para garantir que seu próximo churrasco seja perfeito, liberamos um <b>desconto único</b> agora.</p>
+              
+              <div className="exit-price">
+                <span className="old">R$ 47,00</span>
+                <span className="new">R$ 14,90</span>
+              </div>
+
+              <a href={DOWNSELL_URL} className="cta-fire-btn">
+                🔥 QUERO APROVEITAR O DESCONTO AGORA
+                <span className="cta-fire-sub">Oferta válida apenas nesta janela</span>
+              </a>
+              
+              <button className="exit-decline" onClick={() => setShowExitPopup(false)}>
+                Não, prefiro continuar improvisando no churrasco
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* SCRIPTS CAKTO (APENAS PARA PÁGINAS DE UPSELL SE NECESSÁRIO) */}
+      <script type="text/javascript" src="https://caktoscripts.nyc3.cdn.digitaloceanspaces.com/upsell.js" async />
     </div>
   );
 }
