@@ -29,7 +29,7 @@ export const Route = createFileRoute("/")({
           "Domine o fogo, calcule a carne e surpreenda seus convidados. O sistema completo para churrasqueiros, agora por apenas R$ 17,90.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:image", content: `https://clubdochurrascoperfeito.lovable.app${heroArtUrl}` },
+      { property: "og:image", content: "https://clubdochurrascoperfeito.lovable.app/assets/hero-churrasqueiro.jpeg" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Clube do Churrasco Perfeito™" },
       { name: "twitter:description", content: "O sistema prático para churrasqueiros que não querem errar no próximo evento." },
