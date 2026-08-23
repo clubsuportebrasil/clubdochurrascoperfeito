@@ -1,3 +1,4 @@
+ 
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState, useRef } from "react";
 import heroArtUrl from "@/assets/hero-churrasqueiro.jpeg";
