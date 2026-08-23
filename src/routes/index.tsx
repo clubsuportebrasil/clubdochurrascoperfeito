@@ -675,7 +675,7 @@ function Index() {
                   <li><span className="benefit-check">✓</span><span>Acesso vitalício com todas as futuras atualizações</span></li>
                 </ul>
 
-                <a href={CHECKOUT_URL} className="checkout-cta-button">
+                <a href={CHECKOUT_URL} className="checkout-cta-button" onClick={trackInitiateCheckout}>
                   <span>🔥 QUERO MEU ACESSO AGORA</span>
                   <span className="cta-micro-sub">Apenas R$ 17,90 · Pagamento 100% seguro</span>
                 </a>
