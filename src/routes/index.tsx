@@ -113,6 +113,28 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 const CHECKOUT_URL = "https://pay.cakto.com.br/rfzix5k_1049718";
 const DOWNSELL_URL = "https://pay.cakto.com.br/6vow3uz";
 
+const trackInitiateCheckout = () => {
+  if (typeof window !== "undefined" && (window as any).ttq) {
+    (window as any).ttq.track("InitiateCheckout", {
+      content_type: "product",
+      content_name: "Clube do Churrasco Perfeito™",
+      value: 17.9,
+      currency: "BRL",
+    });
+  }
+};
+
+const trackAddToCart = () => {
+  if (typeof window !== "undefined" && (window as any).ttq) {
+    (window as any).ttq.track("AddToCart", {
+      content_type: "product",
+      content_name: "Clube do Churrasco Perfeito™",
+      value: 17.9,
+      currency: "BRL",
+    });
+  }
+};
+
 // STACK DE VALOR
 const stackItens = [
   { emoji: "🥩", title: "Calculadora de Carne", desc: "Descubra exatamente quanto comprar por perfil de convidado." },
