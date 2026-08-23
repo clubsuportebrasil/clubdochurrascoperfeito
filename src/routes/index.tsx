@@ -22,11 +22,11 @@ export const Route = createFileRoute("/")({
         content:
           "Pare de improvisar. Domine o cálculo de carnes, escolha os melhores cortes e controle a brasa com o sistema prático do Clube do Churrasco Perfeito. Acesso vitalício por R$ 17,90.",
       },
-      { property: "og:title", content: "Clube do Churrasco Perfeito™ — Domine a Grelha" },
+      { property: "og:title", content: "Clube do Churrasco Perfeito™ — Chega de Improvisar no Churrasco" },
       {
         property: "og:description",
         content:
-          "Chega de dúvidas no churrasco. Use nossa calculadora de carne e guias práticos direto no seu celular. O sistema definitivo para quem não quer errar.",
+          "Domine o fogo, calcule a carne e surpreenda seus convidados. O sistema completo para churrasqueiros, agora por apenas R$ 17,90.",
       },
       { property: "og:type", content: "website" },
       { property: "og:image", content: `https://clubdochurrascoperfeito.lovable.app${heroArtUrl}` },
