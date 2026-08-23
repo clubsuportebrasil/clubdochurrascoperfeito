@@ -33,7 +33,7 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Clube do Churrasco Perfeito™" },
       { name: "twitter:description", content: "O sistema prático para churrasqueiros que não querem errar no próximo evento." },
-      { name: "twitter:image", content: `https://clubdochurrascoperfeito.lovable.app${heroArtUrl}` },
+      { name: "twitter:image", content: "https://clubdochurrascoperfeito.lovable.app/assets/hero-churrasqueiro.jpeg" },
     ],
     scripts: [
       {
