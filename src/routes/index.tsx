@@ -246,6 +246,8 @@ function Index() {
     }
 
     const handleExitIntent = (e: MouseEvent) => {
+      // Trigger only if mouse moves above the top of the viewport (intent to close/switch tab)
+      // and only if not already shown
       if (e.clientY <= 0) {
         setShowExitPopup(true);
       }
