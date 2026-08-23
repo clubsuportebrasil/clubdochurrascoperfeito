@@ -532,3 +532,83 @@ footer a{color:var(--papel-dim);text-decoration:underline;}
   .pricing-checkout-card{padding:18px 14px;}
   .situations-grid{grid-template-columns:1fr;}
 }
+
+/* ========== EXIT POPUP ========== */
+.exit-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: fadeIn 0.3s ease;
+}
+.exit-modal {
+  background: linear-gradient(170deg,#1f1610,#080604);
+  border: 2px solid var(--brasa);
+  border-radius: 20px;
+  max-width: 500px;
+  width: 100%;
+  padding: 40px 30px;
+  position: relative;
+  text-align: center;
+  box-shadow: 0 30px 90px rgba(0,0,0,0.8);
+  animation: modalIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.exit-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  color: var(--papel-muted);
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+}
+.exit-content h2 {
+  font-size: 2.2rem;
+  margin-bottom: 12px;
+}
+.exit-content p {
+  color: var(--papel-muted);
+  margin-bottom: 24px;
+  line-height: 1.6;
+}
+.exit-price {
+  margin-bottom: 24px;
+}
+.exit-price .old {
+  display: block;
+  text-decoration: line-through;
+  color: var(--fumaca);
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 1.1rem;
+}
+.exit-price .new {
+  font-family: 'Anton', sans-serif;
+  font-size: 3.5rem;
+  color: var(--mostarda);
+  line-height: 1;
+}
+.exit-decline {
+  background: none;
+  border: none;
+  color: var(--fumaca);
+  font-size: 0.85rem;
+  margin-top: 20px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes modalIn { from { opacity: 0; transform: scale(0.9) translateY(20px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+
+@media (max-width: 768px) {
+  .exit-modal { padding: 30px 20px; }
+  .exit-content h2 { font-size: 1.8rem; }
+}
