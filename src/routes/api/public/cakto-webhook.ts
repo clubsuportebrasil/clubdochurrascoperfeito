@@ -1,6 +1,52 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { z } from 'zod';
 
+async function sendTikTokEvent(data: any) {
+  const pixelId = process.env['TIKTOK_PIXEL_ID'] || 'DA5NG63C77U8NT7JF0J0';
+  const accessToken = process.env['TIKTOK_ACCESS_TOKEN'];
+
+  if (!accessToken) return;
+
+  try {
+    await fetch('https://business-api.tiktok.com/open_api/v1.3/event/track/', {
+      method: 'POST',
+      headers: {
+        'Access-Token': accessToken,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        pixel_code: pixelId,
+        event: 'CompletePayment',
+        event_id: data.id,
+        timestamp: new Date().toISOString(),
+        context: {
+          user: {
+            email: data.customer.email,
+          },
+          ad: {
+            callback: data.ad_callback || undefined, // Cakto might pass this
+          },
+        },
+        properties: {
+          content_type: 'product',
+          contents: [
+            {
+              content_id: data.product.id,
+              content_name: data.product.name,
+              quantity: 1,
+              price: data.amount,
+            }
+          ],
+          currency: 'BRL',
+          value: data.amount,
+        },
+      }),
+    });
+  } catch (error) {
+    console.error('Failed to send TikTok event:', error);
+  }
+}
+
 // Esquema de validação para o webhook da Cakto
 const caktoWebhookSchema = z.object({
   secret: z.string(),
