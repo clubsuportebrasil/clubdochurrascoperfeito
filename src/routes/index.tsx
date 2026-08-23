@@ -784,7 +784,7 @@ function Index() {
                 <span className="new">R$ 9,90</span>
               </div>
 
-              <a href={DOWNSELL_URL} className="cta-fire-btn">
+              <a href={DOWNSELL_URL} className="cta-fire-btn" onClick={trackInitiateCheckout}>
                 🔥 QUERO APROVEITAR A OFERTA AGORA
                 <span className="cta-fire-sub">Oferta válida apenas nesta janela</span>
               </a>
