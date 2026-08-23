@@ -317,7 +317,7 @@ function Index() {
           </div>
           <div className="header-right">
             <div className="header-price mono">R$ 17,90</div>
-            <a href={CHECKOUT_URL} className="header-btn">Quero Acessar</a>
+            <a href={CHECKOUT_URL} className="header-btn" onClick={trackAddToCart}>Quero Acessar</a>
           </div>
         </div>
       </header>
