@@ -113,6 +113,28 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 const CHECKOUT_URL = "https://pay.cakto.com.br/rfzix5k_1049718";
 const DOWNSELL_URL = "https://pay.cakto.com.br/6vow3uz";
 
+const trackInitiateCheckout = () => {
+  if (typeof window !== "undefined" && (window as any).ttq) {
+    (window as any).ttq.track("InitiateCheckout", {
+      content_type: "product",
+      content_name: "Clube do Churrasco Perfeito™",
+      value: 17.9,
+      currency: "BRL",
+    });
+  }
+};
+
+const trackAddToCart = () => {
+  if (typeof window !== "undefined" && (window as any).ttq) {
+    (window as any).ttq.track("AddToCart", {
+      content_type: "product",
+      content_name: "Clube do Churrasco Perfeito™",
+      value: 17.9,
+      currency: "BRL",
+    });
+  }
+};
+
 // STACK DE VALOR
 const stackItens = [
   { emoji: "🥩", title: "Calculadora de Carne", desc: "Descubra exatamente quanto comprar por perfil de convidado." },
@@ -227,6 +249,16 @@ function Index() {
   const totalCarvao = Math.max(3, Math.ceil(demoPessoas * 0.6));
 
   useEffect(() => {
+    // TikTok Event: ViewContent (on page load)
+    if (typeof window !== "undefined" && (window as any).ttq) {
+      (window as any).ttq.track("ViewContent", {
+        content_type: "product",
+        content_name: "Clube do Churrasco Perfeito™",
+        value: 17.9,
+        currency: "BRL",
+      });
+    }
+
     const hero = document.getElementById("hero");
     const onScroll = () => {
       if (!hero) return;
@@ -285,7 +317,7 @@ function Index() {
           </div>
           <div className="header-right">
             <div className="header-price mono">R$ 17,90</div>
-            <a href={CHECKOUT_URL} className="header-btn">Quero Acessar</a>
+            <a href={CHECKOUT_URL} className="header-btn" onClick={trackAddToCart}>Quero Acessar</a>
           </div>
         </div>
       </header>
@@ -314,7 +346,7 @@ function Index() {
             </div>
 
             <div className="hero-cta-stack">
-              <a href={CHECKOUT_URL} className="cta-fire-btn">
+              <a href={CHECKOUT_URL} className="cta-fire-btn" onClick={trackInitiateCheckout}>
                 🔥 QUERO DEIXAR MEU PRÓXIMO CHURRASCO NO JEITO
                 <span className="cta-fire-sub">Acesso imediato após pagamento</span>
               </a>
@@ -643,7 +675,7 @@ function Index() {
                   <li><span className="benefit-check">✓</span><span>Acesso vitalício com todas as futuras atualizações</span></li>
                 </ul>
 
-                <a href={CHECKOUT_URL} className="checkout-cta-button">
+                <a href={CHECKOUT_URL} className="checkout-cta-button" onClick={trackInitiateCheckout}>
                   <span>🔥 QUERO MEU ACESSO AGORA</span>
                   <span className="cta-micro-sub">Apenas R$ 17,90 · Pagamento 100% seguro</span>
                 </a>
@@ -699,7 +731,7 @@ function Index() {
           <p className="sub">
             Na próxima vez que alguém pedir um churrasco, você não vai precisar adivinhar, calcular no chute ou depender de improviso.
           </p>
-          <a href={CHECKOUT_URL} className="cta-fire-btn" style={{ margin: "0 auto" }}>
+          <a href={CHECKOUT_URL} className="cta-fire-btn" style={{ margin: "0 auto" }} onClick={trackInitiateCheckout}>
             🔥 QUERO DEIXAR MEU PRÓXIMO CHURRASCO NO JEITO
             <span className="cta-fire-sub">R$ 17,90 · Pagamento Único · Acesso Vitalício</span>
           </a>
@@ -734,7 +766,7 @@ function Index() {
           <span className="sticky-brand">🔥 Clube do Churrasco</span>
           <span className="sticky-price">R$ 17,90 · Vitalício</span>
         </div>
-        <a href={CHECKOUT_URL} className="sticky-btn">QUERO ACESSAR</a>
+        <a href={CHECKOUT_URL} className="sticky-btn" onClick={trackAddToCart}>QUERO ACESSAR</a>
       </div>
 
       {/* MODAL DE SAÍDA (EXIT INTENT / DOWNSELL) */}
@@ -752,7 +784,7 @@ function Index() {
                 <span className="new">R$ 9,90</span>
               </div>
 
-              <a href={DOWNSELL_URL} className="cta-fire-btn">
+              <a href={DOWNSELL_URL} className="cta-fire-btn" onClick={trackInitiateCheckout}>
                 🔥 QUERO APROVEITAR A OFERTA AGORA
                 <span className="cta-fire-sub">Oferta válida apenas nesta janela</span>
               </a>
