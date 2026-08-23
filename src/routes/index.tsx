@@ -732,15 +732,15 @@ function Index() {
             <div className="exit-content">
               <span className="eyebrow" style={{ color: "#ff5a1f" }}>⚠️ ESPERE! CONDIÇÃO ESPECIAL</span>
               <h2>NÃO SAIA SEM O SEU ACESSO</h2>
-              <p>Percebemos que você está saindo. Para garantir que seu próximo churrasco seja perfeito, liberamos um <b>desconto único</b> agora.</p>
+              <p>Percebemos que você está saindo. Para garantir que seu próximo churrasco seja perfeito, liberamos uma <b>oferta especial</b> para você não perder essa oportunidade.</p>
               
               <div className="exit-price">
                 <span className="old">R$ 47,00</span>
-                <span className="new">R$ 14,90</span>
+                <span className="new">R$ 9,90</span>
               </div>
 
               <a href={DOWNSELL_URL} className="cta-fire-btn">
-                🔥 QUERO APROVEITAR O DESCONTO AGORA
+                🔥 QUERO APROVEITAR A OFERTA AGORA
                 <span className="cta-fire-sub">Oferta válida apenas nesta janela</span>
               </a>
               
