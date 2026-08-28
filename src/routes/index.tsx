@@ -119,27 +119,89 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 const CHECKOUT_URL = "https://pay.cakto.com.br/rfzix5k_1049718";
 const DOWNSELL_URL = "https://pay.cakto.com.br/6vow3uz";
 
-const trackInitiateCheckout = () => {
-  if (typeof window !== "undefined" && (window as any).ttq) {
-    (window as any).ttq.track("InitiateCheckout", {
-      content_type: "product",
-      content_name: "Clube do Churrasco Perfeito™",
-      value: 17.9,
-      currency: "BRL",
+const PRODUCT = {
+  content_type: "product",
+  content_id: "clube-churrasco-perfeito",
+  content_name: "Clube do Churrasco Perfeito™",
+  value: 17.9,
+  currency: "BRL",
+};
+
+const newEventId = () =>
+  `${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+
+// Envia o mesmo evento para a API de Conversões da Meta (server-side),
+// usando o mesmo event_id do pixel para deduplicação.
+const sendCapi = (eventName: string, eventId: string) => {
+  if (typeof window === "undefined") return;
+  try {
+    const payload = JSON.stringify({
+      event_name: eventName,
+      event_id: eventId,
+      event_source_url: window.location.href,
+      value: PRODUCT.value,
+      currency: PRODUCT.currency,
+      content_id: PRODUCT.content_id,
+      content_name: PRODUCT.content_name,
     });
+    const url = "/api/public/meta-capi";
+    if (navigator.sendBeacon) {
+      navigator.sendBeacon(url, new Blob([payload], { type: "application/json" }));
+    } else {
+      void fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: payload,
+        keepalive: true,
+      });
+    }
+  } catch {
+    /* tracking nunca deve quebrar a navegação */
   }
 };
 
-const trackAddToCart = () => {
-  if (typeof window !== "undefined" && (window as any).ttq) {
-    (window as any).ttq.track("AddToCart", {
-      content_type: "product",
-      content_name: "Clube do Churrasco Perfeito™",
-      value: 17.9,
-      currency: "BRL",
+const trackEvent = (metaEvent: string, tiktokEvent: string) => {
+  if (typeof window === "undefined") return;
+  const eventId = newEventId();
+  const w = window as any;
+  if (w.fbq) {
+    w.fbq(
+      "track",
+      metaEvent,
+      {
+        content_type: PRODUCT.content_type,
+        content_ids: [PRODUCT.content_id],
+        content_name: PRODUCT.content_name,
+        value: PRODUCT.value,
+        currency: PRODUCT.currency,
+      },
+      { eventID: eventId },
+    );
+  }
+  if (w.ttq) {
+    w.ttq.track(tiktokEvent, {
+      content_type: PRODUCT.content_type,
+      content_id: PRODUCT.content_id,
+      content_name: PRODUCT.content_name,
+      value: PRODUCT.value,
+      currency: PRODUCT.currency,
+      event_id: eventId,
     });
   }
+  sendCapi(metaEvent, eventId);
 };
+
+const trackInitiateCheckout = () => {
+  trackEvent("InitiateCheckout", "InitiateCheckout");
+  // O checkout é externo (Cakto): registramos também AddPaymentInfo aqui,
+  // pois é o último passo rastreável antes do pagamento.
+  trackEvent("AddPaymentInfo", "AddPaymentInfo");
+};
+
+const trackAddToCart = () => {
+  trackEvent("AddToCart", "AddToCart");
+};
+
 
 // STACK DE VALOR
 const stackItens = [
