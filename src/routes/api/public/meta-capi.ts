@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { z } from "zod";
 
-import { sendMetaEvent, hashEmail, hashPhone } from "@/lib/meta-capi.server";
+import { sendMetaEvent, hashEmail, hashPhone, sha256Text } from "@/lib/meta-capi.server";
 
 const bodySchema = z.object({
   event_name: z.enum([
@@ -20,6 +20,8 @@ const bodySchema = z.object({
   content_name: z.string().max(200).optional(),
   email: z.string().email().optional(),
   phone: z.string().max(30).optional(),
+  fbp: z.string().max(120).optional(),
+  fbc: z.string().max(300).optional(),
 });
 
 function clientIp(request: Request): string | undefined {
@@ -47,6 +49,9 @@ export const Route = createFileRoute("/api/public/meta-capi")({
             user_data: {
               client_user_agent: request.headers.get("user-agent") ?? undefined,
               client_ip_address: clientIp(request),
+              fbp: b.fbp,
+              fbc: b.fbc,
+              country: [await sha256Text("br")],
               em: (await hashEmail(b.email)) ? [await hashEmail(b.email)] : undefined,
               ph: (await hashPhone(b.phone)) ? [await hashPhone(b.phone)] : undefined,
             },
