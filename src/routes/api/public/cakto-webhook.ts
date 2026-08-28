@@ -1,9 +1,13 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { z } from 'zod';
 
-import { sendMetaEvent, hashEmail, hashPhone } from '@/lib/meta-capi.server';
+import { sendMetaEvent, hashEmail, hashPhone, sha256Text } from '@/lib/meta-capi.server';
 
 async function sendMetaPurchase(data: any) {
+  const fullName = String(data?.customer?.name ?? '').trim();
+  const [firstName, ...rest] = fullName.split(/\s+/).filter(Boolean);
+  const lastName = rest.join(' ');
+
   await sendMetaEvent({
     event_name: 'Purchase',
     event_id: String(data.id),
@@ -16,6 +20,10 @@ async function sendMetaPurchase(data: any) {
       ph: (await hashPhone(data?.customer?.phone))
         ? [await hashPhone(data.customer.phone)]
         : undefined,
+      fn: firstName ? [await sha256Text(firstName)] : undefined,
+      ln: lastName ? [await sha256Text(lastName)] : undefined,
+      country: [await sha256Text('br')],
+      external_id: [await sha256Text(String(data?.customer?.email ?? data.id))],
     },
     custom_data: {
       currency: 'BRL',
