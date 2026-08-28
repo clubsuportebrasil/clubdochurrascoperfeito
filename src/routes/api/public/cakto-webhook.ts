@@ -1,6 +1,33 @@
 import { createFileRoute } from '@tanstack/react-router';
 import { z } from 'zod';
 
+import { sendMetaEvent, hashEmail, hashPhone } from '@/lib/meta-capi.server';
+
+async function sendMetaPurchase(data: any) {
+  await sendMetaEvent({
+    event_name: 'Purchase',
+    event_id: String(data.id),
+    action_source: 'website',
+    event_source_url: 'https://clubdochurrascoperfeito.lovable.app/',
+    user_data: {
+      em: (await hashEmail(data?.customer?.email))
+        ? [await hashEmail(data.customer.email)]
+        : undefined,
+      ph: (await hashPhone(data?.customer?.phone))
+        ? [await hashPhone(data.customer.phone)]
+        : undefined,
+    },
+    custom_data: {
+      currency: 'BRL',
+      value: Number(data.amount) || 0,
+      content_type: 'product',
+      content_ids: [String(data?.product?.id ?? 'clube-churrasco-perfeito')],
+      content_name: data?.product?.name,
+    },
+  });
+}
+
+
 async function sendTikTokEvent(data: any) {
   const pixelId = process.env['TIKTOK_PIXEL_ID'] || 'DA5NG63C77U8NT7JF0J0';
   const accessToken = process.env['TIKTOK_ACCESS_TOKEN'];
@@ -95,7 +122,7 @@ export const Route = createFileRoute('/api/public/cakto-webhook')({
             console.log(`Cakto: Purchase approved for ${data.customer.email} - Order ID: ${data.id}`);
             // Validação adicional: Garantir que o status da compra é aprovado conforme o payload da Cakto
             if (data.status === 'approved' || data.status === 'paid') {
-              await sendTikTokEvent(data);
+              await Promise.all([sendTikTokEvent(data), sendMetaPurchase(data)]);
             } else {
               console.warn(`Cakto: Event purchase_approved received but status is ${data.status}`);
             }

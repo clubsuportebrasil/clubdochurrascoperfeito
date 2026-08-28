@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiPublicCaktoWebhookRouteImport } from './routes/api/public/cakto-webhook'
+import { Route as ApiPublicMetaCapiRouteImport } from './routes/api/public/meta-capi'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -22,31 +23,40 @@ const ApiPublicCaktoWebhookRoute = ApiPublicCaktoWebhookRouteImport.update({
   path: '/api/public/cakto-webhook',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicMetaCapiRoute = ApiPublicMetaCapiRouteImport.update({
+  id: '/api/public/meta-capi',
+  path: '/api/public/meta-capi',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/api/public/cakto-webhook': typeof ApiPublicCaktoWebhookRoute
+  '/api/public/meta-capi': typeof ApiPublicMetaCapiRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/api/public/cakto-webhook': typeof ApiPublicCaktoWebhookRoute
+  '/api/public/meta-capi': typeof ApiPublicMetaCapiRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/api/public/cakto-webhook': typeof ApiPublicCaktoWebhookRoute
+  '/api/public/meta-capi': typeof ApiPublicMetaCapiRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/api/public/cakto-webhook'
+  fullPaths: '/' | '/api/public/cakto-webhook' | '/api/public/meta-capi'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/api/public/cakto-webhook'
-  id: '__root__' | '/' | '/api/public/cakto-webhook'
+  to: '/' | '/api/public/cakto-webhook' | '/api/public/meta-capi'
+  id: '__root__' | '/' | '/api/public/cakto-webhook' | '/api/public/meta-capi'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ApiPublicCaktoWebhookRoute: typeof ApiPublicCaktoWebhookRoute
+  ApiPublicMetaCapiRoute: typeof ApiPublicMetaCapiRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -65,12 +75,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicCaktoWebhookRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/meta-capi': {
+      id: '/api/public/meta-capi'
+      path: '/api/public/meta-capi'
+      fullPath: '/api/public/meta-capi'
+      preLoaderRoute: typeof ApiPublicMetaCapiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ApiPublicCaktoWebhookRoute: ApiPublicCaktoWebhookRoute,
+  ApiPublicMetaCapiRoute: ApiPublicMetaCapiRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
