@@ -122,7 +122,7 @@ export const Route = createFileRoute('/api/public/cakto-webhook')({
             console.log(`Cakto: Purchase approved for ${data.customer.email} - Order ID: ${data.id}`);
             // Validação adicional: Garantir que o status da compra é aprovado conforme o payload da Cakto
             if (data.status === 'approved' || data.status === 'paid') {
-              await sendTikTokEvent(data);
+              await Promise.all([sendTikTokEvent(data), sendMetaPurchase(data)]);
             } else {
               console.warn(`Cakto: Event purchase_approved received but status is ${data.status}`);
             }
