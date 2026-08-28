@@ -22,9 +22,9 @@ export async function hashPhone(phone?: string | null): Promise<string | undefin
 
 export type MetaEvent = {
   event_name: string;
-  event_id?: string;
-  event_time?: number;
-  event_source_url?: string;
+  event_id?: string | undefined;
+  event_time?: number | undefined;
+  event_source_url?: string | undefined;
   action_source?: "website" | "system_generated";
   user_data?: Record<string, unknown>;
   custom_data?: Record<string, unknown>;
