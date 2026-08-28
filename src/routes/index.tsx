@@ -132,13 +132,26 @@ const newEventId = () =>
 
 // Envia o mesmo evento para a API de Conversões da Meta (server-side),
 // usando o mesmo event_id do pixel para deduplicação.
+const getCookie = (name: string): string | undefined => {
+  if (typeof document === "undefined") return undefined;
+  const match = document.cookie.match(new RegExp("(?:^|; )" + name + "=([^;]*)"));
+  return match ? decodeURIComponent(match[1]!) : undefined;
+};
+
 const sendCapi = (eventName: string, eventId: string) => {
   if (typeof window === "undefined") return;
   try {
+    // fbc a partir do parâmetro de clique do anúncio, se existir
+    const fbclid = new URLSearchParams(window.location.search).get("fbclid");
+    const fbc =
+      getCookie("_fbc") ??
+      (fbclid ? `fb.1.${Date.now()}.${fbclid}` : undefined);
     const payload = JSON.stringify({
       event_name: eventName,
       event_id: eventId,
       event_source_url: window.location.href,
+      fbp: getCookie("_fbp"),
+      fbc,
       value: PRODUCT.value,
       currency: PRODUCT.currency,
       content_id: PRODUCT.content_id,
