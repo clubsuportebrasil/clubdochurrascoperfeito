@@ -317,15 +317,9 @@ function Index() {
   const totalCarvao = Math.max(3, Math.ceil(demoPessoas * 0.6));
 
   useEffect(() => {
-    // TikTok Event: ViewContent (on page load)
-    if (typeof window !== "undefined" && (window as any).ttq) {
-      (window as any).ttq.track("ViewContent", {
-        content_type: "product",
-        content_name: "Clube do Churrasco Perfeito™",
-        value: 17.9,
-        currency: "BRL",
-      });
-    }
+    // ViewContent (Meta + TikTok) no carregamento da página
+    trackEvent("ViewContent", "ViewContent");
+
 
     const hero = document.getElementById("hero");
     const onScroll = () => {
