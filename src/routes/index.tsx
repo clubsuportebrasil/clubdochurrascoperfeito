@@ -388,82 +388,102 @@ function Index() {
         </div>
       </header>
 
-      {/* ========================================================
-          01 — HERO: HEADLINE AGRESSIVA + CTA FORTE + PREÇO VISÍVEL
-          ======================================================== */}
+      {/* ============ 01 — HERO ============ */}
       <section className="hero grate-bg" id="hero" ref={heroRef}>
         <div className="wrap hero-grid">
           <div className="hero-copy">
-            <div className="hero-eyetag">🔥 Churrasco que não depende de sorte</div>
+            <div className="hero-eyetag">🔥 VAI TER CHURRASCO?</div>
 
             <h1 className="hero-mega-headline">
-              VAI TER CHURRASCO?
-              <span className="hero-mega-sub">NÃO COMPRE NEM ACENDA A CHURRASQUEIRA ANTES DE VER ISSO.</span>
+              ANTES DE COMPRAR A CARNE, APRENDA A PLANEJAR E PREPARAR SEU CHURRASCO.
             </h1>
 
             <p className="hero-sub">
-              Saiba exatamente <strong>quanto comprar</strong>, quais cortes escolher e como controlar a brasa — tudo no celular, durante o churrasco.
+              Descubra como calcular melhor a quantidade de carne, entender cortes, fogo, tempos,
+              temperos e preparo — com um guia prático que você pode consultar direto pelo celular.
             </p>
 
-            <div className="hero-price-line">
-              <span className="hero-price-old">R$ 47,00</span>
-              <span className="hero-price-now">R$ 17,90</span>
-              <span className="hero-price-note">pagamento único · acesso vitalício</span>
+            <div className="offer-price-block">
+              <span className="offer-price-value">R$ 17,90</span>
+              <span className="offer-price-terms">Pagamento único • Acesso vitalício • Garantia de 7 dias</span>
             </div>
 
             <div className="hero-cta-stack">
               <a href={CHECKOUT_URL} className="cta-fire-btn" onClick={trackInitiateCheckout}>
-                🔥 QUERO DEIXAR MEU PRÓXIMO CHURRASCO NO JEITO
-                <span className="cta-fire-sub">Acesso imediato após pagamento</span>
+                🔥 QUERO MEU ACESSO POR R$ 17,90
               </a>
 
-              <div className="hero-trust-row">
-                <span>
-                  <svg className="icon-sm" style={{ color: "#10b981" }}><use href="#ic-shield" /></svg>
-                  &nbsp;Risco zero por 7 dias
-                </span>
-                <span>✅ Pix · Cartão · Boleto</span>
-                <span>📱 Funciona no celular</span>
+              <div className="trust-microcopy">
+                <span>🔒 Pagamento seguro</span>
+                <span>⚡ Acesso digital</span>
+                <span>🛡️ Garantia de 7 dias</span>
               </div>
             </div>
           </div>
 
           <div className="hero-visual-col">
             <div className="hero-mockup-wrap">
-              <img src={heroArtUrl} alt="Churrasqueiro consultando o Clube do Churrasco no celular durante o churrasco" />
-            </div>
-            <div className="hero-float-chip chip-a">
-              <span className="chip-num">{totalBov} kg</span>
-              <span className="chip-label">carne bovina</span>
-            </div>
-            <div className="hero-float-chip chip-b">
-              <span className="chip-num">🔥</span>
-              <span className="chip-label">Fogo controlado</span>
+              <img
+                src={heroArtUrl}
+                width={720}
+                height={720}
+                alt="Churrasqueiro consultando o Clube do Churrasco no celular durante o churrasco"
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* ========================================================
-          02 — CALCULADORA COMO ISCA (ANTES DE QUALQUER EXPLICAÇÃO)
-          ======================================================== */}
+      {/* ============ 02 — DOR ============ */}
+      <section className="bg-darker">
+        <div className="wrap reveal">
+          <div className="section-header center">
+            <span className="eyebrow">O Problema Real</span>
+            <h2>Já aconteceu de o churrasco não sair como você esperava?</h2>
+          </div>
+
+          <ul className="pain-bullets">
+            <li>❌ Carne demais</li>
+            <li>❌ Carne de menos</li>
+            <li>❌ Ponto errado</li>
+            <li>❌ Carne seca</li>
+            <li>❌ Sal fora do ponto</li>
+            <li>❌ Fogo difícil de controlar</li>
+            <li>❌ Dúvida sobre qual corte escolher</li>
+          </ul>
+
+          <div className="pain-close">
+            <p>O problema nem sempre é a carne.</p>
+            <p><strong>Muitas vezes, é simplesmente não saber o que fazer em cada etapa.</strong></p>
+          </div>
+        </div>
+      </section>
+
+      {/* ============ 03 — CALCULADORA (DEMONSTRAÇÃO) ============ */}
       <section className="calc-bait-section bg-darkest">
         <div className="wrap reveal">
           <div className="calc-bait-box">
             <div className="calc-bait-head">
-              <span className="eyebrow">Teste Grátis Agora</span>
-              <h2>CALCULE A CARNE DO SEU PRÓXIMO CHURRASCO</h2>
-              <p>Quantas pessoas vão participar?</p>
+              <span className="eyebrow">Demonstração</span>
+              <h2>🥩 QUANTO DE CARNE VOCÊ PRECISA?</h2>
+              <p>
+                Pare de comprar carne no chute. Informe seus convidados e tenha uma referência para
+                planejar melhor seu churrasco.
+              </p>
             </div>
 
             <div className="calc-bait-control">
               <div className="calc-bait-counter">
                 <button
+                  type="button"
+                  aria-label="Diminuir número de pessoas"
                   className="calc-bait-btn-count"
                   onClick={() => setDemoPessoas(Math.max(2, demoPessoas - 1))}
                 >−</button>
                 <span className="calc-bait-num">{demoPessoas} <small>pessoas</small></span>
                 <button
+                  type="button"
+                  aria-label="Aumentar número de pessoas"
                   className="calc-bait-btn-count"
                   onClick={() => setDemoPessoas(Math.min(50, demoPessoas + 1))}
                 >+</button>
@@ -472,6 +492,7 @@ function Index() {
                 type="range"
                 min="2"
                 max="50"
+                aria-label="Número de pessoas no churrasco"
                 value={demoPessoas}
                 onChange={(e) => setDemoPessoas(parseInt(e.target.value) || 2)}
                 className="calc-bait-slider"
@@ -510,94 +531,46 @@ function Index() {
             </div>
 
             <div className="calc-bait-upsell">
-              <p>Quer saber <strong>quais cortes comprar</strong>, como preparar a brasa e não esquecer nada?</p>
-              <p className="calc-bait-upsell-sub">Isso é só 1 das ferramentas do Clube.</p>
-              <a href={CHECKOUT_URL} className="cta-fire-btn" style={{ marginTop: "10px" }}>
-                🔥 LIBERAR TODAS AS FERRAMENTAS POR R$ 17,90
-                <span className="cta-fire-sub">Uma vez · Acesso vitalício</span>
+              <p className="calc-bait-upsell-sub">
+                Essa é apenas uma das ferramentas que você encontra dentro do Clube.
+              </p>
+              <a href={CHECKOUT_URL} className="cta-fire-btn" onClick={trackInitiateCheckout}>
+                🔥 QUERO MEU ACESSO POR R$ 17,90
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ========================================================
-          03 — DOR EMOCIONAL: AS 3 PERGUNTAS QUE TODO CHURRASQUEIRO CONHECE
-          ======================================================== */}
+      {/* ============ 04 — SOLUÇÃO ============ */}
       <section className="grate-bg">
         <div className="wrap reveal">
           <div className="section-header center">
-            <span className="eyebrow">O Problema Real</span>
-            <h2>Você já ficou parado na frente da churrasqueira pensando:</h2>
+            <span className="eyebrow">A Solução</span>
+            <h2>Foi para acabar com o “achismo” que criamos o Clube do Churrasco Perfeito.</h2>
           </div>
 
-          <div className="pain-grid">
-            <div className="pain-card">
-              <span className="pain-emoji">😰</span>
-              <p className="pain-quote">"Será que essa carne vai dar para todo mundo?"</p>
-              <p className="pain-context">Você calculou no chute e agora está torendo para não faltar.</p>
-            </div>
-            <div className="pain-card">
-              <span className="pain-emoji">🔥</span>
-              <p className="pain-quote">"Esse fogo está forte demais ou vai apagar?"</p>
-              <p className="pain-context">A brasa mudou e você não tem certeza se a carne vai queimar ou apagar.</p>
-            </div>
-            <div className="pain-card">
-              <span className="pain-emoji">🥩</span>
-              <p className="pain-quote">"Já está na hora de virar? Cortei e ficou cru no meio."</p>
-              <p className="pain-context">Sem referência de tempo e temperatura, cada churrasco vira uma aposta.</p>
-            </div>
-          </div>
-
-          <div className="pain-answer reveal">
-            <div className="pain-answer-inner">
-              <h3>O Clube do Churrasco coloca essas respostas no seu bolso.</h3>
-              <p>Antes do mercado. No açougue. Durante o fogo. Na hora de servir.</p>
-              <a href={CHECKOUT_URL} className="cta-fire-btn cta-inline">
-                🔥 QUERO AS RESPOSTAS NO MEU CELULAR
-                <span className="cta-fire-sub">R$ 17,90 · uma vez · vitalício</span>
-              </a>
-            </div>
+          <div className="solution-box">
+            <p>
+              Um guia prático para ajudar você a planejar e preparar melhor seus churrascos, mesmo
+              que você não seja um churrasqueiro profissional.
+            </p>
+            <p>Tudo organizado em um único lugar para você consultar quando precisar.</p>
+            <p className="solution-beats">
+              <span>No celular.</span>
+              <span>Na churrasqueira.</span>
+              <span>No seu ritmo.</span>
+            </p>
           </div>
         </div>
       </section>
 
-      {/* ========================================================
-          05 — SCREENSHOTS: "OLHA O QUE VOCÊ VAI TER NO CELULAR"
-          ======================================================== */}
+      {/* ============ 05 — O QUE VOCÊ RECEBE ============ */}
       <section className="bg-darker">
         <div className="wrap reveal">
           <div className="section-header center">
-            <span className="eyebrow">Produto Real</span>
-            <h2>OLHA O QUE VOCÊ VAI TER NO CELULAR</h2>
-            <p className="lede">7 ferramentas de consulta rápida. Você abre, usa e fecha em segundos:</p>
-          </div>
-
-          <div className="screenshots-grid">
-            {screenCards.map((sc) => (
-              <div className="screen-card" key={sc.title}>
-                <div className="screen-card-header" style={{ borderColor: sc.color }}>
-                  <span className="screen-emoji">{sc.emoji}</span>
-                  <span className="screen-title">{sc.title}</span>
-                </div>
-                <div className="screen-card-body">
-                  <div className="screen-row primary">{sc.label}</div>
-                  <div className="screen-row secondary">{sc.sub}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ========================================================
-          06 — STACK DE VALOR
-          ======================================================== */}
-      <section className="grate-bg">
-        <div className="wrap reveal">
-          <div className="section-header center">
             <span className="eyebrow">O Que Você Recebe</span>
-            <h2>🔥 VOCÊ RECEBE HOJE:</h2>
+            <h2>Tudo isso no seu celular</h2>
           </div>
 
           <div className="stack-grid">
@@ -613,48 +586,101 @@ function Index() {
             ))}
           </div>
 
-          <div className="stack-total-line">
-            <span>Tudo isso por</span>
-            <span className="stack-price">R$ 17,90</span>
-            <span>Uma única vez.</span>
-          </div>
-
-          <div style={{ textAlign: "center", marginTop: "20px" }}>
-            <a href={CHECKOUT_URL} className="cta-fire-btn" style={{ maxWidth: "400px", margin: "0 auto" }}>
-              🔥 QUERO MEU ACESSO AGORA
-              <span className="cta-fire-sub">Acesso imediato · Pagamento único</span>
+          <div className="section-cta">
+            <a href={CHECKOUT_URL} className="cta-fire-btn" onClick={trackInitiateCheckout}>
+              🔥 QUERO MEU ACESSO POR R$ 17,90
             </a>
           </div>
         </div>
       </section>
 
-      {/* ========================================================
-          07 — PARA QUEM É (COMPACTO)
-          ======================================================== */}
-      <section className="bg-darker">
+      {/* ============ 06 — BENEFÍCIO EMOCIONAL ============ */}
+      <section className="grate-bg">
         <div className="wrap reveal">
           <div className="section-header center">
-            <span className="eyebrow">Para Quem É</span>
-            <h2>O Clube é para você se…</h2>
+            <span className="eyebrow">O Próximo Churrasco</span>
+            <h2>Imagine o seu próximo churrasco...</h2>
           </div>
-          <div className="situations-grid">
-            {situacoes.map((s) => (
-              <div className="situation-item" key={s.s}>
-                <span className="situation-ico">🎯</span>
-                <div>
-                  <b>{s.s}</b>
-                  <span className="situation-tool">{s.t}</span>
-                </div>
-              </div>
-            ))}
+
+          <div className="imagine-box">
+            <p>Você sabe quanto comprar.</p>
+            <p>Sabe qual corte escolher.</p>
+            <p>Entende melhor o fogo.</p>
+            <p>Sabe o que observar durante o preparo.</p>
+            <p>E chega na hora de servir com muito mais confiança.</p>
+          </div>
+
+          <div className="imagine-close">
+            MENOS ACHISMO.<br />MAIS PREPARO.<br />MAIS CONFIANÇA.
           </div>
         </div>
       </section>
 
-      {/* ========================================================
-          08 — PROVA SOCIAL (DEPOIMENTOS)
-          ATENÇÃO: SUBSTITUA PELOS DEPOIMENTOS REAIS DOS SEUS CLIENTES
-          ======================================================== */}
+      {/* ============ 07 — OFERTA ============ */}
+      <section className="offer-section" id="comprar">
+        <div className="wrap reveal">
+          <div className="section-header center">
+            <span className="eyebrow">A Oferta</span>
+            <h2>Tenha o Clube do Churrasco Perfeito no seu celular</h2>
+          </div>
+
+          <div className="offer-box">
+            <div className="offer-layout">
+              <div className="offer-visual-col">
+                <div className="offer-product-image">
+                  <img
+                    src={produtoArtUrl}
+                    loading="lazy"
+                    width={800}
+                    height={800}
+                    alt="Kit digital Clube do Churrasco — calculadora de carnes, guia de cortes e checklists"
+                  />
+                </div>
+                <div className="offer-items-grid">
+                  {stackItens.map((item) => (
+                    <div className="offer-item" key={item.title}>
+                      <span className="ck">{item.emoji}</span>
+                      <b>{item.title}</b>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="pricing-checkout-card">
+                <div className="price-display-box">
+                  <div className="price-main-val">R$ 17<sup>,90</sup></div>
+                  <span className="price-tag-sub">Pagamento único • Acesso vitalício</span>
+                </div>
+
+                <ul className="price-benefits-list">
+                  <li><span className="benefit-check">✓</span><span>Pagamento único de R$ 17,90</span></li>
+                  <li><span className="benefit-check">✓</span><span>Acesso vitalício</span></li>
+                  <li><span className="benefit-check">✓</span><span>Garantia de 7 dias</span></li>
+                  <li><span className="benefit-check">✓</span><span>Uso direto no celular, sem instalar nada</span></li>
+                </ul>
+
+                <a href={CHECKOUT_URL} className="checkout-cta-button" onClick={trackInitiateCheckout}>
+                  <span>🔥 QUERO MEU ACESSO POR R$ 17,90</span>
+                </a>
+
+                <div className="trust-microcopy">
+                  <span>🔒 Pagamento seguro</span>
+                  <span>⚡ Acesso digital</span>
+                  <span>🛡️ Garantia de 7 dias</span>
+                </div>
+
+                <div className="pay-badges-row">
+                  <span className="pay-pill">Pix</span>
+                  <span className="pay-pill">Cartão de Crédito</span>
+                  <span className="pay-pill">Boleto</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ============ 08 — PROVA SOCIAL ============ */}
       <section className="grate-bg">
         <div className="wrap reveal">
           <div className="section-header center">
@@ -680,92 +706,27 @@ function Index() {
         </div>
       </section>
 
-      {/* ========================================================
-          09 — OFERTA COM IMAGEM DO PRODUTO + CUSTO DE OPORTUNIDADE
-          ======================================================== */}
-      <section className="offer-section" id="comprar">
+      {/* ============ 09 — GARANTIA ============ */}
+      <section className="bg-darker">
         <div className="wrap reveal">
-
-          {/* Custo de Oportunidade */}
-          <div className="opportunity-bar">
-            <span>💡</span>
-            <p>Comprar 2 kg de carne a mais no improviso pode custar mais do que o Clube inteiro. Você paga uma vez R$ 17,90 e usa em todos os churrascos.</p>
-          </div>
-
-          <div className="offer-box">
-            <div className="offer-layout">
-              {/* Coluna Esquerda: Produto */}
-              <div className="offer-visual-col">
-                <span className="eyebrow" style={{ marginBottom: "8px" }}>Visão Geral do Kit</span>
-                <h2 style={{ fontSize: "clamp(1.55rem,3.6vw,2.2rem)", marginBottom: "14px", color: "#ffffff" }}>
-                  Tudo que você recebe
-                </h2>
-                <div className="offer-product-image">
-                  <img src={produtoArtUrl} alt="Kit Digital Clube do Churrasco — Calculadora de Carnes, Checklists e Guia de Cortes" />
-                </div>
-                <div className="offer-items-grid">
-                  {stackItens.map((item) => (
-                    <div className="offer-item" key={item.title}>
-                      <span className="ck">{item.emoji}</span>
-                      <b>{item.title}</b>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Coluna Direita: Checkout */}
-              <div className="pricing-checkout-card">
-                <div className="pricing-kicker-badge">
-                  <svg className="icon-sm" style={{ width: 14, height: 14 }}><use href="#ic-flame" /></svg>
-                  <span>Pagamento Único • Acesso Vitalício</span>
-                </div>
-
-                <div className="price-display-box">
-                  <div className="price-old-val">de R$ 47,00</div>
-                  <div className="price-main-val">R$ 17<sup>,90</sup></div>
-                  <span className="price-tag-sub">Sem mensalidades • Acesso Imediato</span>
-                </div>
-
-                {/* Garantia PRÓXIMA ao CTA — reduz objeção */}
-                <div className="guarantee-inline-box">
-                  <svg className="icon-sm"><use href="#ic-shield" /></svg>
-                  <div>
-                    <b>RISCO ZERO por 7 dias</b>
-                    <span>Acesse, use as ferramentas. Se não valeu, devolvemos 100%.</span>
-                  </div>
-                </div>
-
-                <ul className="price-benefits-list">
-                  <li><span className="benefit-check">✓</span><span>Acesso imediato no e-mail após a confirmação</span></li>
-                  <li><span className="benefit-check">✓</span><span>Uso direto no celular — sem downloads ou instalação</span></li>
-                  <li><span className="benefit-check">✓</span><span>Acesso vitalício com todas as futuras atualizações</span></li>
-                </ul>
-
-                <a href={CHECKOUT_URL} className="checkout-cta-button" onClick={trackInitiateCheckout}>
-                  <span>🔥 QUERO MEU ACESSO AGORA</span>
-                  <span className="cta-micro-sub">Apenas R$ 17,90 · Pagamento 100% seguro</span>
-                </a>
-
-                <div className="pay-security-row">
-                  <svg><use href="#ic-shield" /></svg>
-                  <span>Ambiente criptografado e seguro</span>
-                </div>
-
-                <div className="pay-badges-row">
-                  <span className="pay-pill">Pix</span>
-                  <span className="pay-pill">Cartão de Crédito</span>
-                  <span className="pay-pill">Boleto</span>
-                </div>
-              </div>
-            </div>
+          <div className="guarantee-box">
+            <span className="guarantee-shield">🛡️</span>
+            <h2>Garantia de 7 dias</h2>
+            <p>
+              Você tem 7 dias para conhecer o material e avaliar se ele faz sentido para você.
+            </p>
+            <p>
+              Se não ficar satisfeito, poderá solicitar o reembolso conforme as condições da garantia.
+            </p>
+            <a href={CHECKOUT_URL} className="cta-fire-btn" onClick={trackInitiateCheckout}>
+              QUERO CONHECER O CLUBE
+            </a>
           </div>
         </div>
       </section>
 
-      {/* ========================================================
-          11 — FAQ REDUZIDO (5 objeções reais)
-          ======================================================== */}
-      <section className="bg-darker">
+      {/* ============ 10 — FAQ ============ */}
+      <section className="bg-darkest">
         <div className="wrap reveal">
           <div className="section-header center">
             <span className="eyebrow">Dúvidas</span>
@@ -774,7 +735,12 @@ function Index() {
           <div className="faq-wrap">
             {faqs.map((f, i) => (
               <div className={`faq-card ${openFaq === i ? "open" : ""}`} key={f.q}>
-                <button className="faq-btn" onClick={() => setOpenFaq(openFaq === i ? null : i)}>
+                <button
+                  type="button"
+                  className="faq-btn"
+                  aria-expanded={openFaq === i}
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                >
                   <span>{f.q}</span>
                   <span className="faq-icon">+</span>
                 </button>
@@ -787,26 +753,28 @@ function Index() {
         </div>
       </section>
 
-      {/* ========================================================
-          12 — CTA FINAL EMOCIONAL
-          ======================================================== */}
-      <section className="final-section bg-darkest">
+      {/* ============ 11 — CTA FINAL ============ */}
+      <section className="final-section grate-bg">
         <div className="wrap reveal">
           <div className="final-flame">🔥</div>
-          <h2>Chega de torcer.<br />Chegue preparado no próximo churrasco.</h2>
+          <h2>Seu próximo churrasco pode começar a ser preparado hoje.</h2>
           <p className="sub">
-            Na próxima vez que alguém pedir um churrasco, você não vai precisar adivinhar, calcular no chute ou depender de improviso.
+            Tenha um guia prático para consultar quando precisar e pare de depender somente do improviso.
           </p>
-          <a href={CHECKOUT_URL} className="cta-fire-btn" style={{ margin: "0 auto" }} onClick={trackInitiateCheckout}>
-            🔥 QUERO DEIXAR MEU PRÓXIMO CHURRASCO NO JEITO
-            <span className="cta-fire-sub">R$ 17,90 · Pagamento Único · Acesso Vitalício</span>
+
+          <div className="offer-price-block center">
+            <span className="offer-price-value">R$ 17,90</span>
+            <span className="offer-price-terms">Pagamento único • Acesso vitalício • Garantia de 7 dias</span>
+          </div>
+
+          <a href={CHECKOUT_URL} className="cta-fire-btn" onClick={trackInitiateCheckout}>
+            🔥 QUERO MEU ACESSO POR R$ 17,90
           </a>
-          <div className="final-trust">
-            <span>🛡️ 7 dias de garantia total</span>
-            <span>·</span>
-            <span>✅ Acesso imediato</span>
-            <span>·</span>
-            <span>📱 No celular sem instalar nada</span>
+
+          <div className="trust-microcopy">
+            <span>🔒 Pagamento seguro</span>
+            <span>⚡ Acesso digital</span>
+            <span>🛡️ Garantia de 7 dias</span>
           </div>
         </div>
       </section>
@@ -815,7 +783,7 @@ function Index() {
       <footer>
         <div className="wrap">
           <p>
-            Clube do Churrasco Perfeito™ — Central Prática de Consulta & Organização
+            Clube do Churrasco Perfeito™ — Central Prática de Consulta &amp; Organização
             <br />
             Feito para quem valoriza a boa mesa e o respeito pelo churrasco.
             <br />
@@ -826,45 +794,14 @@ function Index() {
         </div>
       </footer>
 
-      {/* STICKY CTA MOBILE — AGORA COM TEXTO DE CONVERSÃO FORTE */}
+      {/* STICKY CTA MOBILE */}
       <div className={`sticky-cta ${showSticky ? "show" : ""}`}>
         <div className="sticky-left">
-          <span className="sticky-brand">🔥 Clube do Churrasco</span>
-          <span className="sticky-price">R$ 17,90 · Vitalício</span>
+          <span className="sticky-price">R$ 17,90</span>
+          <span className="sticky-brand">Pagamento único</span>
         </div>
-        <a href={CHECKOUT_URL} className="sticky-btn" onClick={trackAddToCart}>QUERO ACESSAR</a>
+        <a href={CHECKOUT_URL} className="sticky-btn" onClick={trackAddToCart}>QUERO MEU ACESSO</a>
       </div>
-
-      {/* MODAL DE SAÍDA (EXIT INTENT / DOWNSELL) */}
-      {showExitPopup && (
-        <div className="exit-overlay" onClick={() => setShowExitPopup(false)}>
-          <div className="exit-modal" onClick={(e) => e.stopPropagation()}>
-            <button className="exit-close" onClick={() => setShowExitPopup(false)}>×</button>
-            <div className="exit-content">
-              <span className="eyebrow" style={{ color: "#ff5a1f" }}>⚠️ ESPERE! CONDIÇÃO ESPECIAL</span>
-              <h2>NÃO SAIA SEM O SEU ACESSO</h2>
-              <p>Percebemos que você está saindo. Para garantir que seu próximo churrasco seja perfeito, liberamos uma <b>oferta especial</b> para você não perder essa oportunidade.</p>
-              
-              <div className="exit-price">
-                <span className="old">R$ 47,00</span>
-                <span className="new">R$ 9,90</span>
-              </div>
-
-              <a href={DOWNSELL_URL} className="cta-fire-btn" onClick={trackInitiateCheckout}>
-                🔥 QUERO APROVEITAR A OFERTA AGORA
-                <span className="cta-fire-sub">Oferta válida apenas nesta janela</span>
-              </a>
-              
-              <button className="exit-decline" onClick={() => setShowExitPopup(false)}>
-                Não, prefiro continuar improvisando no churrasco
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* SCRIPTS CAKTO (APENAS PARA PÁGINAS DE UPSELL SE NECESSÁRIO) */}
-      <script type="text/javascript" src="https://caktoscripts.nyc3.cdn.digitaloceanspaces.com/upsell.js" async />
     </div>
   );
 }
