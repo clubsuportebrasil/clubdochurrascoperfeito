@@ -273,24 +273,28 @@ const depoimentos = [
 // FAQ — apenas as objeções que importam
 const faqs = [
   {
-    q: "Funciona para churrasqueira a gás ou elétrica também?",
-    a: "Sim. O cálculo de quantidade, a escolha de cortes e o ponto da carne funcionam igual. O manual de fogo traz orientações específicas para controle de calor em cada tipo.",
+    q: "É para iniciantes?",
+    a: "Sim. A linguagem é simples e direta. Você abre, encontra a informação que precisa em segundos e volta para a grelha.",
   },
   {
-    q: "Preciso ter experiência para usar?",
-    a: "Nenhuma. É uma referência de consulta rápida, sem termos complicados. Você abre, vê a informação que precisa em 10 segundos e volta para a grelha.",
+    q: "Funciona no celular?",
+    a: "Sim. É feito para ser consultado pelo navegador do celular, sem instalar nada.",
   },
   {
-    q: "Como funciona o acesso? Precisa instalar alguma coisa?",
-    a: "Não instala nada. Após o pagamento você recebe um link por e-mail e acessa diretamente pelo navegador do celular ou computador. Acesso vitalício desde o primeiro pagamento.",
+    q: "Como recebo o acesso?",
+    a: "Depois da confirmação do pagamento você recebe o link de acesso por e-mail.",
   },
   {
-    q: "E se eu não gostar?",
-    a: "Você tem 7 dias de garantia total, sem burocracia. Acesse, use as ferramentas e, se achar que não valeu, é só solicitar o reembolso dentro do prazo — 100% devolvido.",
+    q: "É pagamento único?",
+    a: "Sim. Você paga R$ 17,90 uma única vez e o acesso é vitalício. Sem mensalidade.",
   },
   {
-    q: "Qual o prazo de acesso?",
-    a: "Vitalício. Você paga uma única vez e usa para sempre, incluindo todas as atualizações futuras do conteúdo.",
+    q: "Tenho garantia?",
+    a: "Você tem 7 dias para avaliar o material. Se não fizer sentido para você, pode solicitar o reembolso conforme as condições da garantia.",
+  },
+  {
+    q: "O que eu recebo?",
+    a: "Calculadora de carnes, guia de cortes, manual da brasa, guia de pontos e tempos, temperos, checklists, roteiros de churrasco e acompanhamentos — mais o bônus O Churrasco Gaúcho.",
   },
 ];
 
