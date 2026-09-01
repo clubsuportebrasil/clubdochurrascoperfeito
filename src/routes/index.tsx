@@ -74,7 +74,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
           "aggregateRating": {
             "@type": "AggregateRating",
             "ratingValue": "5",
-            "reviewCount": "12"
+            "reviewCount": "3"
           }
         })
       },
@@ -86,10 +86,10 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "Funciona para churrasqueira a gás ou elétrica também?",
+              "name": "É para iniciantes?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Sim. O cálculo de quantidade, a escolha de cortes e o ponto da carne funcionam igual. O manual de fogo traz orientações específicas para controle de calor em cada tipo."
+                "text": "Sim. É uma referência de consulta rápida, com linguagem simples, feita para quem quer parar de improvisar no churrasco."
               }
             },
             {
@@ -117,7 +117,6 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
 });
 
 const CHECKOUT_URL = "https://pay.cakto.com.br/rfzix5k_1049718";
-const DOWNSELL_URL = "https://pay.cakto.com.br/6vow3uz";
 
 const PRODUCT = {
   content_type: "product",
