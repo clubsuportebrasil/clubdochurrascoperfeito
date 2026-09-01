@@ -324,7 +324,6 @@ function Index() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [showSticky, setShowSticky] = useState(false);
   const [demoPessoas, setDemoPessoas] = useState(10);
-  const [showExitPopup, setShowExitPopup] = useState(false);
   const heroRef = useRef<HTMLElement>(null);
 
   const totalBov = (demoPessoas * 0.35).toFixed(1);
@@ -365,19 +364,8 @@ function Index() {
       reveals.forEach((el) => el.classList.add("in-view"));
     }
 
-    const handleExitIntent = (e: MouseEvent) => {
-      // Trigger only if mouse moves above the top of the viewport (intent to close/switch tab)
-      // and only if not already shown this session
-      if (e.clientY <= 0 && !sessionStorage.getItem('exit_intent_shown')) {
-        setShowExitPopup(true);
-        sessionStorage.setItem('exit_intent_shown', 'true');
-      }
-    };
-    document.addEventListener("mouseleave", handleExitIntent);
-
     return () => {
       window.removeEventListener("scroll", onScroll);
-      document.removeEventListener("mouseleave", handleExitIntent);
       obs?.disconnect();
     };
   }, []);
