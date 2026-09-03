@@ -217,14 +217,14 @@ const trackAddToCart = () => {
 
 // STACK DE VALOR
 const stackItens = [
-  { emoji: "🥩", title: "Calculadora de Carne", desc: "Descubra exatamente quanto comprar por perfil de convidado." },
-  { emoji: "🔪", title: "Guia de Cortes", desc: "Escolha melhor no açougue. Saiba o que esperar de cada peça." },
-  { emoji: "🔥", title: "Manual da Brasa", desc: "Controle fogo e calor com a técnica dos segundos na mão." },
-  { emoji: "🌡️", title: "Guia de Pontos", desc: "Acerte o ponto sem precisar cortar a peça toda hora." },
-  { emoji: "🛒", title: "Checklists do Anfitrião", desc: "Não esqueça carvão, gelo, sal ou nada essencial." },
-  { emoji: "📋", title: "Roteiros de Churrasco", desc: "Estruturas prontas para Casal, 5, 10 e 20 pessoas." },
-  { emoji: "🍺", title: "Acompanhamentos", desc: "Farofa, vinagrete, pão de alho e harmonização." },
-  { emoji: "🎁", title: "BÔNUS — O Churrasco Gaúcho", desc: "Livro digital ilustrado com história e técnica da tradição sulista." },
+  { icon: "ic-meat", title: "Calculadora de Carne", desc: "Descubra exatamente quanto comprar por perfil de convidado." },
+  { icon: "ic-knife", title: "Guia de Cortes", desc: "Escolha melhor no açougue. Saiba o que esperar de cada peça." },
+  { icon: "ic-flame", title: "Manual da Brasa", desc: "Controle fogo e calor com a técnica dos segundos na mão." },
+  { icon: "ic-thermo", title: "Guia de Pontos", desc: "Acerte o ponto sem precisar cortar a peça toda hora." },
+  { icon: "ic-cart", title: "Checklists do Anfitrião", desc: "Não esqueça carvão, gelo, sal ou nada essencial." },
+  { icon: "ic-clipboard", title: "Roteiros de Churrasco", desc: "Estruturas prontas para Casal, 5, 10 e 20 pessoas." },
+  { icon: "ic-beer", title: "Acompanhamentos", desc: "Farofa, vinagrete, pão de alho e harmonização." },
+  { icon: "ic-gift", title: "BÔNUS — O Churrasco Gaúcho", desc: "Livro digital ilustrado com história e técnica da tradição sulista." },
 ];
 
 // SCREENSHOTS DO PRODUTO (mockup visual)
@@ -315,7 +315,46 @@ function Icons() {
         <symbol id="ic-star" viewBox="0 0 24 24">
           <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26" fill="currentColor" />
         </symbol>
+        <symbol id="ic-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+          <path d="m6 6 12 12M18 6 6 18" />
+        </symbol>
+        <symbol id="ic-meat" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M4.5 8.5c1.8-3.2 6.1-4 9.4-2.1l4.3 2.5c2.1 1.2 2.7 4 .9 5.8l-2.8 2.8c-1.8 1.8-4.6 1.2-5.8-.9L8 12.3c-1.9-3.3-3.1-2-3.5-3.8Z" />
+          <circle cx="16.5" cy="11" r="1.2" />
+        </symbol>
+        <symbol id="ic-knife" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+          <path d="m4 20 8.7-8.7M4 20l4.5-1.1L20 7.4a2.1 2.1 0 0 0-3-3L5.1 16.4 4 20Z" />
+        </symbol>
+        <symbol id="ic-thermo" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round">
+          <path d="M10 14.5V5a2 2 0 1 1 4 0v9.5a4 4 0 1 1-4 0Z" /><path d="M12 12v5" />
+        </symbol>
+        <symbol id="ic-cart" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M3 4h2l2.2 10.2a2 2 0 0 0 2 1.6h7.4a2 2 0 0 0 1.9-1.4L20 8H6" /><circle cx="10" cy="20" r="1" /><circle cx="17" cy="20" r="1" />
+        </symbol>
+        <symbol id="ic-clipboard" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="5" y="4" width="14" height="17" rx="2" /><path d="M9 4.5V3h6v1.5M9 10h6M9 14h6M9 18h3" />
+        </symbol>
+        <symbol id="ic-beer" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M7 6h10v13H7zM17 9h2a2 2 0 0 1 0 4h-2M10 3v3M14 3v3" />
+        </symbol>
+        <symbol id="ic-gift" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="3" y="9" width="18" height="12" rx="1" /><path d="M12 9v12M3 13h18M12 9H8.5a2.5 2.5 0 1 1 2.5-2.5V9ZM12 9h3.5a2.5 2.5 0 1 0-2.5-2.5V9Z" />
+        </symbol>
+        <symbol id="ic-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+          <rect x="5" y="10" width="14" height="11" rx="2" /><path d="M8 10V7a4 4 0 0 1 8 0v3" />
+        </symbol>
+        <symbol id="ic-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round">
+          <path d="m13 2-9 12h7l-1 8 9-12h-7l1-8Z" />
+        </symbol>
       </defs>
+    </svg>
+  );
+}
+
+function SymbolIcon({ name, className = "" }: { name: string; className?: string }) {
+  return (
+    <svg className={`ui-icon ${className}`} aria-hidden="true" focusable="false">
+      <use href={`#${name}`} />
     </svg>
   );
 }
@@ -392,7 +431,7 @@ function Index() {
       <section className="hero grate-bg" id="hero" ref={heroRef}>
         <div className="wrap hero-grid">
           <div className="hero-copy">
-            <div className="hero-eyetag">🔥 VAI TER CHURRASCO?</div>
+            <div className="hero-eyetag"><SymbolIcon name="ic-flame" /> VAI TER CHURRASCO?</div>
 
             <h1 className="hero-mega-headline">
               ANTES DE COMPRAR A CARNE, APRENDA A PLANEJAR E PREPARAR SEU CHURRASCO.
@@ -410,13 +449,13 @@ function Index() {
 
             <div className="hero-cta-stack">
               <a href={CHECKOUT_URL} className="cta-fire-btn" onClick={trackInitiateCheckout}>
-                🔥 QUERO MEU ACESSO POR R$ 17,90
+                <SymbolIcon name="ic-flame" /> QUERO MEU ACESSO POR R$ 17,90
               </a>
 
               <div className="trust-microcopy">
-                <span>🔒 Pagamento seguro</span>
-                <span>⚡ Acesso digital</span>
-                <span>🛡️ Garantia de 7 dias</span>
+                <span><SymbolIcon name="ic-lock" /> Pagamento seguro</span>
+                <span><SymbolIcon name="ic-bolt" /> Acesso digital</span>
+                <span><SymbolIcon name="ic-shield" /> Garantia de 7 dias</span>
               </div>
             </div>
           </div>
@@ -443,13 +482,13 @@ function Index() {
           </div>
 
           <ul className="pain-bullets">
-            <li>❌ Carne demais</li>
-            <li>❌ Carne de menos</li>
-            <li>❌ Ponto errado</li>
-            <li>❌ Carne seca</li>
-            <li>❌ Sal fora do ponto</li>
-            <li>❌ Fogo difícil de controlar</li>
-            <li>❌ Dúvida sobre qual corte escolher</li>
+            <li><SymbolIcon name="ic-x" /> Carne demais</li>
+            <li><SymbolIcon name="ic-x" /> Carne de menos</li>
+            <li><SymbolIcon name="ic-x" /> Ponto errado</li>
+            <li><SymbolIcon name="ic-x" /> Carne seca</li>
+            <li><SymbolIcon name="ic-x" /> Sal fora do ponto</li>
+            <li><SymbolIcon name="ic-x" /> Fogo difícil de controlar</li>
+            <li><SymbolIcon name="ic-x" /> Dúvida sobre qual corte escolher</li>
           </ul>
 
           <div className="pain-close">
@@ -465,7 +504,7 @@ function Index() {
           <div className="calc-bait-box">
             <div className="calc-bait-head">
               <span className="eyebrow">Demonstração</span>
-              <h2>🥩 QUANTO DE CARNE VOCÊ PRECISA?</h2>
+              <h2><SymbolIcon name="ic-meat" /> QUANTO DE CARNE VOCÊ PRECISA?</h2>
               <p>
                 Pare de comprar carne no chute. Informe seus convidados e tenha uma referência para
                 planejar melhor seu churrasco.
@@ -501,28 +540,28 @@ function Index() {
 
             <div className="calc-bait-result">
               <div className="calc-bait-item">
-                <span className="calc-item-emoji">🥩</span>
+                <SymbolIcon name="ic-meat" className="calc-item-emoji" />
                 <div>
                   <span className="calc-item-val">{totalBov} kg</span>
                   <span className="calc-item-label">carne bovina</span>
                 </div>
               </div>
               <div className="calc-bait-item">
-                <span className="calc-item-emoji">🌭</span>
+                <SymbolIcon name="ic-meat" className="calc-item-emoji" />
                 <div>
                   <span className="calc-item-val">{totalLing} kg</span>
                   <span className="calc-item-label">linguiça</span>
                 </div>
               </div>
               <div className="calc-bait-item">
-                <span className="calc-item-emoji">🍗</span>
+                <SymbolIcon name="ic-meat" className="calc-item-emoji" />
                 <div>
                   <span className="calc-item-val">{totalFrango} kg</span>
                   <span className="calc-item-label">frango</span>
                 </div>
               </div>
               <div className="calc-bait-item">
-                <span className="calc-item-emoji">🔥</span>
+                <SymbolIcon name="ic-flame" className="calc-item-emoji" />
                 <div>
                   <span className="calc-item-val">~{totalCarvao} kg</span>
                   <span className="calc-item-label">carvão</span>
@@ -535,7 +574,7 @@ function Index() {
                 Essa é apenas uma das ferramentas que você encontra dentro do Clube.
               </p>
               <a href={CHECKOUT_URL} className="cta-fire-btn" onClick={trackInitiateCheckout}>
-                🔥 QUERO MEU ACESSO POR R$ 17,90
+                <SymbolIcon name="ic-flame" /> QUERO MEU ACESSO POR R$ 17,90
               </a>
             </div>
           </div>
@@ -576,12 +615,12 @@ function Index() {
           <div className="stack-grid">
             {stackItens.map((item, i) => (
               <div className={`stack-item ${i === stackItens.length - 1 ? "stack-bonus" : ""}`} key={item.title}>
-                <span className="stack-emoji">{item.emoji}</span>
+                <SymbolIcon name={item.icon} className="stack-emoji" />
                 <div className="stack-content">
                   <b>{item.title}</b>
                   <span>{item.desc}</span>
                 </div>
-                <span className="stack-check">✓</span>
+                <SymbolIcon name="ic-check" className="stack-check" />
               </div>
             ))}
           </div>
@@ -639,7 +678,7 @@ function Index() {
                 <div className="offer-items-grid">
                   {stackItens.map((item) => (
                     <div className="offer-item" key={item.title}>
-                      <span className="ck">{item.emoji}</span>
+                      <SymbolIcon name={item.icon} className="ck" />
                       <b>{item.title}</b>
                     </div>
                   ))}
@@ -653,10 +692,10 @@ function Index() {
                 </div>
 
                 <ul className="price-benefits-list">
-                  <li><span className="benefit-check">✓</span><span>Pagamento único de R$ 17,90</span></li>
-                  <li><span className="benefit-check">✓</span><span>Acesso vitalício</span></li>
-                  <li><span className="benefit-check">✓</span><span>Garantia de 7 dias</span></li>
-                  <li><span className="benefit-check">✓</span><span>Uso direto no celular, sem instalar nada</span></li>
+                  <li><SymbolIcon name="ic-check" className="benefit-check" /><span>Pagamento único de R$ 17,90</span></li>
+                  <li><SymbolIcon name="ic-check" className="benefit-check" /><span>Acesso vitalício</span></li>
+                  <li><SymbolIcon name="ic-check" className="benefit-check" /><span>Garantia de 7 dias</span></li>
+                  <li><SymbolIcon name="ic-check" className="benefit-check" /><span>Uso direto no celular, sem instalar nada</span></li>
                 </ul>
 
                 <a href={CHECKOUT_URL} className="checkout-cta-button" onClick={trackInitiateCheckout}>
@@ -664,9 +703,9 @@ function Index() {
                 </a>
 
                 <div className="trust-microcopy">
-                  <span>🔒 Pagamento seguro</span>
-                  <span>⚡ Acesso digital</span>
-                  <span>🛡️ Garantia de 7 dias</span>
+                  <span><SymbolIcon name="ic-lock" /> Pagamento seguro</span>
+                  <span><SymbolIcon name="ic-bolt" /> Acesso digital</span>
+                  <span><SymbolIcon name="ic-shield" /> Garantia de 7 dias</span>
                 </div>
 
                 <div className="pay-badges-row">
@@ -710,7 +749,7 @@ function Index() {
       <section className="bg-darker">
         <div className="wrap reveal">
           <div className="guarantee-box">
-            <span className="guarantee-shield">🛡️</span>
+            <SymbolIcon name="ic-shield" className="guarantee-shield" />
             <h2>Garantia de 7 dias</h2>
             <p>
               Você tem 7 dias para conhecer o material e avaliar se ele faz sentido para você.
@@ -756,7 +795,7 @@ function Index() {
       {/* ============ 11 — CTA FINAL ============ */}
       <section className="final-section grate-bg">
         <div className="wrap reveal">
-          <div className="final-flame">🔥</div>
+          <SymbolIcon name="ic-flame" className="final-flame" />
           <h2>Seu próximo churrasco pode começar a ser preparado hoje.</h2>
           <p className="sub">
             Tenha um guia prático para consultar quando precisar e pare de depender somente do improviso.
@@ -772,9 +811,9 @@ function Index() {
           </a>
 
           <div className="trust-microcopy">
-            <span>🔒 Pagamento seguro</span>
-            <span>⚡ Acesso digital</span>
-            <span>🛡️ Garantia de 7 dias</span>
+            <span><SymbolIcon name="ic-lock" /> Pagamento seguro</span>
+            <span><SymbolIcon name="ic-bolt" /> Acesso digital</span>
+            <span><SymbolIcon name="ic-shield" /> Garantia de 7 dias</span>
           </div>
         </div>
       </section>

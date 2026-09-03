@@ -613,3 +613,33 @@ footer a{color:var(--papel-dim);text-decoration:underline;}
   .pay-pill{font-size:.75rem;}
 }
 html,body{max-width:100%;overflow-x:hidden;}
+
+/* Ícones internos: evitam quadrados de emojis em navegadores sem fonte colorida. */
+.ui-icon{width:1.15em;height:1.15em;display:inline-block;flex:0 0 auto;vertical-align:-.18em;}
+.hero-eyetag .ui-icon{width:1em;height:1em;}
+.cta-fire-btn .ui-icon,.checkout-cta-button .ui-icon{width:1em;height:1em;vertical-align:-.12em;}
+.trust-microcopy span{display:inline-flex;align-items:center;gap:5px;}
+.trust-microcopy .ui-icon{width:14px;height:14px;color:var(--verde);}
+.pain-bullets li{display:flex;align-items:center;gap:8px;}
+.pain-bullets li .ui-icon{width:16px;height:16px;color:var(--brasa-2);}
+.calc-bait-head h2{display:flex;align-items:center;justify-content:center;gap:8px;}
+.calc-bait-head h2 .ui-icon{color:var(--brasa-2);width:1em;height:1em;}
+.calc-item-emoji{width:26px;height:26px;color:var(--brasa-2);}
+.stack-emoji{width:24px;height:24px;color:var(--brasa-2);margin-top:2px;}
+.stack-check{width:18px;height:18px;color:var(--verde);margin-top:3px;}
+.offer-item .ck{width:18px;height:18px;color:var(--brasa-2);}
+.benefit-check{width:16px;height:16px;flex:0 0 auto;}
+.guarantee-shield{width:44px;height:44px;color:var(--verde);margin:0 auto 10px;}
+.final-flame{width:48px;height:48px;color:var(--brasa-2);margin:0 auto 14px;}
+.cta-fire-btn:focus-visible,.checkout-cta-button:focus-visible,.sticky-btn:focus-visible,.header-btn:focus-visible,.faq-btn:focus-visible,.calc-bait-btn-count:focus-visible{outline:3px solid var(--mostarda);outline-offset:3px;}
+
+@media (max-width:640px){
+  .header-inner{padding-left:14px;padding-right:14px;gap:8px;}
+  .brand{font-size:.9rem;gap:6px;min-width:0;white-space:nowrap;}
+  .brand .icon{width:18px;height:18px;}
+  .header-price{font-size:.78rem;padding:4px 8px;}
+  .hero-mega-headline{font-size:clamp(2.05rem,9.7vw,3rem);}
+  .sticky-cta{display:grid;grid-template-columns:minmax(0,1fr) auto;}
+  .sticky-left{min-width:0;}
+  .sticky-btn{font-size:.76rem;padding:10px 12px;}
+}
