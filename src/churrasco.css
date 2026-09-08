@@ -653,3 +653,12 @@ html,body{max-width:100%;overflow-x:hidden;}
   section{padding-left:0;padding-right:0;}
   *{overflow-wrap:anywhere;}
 }
+
+/* Ajustes finais de layout mobile */
+.cta-fire-btn{flex-direction:row;flex-wrap:wrap;gap:8px;}
+.header-price{white-space:nowrap;}
+@media (max-width:640px){
+  .header-price{display:none;}
+  .hero-mockup-wrap{max-width:340px;}
+  .cta-fire-btn{font-size:1rem;padding:16px 18px;}
+}
