@@ -643,3 +643,13 @@ html,body{max-width:100%;overflow-x:hidden;}
   .sticky-left{min-width:0;}
   .sticky-btn{font-size:.76rem;padding:10px 12px;}
 }
+
+/* Áreas de toque e legibilidade mobile */
+@media (max-width:640px){
+  .cta-fire-btn,.checkout-cta-button,.sticky-btn,.header-btn,.faq-btn{min-height:52px;display:inline-flex;align-items:center;justify-content:center;gap:8px;}
+  .calc-bait-btn-count{min-width:44px;min-height:44px;}
+  img,svg,video{max-width:100%;height:auto;}
+  .offer-price-terms{font-size:.82rem;line-height:1.5;}
+  section{padding-left:0;padding-right:0;}
+  *{overflow-wrap:anywhere;}
+}
