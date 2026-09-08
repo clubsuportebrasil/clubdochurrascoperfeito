@@ -227,17 +227,6 @@ const stackItens = [
   { icon: "ic-gift", title: "BÔNUS — O Churrasco Gaúcho", desc: "Livro digital ilustrado com história e técnica da tradição sulista." },
 ];
 
-// SCREENSHOTS DO PRODUTO (mockup visual)
-const screenCards = [
-  { emoji: "🥩", title: "Calculadora", label: "10 pessoas → 3.5 kg bovina", sub: "1.5 kg linguiça • 1.0 kg frango", color: "#ff5a1f" },
-  { emoji: "🔪", title: "Guia de Cortes", label: "Picanha ★★★★★", sub: "Fraldinha ★★★★☆ • Contrafilé ★★★☆☆", color: "#f59e0b" },
-  { emoji: "🔥", title: "Manual do Fogo", label: "Calor Alto → 3 a 5 seg", sub: "Calor Médio → 6 a 8 seg na mão", color: "#ef4444" },
-  { emoji: "🌡️", title: "Pontos da Carne", label: "Ao Ponto → Cede levemente", sub: "Malpassado → Mole • Bem passado → Duro", color: "#10b981" },
-  { emoji: "🛒", title: "Checklist", label: "☑ Carne e carvão", sub: "☑ Sal grosso • ☐ Tábua e faca", color: "#6366f1" },
-  { emoji: "📋", title: "Roteiro", label: "Para 10 pessoas", sub: "Entrada 18h • Grelha 19h • Mesa 20h", color: "#8b5cf6" },
-  { emoji: "🍺", title: "Acompanhamentos", label: "Farofa de bacon crocante", sub: "Vinagrete • Pão de alho • Queijo", color: "#f59e0b" },
-];
-
 // SITUAÇÕES (para quem é — compacto)
 const situacoes = [
   { s: "Vai ao mercado amanhã", t: "Calculadora + Guia de Cortes" },
@@ -627,7 +616,7 @@ function Index() {
 
           <div className="section-cta">
             <a href={CHECKOUT_URL} className="cta-fire-btn" onClick={trackInitiateCheckout}>
-              🔥 QUERO MEU ACESSO POR R$ 17,90
+              <SymbolIcon name="ic-flame" /> QUERO MEU ACESSO POR R$ 17,90
             </a>
           </div>
         </div>
@@ -699,7 +688,7 @@ function Index() {
                 </ul>
 
                 <a href={CHECKOUT_URL} className="checkout-cta-button" onClick={trackInitiateCheckout}>
-                  <span>🔥 QUERO MEU ACESSO POR R$ 17,90</span>
+                  <span><SymbolIcon name="ic-flame" /> QUERO MEU ACESSO POR R$ 17,90</span>
                 </a>
 
                 <div className="trust-microcopy">
@@ -807,7 +796,7 @@ function Index() {
           </div>
 
           <a href={CHECKOUT_URL} className="cta-fire-btn" onClick={trackInitiateCheckout}>
-            🔥 QUERO MEU ACESSO POR R$ 17,90
+            <SymbolIcon name="ic-flame" /> QUERO MEU ACESSO POR R$ 17,90
           </a>
 
           <div className="trust-microcopy">
