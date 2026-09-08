@@ -627,7 +627,7 @@ function Index() {
 
           <div className="section-cta">
             <a href={CHECKOUT_URL} className="cta-fire-btn" onClick={trackInitiateCheckout}>
-              🔥 QUERO MEU ACESSO POR R$ 17,90
+              <SymbolIcon name="ic-flame" /> QUERO MEU ACESSO POR R$ 17,90
             </a>
           </div>
         </div>
@@ -699,7 +699,7 @@ function Index() {
                 </ul>
 
                 <a href={CHECKOUT_URL} className="checkout-cta-button" onClick={trackInitiateCheckout}>
-                  <span>🔥 QUERO MEU ACESSO POR R$ 17,90</span>
+                  <span><SymbolIcon name="ic-flame" /> QUERO MEU ACESSO POR R$ 17,90</span>
                 </a>
 
                 <div className="trust-microcopy">
@@ -807,7 +807,7 @@ function Index() {
           </div>
 
           <a href={CHECKOUT_URL} className="cta-fire-btn" onClick={trackInitiateCheckout}>
-            🔥 QUERO MEU ACESSO POR R$ 17,90
+            <SymbolIcon name="ic-flame" /> QUERO MEU ACESSO POR R$ 17,90
           </a>
 
           <div className="trust-microcopy">
