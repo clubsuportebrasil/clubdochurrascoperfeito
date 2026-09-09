@@ -380,7 +380,7 @@ function Index() {
           </div>
           <div className="header-right">
             <div className="header-price mono">R$ 17,90</div>
-            <a href={CHECKOUT_URL} className="header-btn" onClick={trackAddToCart}>Quero Acessar</a>
+            <a href={CHECKOUT_URL} className="header-btn" onClick={trackInitiateCheckout}>Quero Acessar</a>
           </div>
         </div>
       </header>
@@ -792,7 +792,7 @@ function Index() {
           <span className="sticky-price">R$ 17,90</span>
           <span className="sticky-brand">Pagamento único</span>
         </div>
-        <a href={CHECKOUT_URL} className="sticky-btn" onClick={trackAddToCart}>QUERO MEU ACESSO</a>
+        <a href={CHECKOUT_URL} className="sticky-btn" onClick={trackInitiateCheckout}>QUERO MEU ACESSO</a>
       </div>
     </div>
   );

@@ -37,7 +37,7 @@ async function sendMetaPurchase(data: any) {
 
 
 async function sendTikTokEvent(data: any) {
-  const pixelId = process.env['TIKTOK_PIXEL_ID'] || 'DA5NG63C77U8NT7JF0J0';
+  const pixelId = process.env['TIKTOK_PIXEL_ID'] || 'DAG84ARC77UCRCTVC3OG';
   const accessToken = process.env['TIKTOK_ACCESS_TOKEN'];
 
   if (!accessToken) return;
