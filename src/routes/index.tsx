@@ -227,27 +227,6 @@ const situacoes = [
   { s: "Faz churrasco toda semana", t: "Ferramentas Rápidas de Consulta" },
 ];
 
-// DEPOIMENTOS (PLACEHOLDERS — substitua por depoimentos reais dos seus clientes)
-const depoimentos = [
-  {
-    stars: 5,
-    text: "Finalmente não precisei ficar perguntando no grupo da família quanto de carne comprar. Coloquei o número de pessoas e já saiu a lista.",
-    author: "Marcelo R.",
-    tag: "Comprador do Clube",
-  },
-  {
-    stars: 5,
-    text: "Fiz o churrasco de aniversário do meu filho sem estresse. Consultei o guia de fogo na hora e a carne ficou no ponto certo.",
-    author: "Fernanda T.",
-    tag: "Compradora do Clube",
-  },
-  {
-    stars: 5,
-    text: "Só a calculadora já valeu os R$17,90. Comprei a quantidade exata, não sobrou quase nada e não faltou para ninguém.",
-    author: "Rafael S.",
-    tag: "Comprador do Clube",
-  },
-];
 
 // FAQ — apenas as objeções que importam
 const faqs = [
@@ -698,25 +677,20 @@ function Index() {
         </div>
       </section>
 
-      {/* ============ 08 — PROVA SOCIAL ============ */}
+      {/* ============ 08 — SITUAÇÕES DE USO ============ */}
       <section className="grate-bg">
         <div className="wrap reveal">
           <div className="section-header center">
-            <span className="eyebrow">O que dizem os compradores</span>
-            <h2>Quem usou e não quer mais depender do improviso</h2>
+            <span className="eyebrow">Situações de uso</span>
+            <h2>O que você poderá fazer com o Clube</h2>
           </div>
           <div className="testimonials-grid">
-            {depoimentos.map((d) => (
-              <div className="testimonial-card" key={d.author}>
-                <div className="testi-stars">
-                  {Array.from({ length: d.stars }).map((_, i) => (
-                    <svg key={i} className="star-icon"><use href="#ic-star" /></svg>
-                  ))}
-                </div>
-                <p className="testi-text">"{d.text}"</p>
+            {situacoes.map((item) => (
+              <div className="testimonial-card" key={item.s}>
+                <p className="testi-text">{item.s}</p>
                 <div className="testi-author">
-                  <b>{d.author}</b>
-                  <span>{d.tag}</span>
+                  <b>{item.t}</b>
+                  <span>Ferramenta indicada</span>
                 </div>
               </div>
             ))}
