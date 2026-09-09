@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiPublicCaktoWebhookRouteImport } from './routes/api/public/cakto-webhook'
+import { Route as ApiPublicKiwifyWebhookRouteImport } from './routes/api/public/kiwify-webhook'
 import { Route as ApiPublicMetaCapiRouteImport } from './routes/api/public/meta-capi'
 
 const IndexRoute = IndexRouteImport.update({
@@ -23,6 +24,11 @@ const ApiPublicCaktoWebhookRoute = ApiPublicCaktoWebhookRouteImport.update({
   path: '/api/public/cakto-webhook',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicKiwifyWebhookRoute = ApiPublicKiwifyWebhookRouteImport.update({
+  id: '/api/public/kiwify-webhook',
+  path: '/api/public/kiwify-webhook',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicMetaCapiRoute = ApiPublicMetaCapiRouteImport.update({
   id: '/api/public/meta-capi',
   path: '/api/public/meta-capi',
@@ -32,30 +38,47 @@ const ApiPublicMetaCapiRoute = ApiPublicMetaCapiRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/api/public/cakto-webhook': typeof ApiPublicCaktoWebhookRoute
+  '/api/public/kiwify-webhook': typeof ApiPublicKiwifyWebhookRoute
   '/api/public/meta-capi': typeof ApiPublicMetaCapiRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/api/public/cakto-webhook': typeof ApiPublicCaktoWebhookRoute
+  '/api/public/kiwify-webhook': typeof ApiPublicKiwifyWebhookRoute
   '/api/public/meta-capi': typeof ApiPublicMetaCapiRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/api/public/cakto-webhook': typeof ApiPublicCaktoWebhookRoute
+  '/api/public/kiwify-webhook': typeof ApiPublicKiwifyWebhookRoute
   '/api/public/meta-capi': typeof ApiPublicMetaCapiRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/api/public/cakto-webhook' | '/api/public/meta-capi'
+  fullPaths:
+    | '/'
+    | '/api/public/cakto-webhook'
+    | '/api/public/kiwify-webhook'
+    | '/api/public/meta-capi'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/api/public/cakto-webhook' | '/api/public/meta-capi'
-  id: '__root__' | '/' | '/api/public/cakto-webhook' | '/api/public/meta-capi'
+  to:
+    | '/'
+    | '/api/public/cakto-webhook'
+    | '/api/public/kiwify-webhook'
+    | '/api/public/meta-capi'
+  id:
+    | '__root__'
+    | '/'
+    | '/api/public/cakto-webhook'
+    | '/api/public/kiwify-webhook'
+    | '/api/public/meta-capi'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ApiPublicCaktoWebhookRoute: typeof ApiPublicCaktoWebhookRoute
+  ApiPublicKiwifyWebhookRoute: typeof ApiPublicKiwifyWebhookRoute
   ApiPublicMetaCapiRoute: typeof ApiPublicMetaCapiRoute
 }
 
@@ -75,6 +98,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicCaktoWebhookRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/kiwify-webhook': {
+      id: '/api/public/kiwify-webhook'
+      path: '/api/public/kiwify-webhook'
+      fullPath: '/api/public/kiwify-webhook'
+      preLoaderRoute: typeof ApiPublicKiwifyWebhookRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/meta-capi': {
       id: '/api/public/meta-capi'
       path: '/api/public/meta-capi'
@@ -88,6 +118,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ApiPublicCaktoWebhookRoute: ApiPublicCaktoWebhookRoute,
+  ApiPublicKiwifyWebhookRoute: ApiPublicKiwifyWebhookRoute,
   ApiPublicMetaCapiRoute: ApiPublicMetaCapiRoute,
 }
 export const routeTree = rootRouteImport

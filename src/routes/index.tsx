@@ -47,7 +47,7 @@ fbq('track','PageView');`
   w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
 var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
 ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
-  ttq.load('DA5NG63C77U8NT7JF0J0');
+  ttq.load('DAG84ARC77UCRCTVC3OG');
   ttq.page();
 }(window, document, 'ttq');`
       },
@@ -70,11 +70,6 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
             "priceCurrency": "BRL",
             "price": "17.90",
             "availability": "https://schema.org/InStock"
-          },
-          "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "5",
-            "reviewCount": "3"
           }
         })
       },
@@ -116,7 +111,7 @@ var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n
   component: Index,
 });
 
-const CHECKOUT_URL = "https://pay.cakto.com.br/rfzix5k_1049718";
+const CHECKOUT_URL = "https://pay.kiwify.com.br/GKUOcuM";
 
 const PRODUCT = {
   content_type: "product",
@@ -203,15 +198,10 @@ const trackEvent = (metaEvent: string, tiktokEvent: string) => {
   sendCapi(metaEvent, eventId);
 };
 
+// Único evento de intenção de compra: o clique leva ao checkout externo.
+// Não disparamos AddToCart (não existe carrinho) nem Purchase no clique.
 const trackInitiateCheckout = () => {
   trackEvent("InitiateCheckout", "InitiateCheckout");
-  // O checkout é externo (Cakto): registramos também AddPaymentInfo aqui,
-  // pois é o último passo rastreável antes do pagamento.
-  trackEvent("AddPaymentInfo", "AddPaymentInfo");
-};
-
-const trackAddToCart = () => {
-  trackEvent("AddToCart", "AddToCart");
 };
 
 
@@ -237,27 +227,6 @@ const situacoes = [
   { s: "Faz churrasco toda semana", t: "Ferramentas Rápidas de Consulta" },
 ];
 
-// DEPOIMENTOS (PLACEHOLDERS — substitua por depoimentos reais dos seus clientes)
-const depoimentos = [
-  {
-    stars: 5,
-    text: "Finalmente não precisei ficar perguntando no grupo da família quanto de carne comprar. Coloquei o número de pessoas e já saiu a lista.",
-    author: "Marcelo R.",
-    tag: "Comprador do Clube",
-  },
-  {
-    stars: 5,
-    text: "Fiz o churrasco de aniversário do meu filho sem estresse. Consultei o guia de fogo na hora e a carne ficou no ponto certo.",
-    author: "Fernanda T.",
-    tag: "Compradora do Clube",
-  },
-  {
-    stars: 5,
-    text: "Só a calculadora já valeu os R$17,90. Comprei a quantidade exata, não sobrou quase nada e não faltou para ninguém.",
-    author: "Rafael S.",
-    tag: "Comprador do Clube",
-  },
-];
 
 // FAQ — apenas as objeções que importam
 const faqs = [
@@ -411,7 +380,7 @@ function Index() {
           </div>
           <div className="header-right">
             <div className="header-price mono">R$ 17,90</div>
-            <a href={CHECKOUT_URL} className="header-btn" onClick={trackAddToCart}>Quero Acessar</a>
+            <a href={CHECKOUT_URL} className="header-btn" onClick={trackInitiateCheckout}>Quero Acessar</a>
           </div>
         </div>
       </header>
@@ -708,25 +677,20 @@ function Index() {
         </div>
       </section>
 
-      {/* ============ 08 — PROVA SOCIAL ============ */}
+      {/* ============ 08 — SITUAÇÕES DE USO ============ */}
       <section className="grate-bg">
         <div className="wrap reveal">
           <div className="section-header center">
-            <span className="eyebrow">O que dizem os compradores</span>
-            <h2>Quem usou e não quer mais depender do improviso</h2>
+            <span className="eyebrow">Situações de uso</span>
+            <h2>O que você poderá fazer com o Clube</h2>
           </div>
           <div className="testimonials-grid">
-            {depoimentos.map((d) => (
-              <div className="testimonial-card" key={d.author}>
-                <div className="testi-stars">
-                  {Array.from({ length: d.stars }).map((_, i) => (
-                    <svg key={i} className="star-icon"><use href="#ic-star" /></svg>
-                  ))}
-                </div>
-                <p className="testi-text">"{d.text}"</p>
+            {situacoes.map((item) => (
+              <div className="testimonial-card" key={item.s}>
+                <p className="testi-text">{item.s}</p>
                 <div className="testi-author">
-                  <b>{d.author}</b>
-                  <span>{d.tag}</span>
+                  <b>{item.t}</b>
+                  <span>Ferramenta indicada</span>
                 </div>
               </div>
             ))}
@@ -828,7 +792,7 @@ function Index() {
           <span className="sticky-price">R$ 17,90</span>
           <span className="sticky-brand">Pagamento único</span>
         </div>
-        <a href={CHECKOUT_URL} className="sticky-btn" onClick={trackAddToCart}>QUERO MEU ACESSO</a>
+        <a href={CHECKOUT_URL} className="sticky-btn" onClick={trackInitiateCheckout}>QUERO MEU ACESSO</a>
       </div>
     </div>
   );
